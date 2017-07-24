@@ -1,11 +1,10 @@
 package com.example.aids.a09application;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -77,23 +76,16 @@ public class MainActivity extends AppCompatActivity
     }
 
     public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        Fragment objFragment = null;
-        if (id == R.id.my_account) {
+        // Handle navigation view item clicks here.
+        switch(item.getItemId()){
+            case R.id.nav_media:
+                Intent intent=new Intent(MainActivity.this,main_activity_media.class);
+                startActivity(intent);
+                break;
 
-        } else if (id == R.id.nav_news){
-
-        } else if (id == R.id.nav_live) {
-
-        } else if (id == R.id.nav_media) {
-            objFragment = new activity_main_media.PlaceholderFragment();
 
         }
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.main_content, objFragment)
-                .commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

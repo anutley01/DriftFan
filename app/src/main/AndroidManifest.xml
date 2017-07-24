@@ -24,10 +24,6 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBTRfL5yA7UzxvUwcw34KONXj5Tczhk_kQ" />
 
-        <activity
-            android:name=".activity_main_media"
-            android:label="@string/Media"
-            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
