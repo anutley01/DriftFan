@@ -8,6 +8,8 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">
 
+
+
     <ImageView
         android:layout_width="390dp"
         android:layout_height="171dp"
