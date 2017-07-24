@@ -2,9 +2,10 @@ package com.example.aids.a09application;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -74,37 +76,29 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        Fragment objFragment = null;
         if (id == R.id.my_account) {
-            // Handle the camera action
-        } else if (id == R.id.nav_news) {
 
+        } else if (id == R.id.nav_news){
 
         } else if (id == R.id.nav_live) {
 
         } else if (id == R.id.nav_media) {
-
-        } else if (id == R.id.nav_calendar) {
-
-        } else if (id == R.id.nav_results) {
-
-        } else if (id == R.id.nav_about) {
-
-        } else if (id == R.id.nav_shop) {
-
-        } else if (id == R.id.nav_social_media) {
-
-        } else if (id == R.id.nav_fanzone) {
+            objFragment = new activity_main_media.PlaceholderFragment();
 
         }
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.main_content, objFragment)
+                .commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

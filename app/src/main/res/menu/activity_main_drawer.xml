@@ -19,27 +19,21 @@
             android:icon="@drawable/bullet_point"
             android:title="Media" />
         <item
-            android:id="@+id/nav_calendar"
             android:icon="@drawable/bullet_point"
             android:title="Calendar" />
         <item
-            android:id="@+id/nav_results"
             android:icon="@drawable/bullet_point"
             android:title="Results" />
         <item
-            android:id="@+id/nav_about"
             android:icon="@drawable/bullet_point"
             android:title="About Drifting" />
         <item
-            android:id="@+id/nav_shop"
             android:icon="@drawable/bullet_point"
             android:title="Shop" />
         <item
-            android:id="@+id/nav_social_media"
             android:icon="@drawable/bullet_point"
             android:title="Social Media" />
         <item
-            android:id="@+id/nav_fanzone"
             android:icon="@drawable/bullet_point"
             android:title="Fanzone" />
     </group>
@@ -47,11 +41,9 @@
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Share" />
             <item
-                android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Send" />
         </menu>

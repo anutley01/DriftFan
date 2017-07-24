@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -18,10 +19,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--Google Maps API Key !-->
-            <meta-data
-                android:name="com.google.android.maps.v2.API_KEY"
-                android:value="AIzaSyBTRfL5yA7UzxvUwcw34KONXj5Tczhk_kQ"/>
+        <!-- Google Maps API Key ! -->
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyBTRfL5yA7UzxvUwcw34KONXj5Tczhk_kQ" />
+
+        <activity
+            android:name=".activity_main_media"
+            android:label="@string/Media"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
