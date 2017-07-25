@@ -3,11 +3,14 @@
     <string name="Media">Media</string>
 
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="drawer_open">drawer open</string>
+    <string name="drawer_close">drawer closed</string>
 
     <string name="action_settings">Settings</string>
     <string name="action_search">Search</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Home Fragment</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 

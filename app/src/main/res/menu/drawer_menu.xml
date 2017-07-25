@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+    <item
+        android:id="@+id/Home"
+        android:title="Home"
+        android:icon="@drawable/bullet_point"></item>
+        <item
+            android:id="@+id/my_account"
+            android:title="My Account"
+            android:icon="@drawable/bullet_point"></item>
+        <item
+            android:id="@+id/nav_news"
+            android:title="News"
+            android:icon="@drawable/bullet_point"></item>
+        <item
+            android:id="@+id/nav_live"
+            android:title="Live"
+            android:icon="@drawable/bullet_point"></item>
+        <item
+            android:id="@+id/nav_media"
+            android:title="Media"
+            android:icon="@drawable/bullet_point"></item>
+        <item
+            android:id="@+id/nav_calendar"
+            android:title="Calendar"
+            android:icon="@drawable/bullet_point"></item>
+        <item
+            android:id="@+id/nav_results"
+            android:title="Results"
+            android:icon="@drawable/bullet_point"></item>
+        <item
+            android:id="@+id/nav_about"
+            android:title="About Drifting"
+            android:icon="@drawable/bullet_point"></item>
+        <item
+            android:id="@+id/nav_shop"
+            android:title="Shop"
+            android:icon="@drawable/bullet_point"></item>
+        <item
+            android:id="@+id/nav_socialmedia"
+            android:title="SocialMedia"
+            android:icon="@drawable/bullet_point"></item>
+        <item
+            android:id="@+id/nav_fanzone"
+            android:title="Fanzone"
+            android:icon="@drawable/bullet_point"></item>
+    </group>
+
+</menu>
