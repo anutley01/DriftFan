@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("Home Fragment");
                         item.setCheckable(true);
+                        drawerLayout.closeDrawers();
                         break;
                     case R.id.my_account:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("My Account");
                         item.setCheckable(true);
+                        drawerLayout.closeDrawers();
                         break;
 
 
