@@ -1,8 +1,8 @@
 package com.example.aids.a09application;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +13,8 @@ import android.widget.LinearLayout;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static android.support.v4.content.ContextCompat.getDrawable;
+
 public class HomeFragment extends Fragment {
 
     ViewPager viewPager;
@@ -20,6 +22,8 @@ public class HomeFragment extends Fragment {
     LinearLayout sliderDotsPanel;
     private int dotsCount;
     private ImageView[] dots;
+    Drawable active_dots;
+    Drawable nonactive_dots;
 
 
     public HomeFragment() {
@@ -33,6 +37,10 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         viewPager = (ViewPager) view.findViewById(R.id.view_pager);
         sliderDotsPanel = (LinearLayout) view.findViewById(R.id.SliderDots);
+        active_dots = getDrawable(getActivity().getApplicationContext(), R.drawable.active_dot);
+        nonactive_dots = getDrawable(getActivity().getApplicationContext(), R.drawable.nonactive_dot);
+
+
 
 
         adapter = new ViewPagerAdapter(this.getActivity());
@@ -44,7 +52,7 @@ public class HomeFragment extends Fragment {
         for (int i = 0; i < dotsCount; i++) {
 
             dots[i] = new ImageView(getActivity());
-            dots[i].setImageDrawable(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.nonactive_dot));
+            dots[i].setImageDrawable(nonactive_dots);
 
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
@@ -54,7 +62,7 @@ public class HomeFragment extends Fragment {
 
         }
 
-        dots[0].setImageDrawable(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.active_dot));
+        dots[0].setImageDrawable(active_dots);
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -66,10 +74,10 @@ public class HomeFragment extends Fragment {
             public void onPageSelected(int position) {
 
                 for (int i = 0; i < dotsCount; i++) {
-                    dots[i].setImageDrawable(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.nonactive_dot));
+                    dots[i].setImageDrawable(nonactive_dots);
                 }
 
-                dots[position].setImageDrawable(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.active_dot));
+                dots[position].setImageDrawable(active_dots);
 
             }
 
@@ -95,22 +103,16 @@ public class HomeFragment extends Fragment {
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-
-
-                    while (true) {
+                    
 
                         if (viewPager.getCurrentItem() == 0) {
                             viewPager.setCurrentItem(1);
                         } else if (viewPager.getCurrentItem() == 1) {
                             viewPager.setCurrentItem(2);
-                        } else if (viewPager.getCurrentItem() == 2) {
-                            viewPager.setCurrentItem(1);
-                        } else if (viewPager.getCurrentItem() == 1) {
-                            viewPager.setCurrentItem(0);
 
                         }
 
-                    }
+
 
                 }
 
