@@ -16,7 +16,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     private Context context;
     private LayoutInflater layoutInflater;
-    private Integer[] images = {R.drawable.img1, R.drawable.img2, R.drawable.img3};
+    private Integer[] images = {R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4};
 
     public ViewPagerAdapter(Context context) {
         this.context = context;
