@@ -1,40 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="180dp"
-    android:background="@color/colorPrimary"
-    >
-    
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/header_image"
-        android:src="@mipmap/ic_launcher"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp" />
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="Drift Fan"
-        android:layout_toRightOf="@+id/header_image"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="20dp"
-        android:id="@+id/name" />
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="Drifting App"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        android:id="@+id/email"
-        android:layout_alignTop="@+id/name"
-        android:layout_alignLeft="@+id/name"
-        android:layout_alignStart="@+id/name"
-        android:layout_marginTop="35dp"
-        android:layout_alignBottom="@+id/header_image" />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+        android:src="@drawable/navigation_header"/>
 
-
-</RelativeLayout>
+</LinearLayout>

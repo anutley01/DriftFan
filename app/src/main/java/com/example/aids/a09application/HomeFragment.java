@@ -93,6 +93,7 @@ public class HomeFragment extends Fragment {
         return view;
 
 
+
     }
 
 
@@ -101,6 +102,10 @@ public class HomeFragment extends Fragment {
         @Override
         public void run() {
 
+            if (getActivity()== null) {
+                return;
+
+            }
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -114,9 +119,6 @@ public class HomeFragment extends Fragment {
                             viewPager.setCurrentItem(3);
 
                         }
-                    if(getActivity() == null)
-                        onDetach();
-
 
 
                 }

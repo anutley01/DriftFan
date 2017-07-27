@@ -37,6 +37,7 @@
             android:fontFamily="casual"
             android:text="About Drifting"
             android:textAlignment="center"
+            android:background="#000"
             android:textColor="#FFFFFF"
             android:textIsSelectable="true"
             android:textSize="16dp"
@@ -47,7 +48,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="casual"
-            android:text="Courtesy of driftworks.com/blog/drifting/"
+            android:text="driftworks.com/blog/drifting/"
+            android:background="#000"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
@@ -61,17 +63,6 @@
     also used android:layout_marginTop="-32dp" so that the ImageButton was nicely positioned between
     the final TextView and the Beginning of the ScrollView.-->
 
-    <ImageButton
-        android:id="@+id/more_info_about"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:src="@drawable/info_icon"
-        app:srcCompat="@drawable/info_icon"
-        android:background="@drawable/oval"
-        android:layout_alignBottom="@+id/driftworksaknowledgement"
-        android:layout_marginTop="-32dp"
-        android:layout_marginLeft="16dp" />
-
     <!--The below ScrollView has been implemented so that we may place a large amount of string
     information on screen whilst still maintaining visibility of the ImageView. As with all other
     ScrollViews we have set the textSize as the default 16dp, set the textColor to #100808 so that
@@ -80,22 +71,23 @@
     has been stored in the strings.xml file to made the code tidier and easier to alter or
     manage.-->
 
+    <ImageButton
+        android:id="@+id/more_info_about"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_stat_name"
+        app:srcCompat="@drawable/ic_stat_name"
+        android:background="@drawable/oval"
+        android:layout_alignBottom="@+id/driftworksaknowledgement"
+        android:layout_marginTop="-32dp"
+        android:layout_marginLeft="16dp" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:paddingLeft="6dp"
-            android:paddingRight="6dp"
-            android:id="@+id/crumlin_gaol_TextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/action_search"
-            android:fontFamily="casual"
-            android:textStyle="bold"
-            android:textSize="16dp"
-            android:textColor="#100808"
-            />
     </ScrollView>
+
+
 
 </LinearLayout>
