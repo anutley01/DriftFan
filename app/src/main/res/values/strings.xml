@@ -12,7 +12,37 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Home Fragment</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+<string name="what_is_drifting">What is Drifting?
+Drifting is a driving style in which the driver uses the throttle, brakes, clutch, gear shifting and steering input to keep the car in a state of oversteer while manoeuvring from turn to turn. Drifters emphasise car control by coordinating the amount of countersteer (or opposite lock) with the simultaneous modulation of the throttle and brakes to shift the weight balance of the car back and forth through the turns. Furthermore, they strive to achieve this while adhering to the standard racing lines (or designated “clipping points” if drifting in competition) and maintaining extreme slip angles.
+
+Track taditionalists are often quick to point out that drifting is not the fastest way around a racetrack – and they’d be right, but so what? What matters most with drifting, whether it’s at a grassroots practice day or an international competition, is having fun! There is something inherently exciting about negotiating a track with the car completely sideways, quickly countersteering in the direction of the slide while delicately modulating pressure on the throttle to balance the car. Not enough throttle and the car will lose momentum and straighten up – too much throttle and the car will spin out.
+
+Many drivers really enjoy the fact that practicing the art of drifting at grassroots events teaches them how to safely control a car at its limit, while others simply enjoy the adrenaline rush of throwing a car around a track while completely sideways with smoke billowing from the rear tyres. In its simplest sense, drifting translates to pure driving enjoyment and fun.
+Drifting as a sport began on the mountain roads of Japan in the early 1990s and quickly gained momentum before the first round of D1GP was held in 2000. Petrolheads on the other side of the globe quickly picked up on this new and exciting sport as a result of videos downloaded from the internet and decided to give it a go themselves. Two of these enthusiasts were Phil Morrison and James Robinson, whose love for the sport soon led to them setting up Driftworks in 2004.
+
+What Do I Need to Start Drifting?
+This is a question we get asked a lot, and the answer is a very simple one. You will need a rear wheel drive car, preferably with a limited slip differential or a welded differential – these are the only ingredients you need to get started. A car with a manual gearbox and resilient clutch, a functioning handbrake, coilover suspension and a supportive bucket seat will make things much easier again, allowing you to attack the turns with more vigour and confidence.
+You can compensate for not having a lot of power by increasing the pressure in the rear tyres. It’s a myth that drift cars need to run poor quality rear tyres in order to drift succesfully – drift cars need as much lateral grip as a regular track car (if not more) in order to attain the huge speeds and massive angles that are often achieved at competition level. However, when you’re learning the basics at a grassroots practice day, cheap and/or part-worn tyres are perfectly suitable for learning the basics.
+
+What Sort of Cars Make Good Drift Cars?
+Essentially any rear wheel drive car is capable of drifting, especially if it’s fitted with a limited slip or welded differential. However, some cars represent much better value for money than others while having readily available upgrade parts, along with easy access to spares. Starter cars to look for include:
+Nissan 200SXs/Silvias (S13, S14, S15 etc.)
+Nissan Skylines (GTS variants are rear wheel drive)
+BMW 3 Series
+Toyota Supras
+Ford Sierras
+Alternatively, it is possible to convert 4WD cars to rear wheel drive simply by locking the centre differential and removing the drive to the front wheels, but bear in mind this will put a lot more stress on components that would normally only be dealing with a fraction of the power.
+
+Where Can I Practice Drifting?
+Drifting has become so popular around the globe in recent years that you can pretty much guarantee that there’ll be a practice day somewhere in your country. In the UK, Europe and the United States, practice days are held at a wide array of locations including purpose-built tracks and large tarmac areas. Drifting can be done pretty much anywhere that you can drive a car, although we do not condone doing so anywhere where members of the public are unwittingly involved or endangered.
+You can find information on hundreds of specifically organised drift days on the Driftworks forum. Popular places to practice drifting in the UK include Teesside Autodrome, Driftland, Lydden Hill, Birmingham Wheels and “Drift What Ya Brung” days at Santa Pod Raceway.
+
+Drifting Competitions
+As with any sport, drifting quickly reached a level where drivers felt that they wanted to test their skills against other drifters in competition format. Professional level drifting competitions are hugely exhilarating and will often feature some of the most exciting driving you’re ever likely to see.
+The competitors aim to complete a pre-defined course as laid out by the nominated judges while sticking as closely to the judged criteria as possible, earning points for their proximity to the clipping points, their speed throughout the course and, most important, the amount of style with which they do so. Slow drifting with a lack of commitment will get marked down – fast, balls out drifting will rack up the points!
+After their individual qualification runs, drivers are paired up against each other for “Tsuisou”, or battles as they are commonly known. Run to a knockout format, the aim is for the chase driver to follow the lead driver as closely as possible, sitting door to door at massive speeds all while sideways and with smoke billowing off the rear tyres. These battles are the real highlight of competitive drifting and provide some of the biggest entertainment available in competitive motorsport.
+There are many drifting championships around the world but some of the largest and most prolific include D1GP (Japan), Formula Drift (USA), British Drift Championship (UK), Irish Drift Championship (Ireland), Drift Allstars and King of Europe.
+</string>
 
 </resources>
 
