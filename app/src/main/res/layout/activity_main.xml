@@ -34,7 +34,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/navigation_view"
         android:layout_gravity="start"
+        android:background="#000"
+        app:itemTextColor="@color/colorPrimary"
+        app:itemIconTint="#fff"
         app:menu="@menu/drawer_menu"
+        app:theme="@style/NavigationViewStyle"
         app:headerLayout="@layout/navigation_drawer_header">
 
 

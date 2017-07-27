@@ -2,66 +2,43 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <group android:checkableBehavior="single">
 
-    <item
-        android:id="@+id/Home"
-        android:title="Home"
-        android:icon="@drawable/bullet_point"></item>
-        <item
-            android:id="@+id/my_account"
-            android:title="My Account"
-            android:icon="@drawable/bullet_point"></item>
-        <item
-            android:id="@+id/nav_news"
-            android:title="News"
-            android:icon="@drawable/bullet_point"></item>
-        <item
-            android:id="@+id/nav_live"
-            android:title="Live"
-            android:icon="@drawable/bullet_point"></item>
-        <item
-            android:id="@+id/nav_media"
-            android:title="Media"
-            android:icon="@drawable/bullet_point"></item>
-        <item
-            android:id="@+id/nav_calendar"
-            android:title="Calendar"
-            android:icon="@drawable/bullet_point"></item>
-        <item
-            android:id="@+id/nav_results"
-            android:title="Results"
-            android:icon="@drawable/bullet_point"></item>
-        <item
-            android:id="@+id/nav_about"
-            android:title="About Drifting"
-            android:icon="@drawable/bullet_point"></item>
-        <item
-            android:id="@+id/nav_shop"
-            android:title="Shop"
-            android:icon="@drawable/bullet_point"></item>
-        <item
-            android:id="@+id/nav_socialmedia"
-            android:title="SocialMedia"
-            android:icon="@drawable/bullet_point"></item>
-        <item
-            android:id="@+id/nav_fanzone"
-            android:title="Fanzone"
-            android:icon="@drawable/bullet_point"></item>
-        <item
-            android:id="@+id/nav_map"
-            android:title="Navigation to Event"
-            android:icon="@drawable/bullet_point"></item>
+    <group android:id="@+id/group7">
+        <item android:id="@+id/Home" android:title="Home"></item>>
     </group>
-
-    <item
-        android:id="@+id/action_search"
-        android:title="@string/action_search"
-        android:orderInCategory="200"
-        android:icon="@drawable/ic_search_action"
-        app:showAsAction="ifRoom"
-        />
-
+    <group android:id="@+id/group6">
+        <item android:id="@+id/my_account" android:title="My Account"></item>
+    </group>
+    <group android:id="@+id/group5">
+        <item android:id="@+id/nav_news" android:title="News"></item>
+    </group>
+    <group android:id="@+id/group1">
+        <item android:id="@+id/nav_live" android:title="Live"></item>
+    </group>
+    <group android:id="@+id/group2">
+        <item android:id="@+id/nav_media" android:title="Media"></item>
+    </group>
+    <group android:id="@+id/group3">
+        <item android:id="@+id/nav_calendar" android:title="Calendar"></item>
+    </group>
+    <group android:id="@+id/group4">
+        <item android:id="@+id/nav_results" android:title="Results"></item>
+    </group>
+    <group android:id="@+id/group8">
+        <item android:id="@+id/nav_about" android:title="About Drifting"></item>
+    </group>
+    <group android:id="@+id/group9">
+        <item android:id="@+id/nav_shop" android:title="Shop"></item>
+    </group>
+    <group android:id="@+id/group10">
+        <item android:id="@+id/nav_socialmedia" android:title="SocialMedia"></item>
+    </group>
+    <group android:id="@+id/group11">
+        <item android:id="@+id/nav_fanzone" android:title="Fanzone"></item>
+    </group>
+    <group android:id="@+id/group12">
+        <item android:id="@+id/nav_map" android:title="Navigation to Event"></item>
+    </group>
 
 
 </menu>
