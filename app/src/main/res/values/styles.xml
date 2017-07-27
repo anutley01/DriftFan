@@ -20,8 +20,13 @@
     <style name="NavigationViewStyle">
         <item name="android:textSize">20sp</item> <!-- menu item text size-->
         <item name="android:listPreferredItemHeightSmall">40dp</item><!-- menu item height-->
-        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:listDivider">@color/white</item>
+        <item name="android:textAllCaps">true</item>
+        <!-- Color of text and icon when SELECTED -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!-- Background color when SELECTED -->
+        <item name="colorControlHighlight">@color/white</item>
     </style>
 
 </resources>
