@@ -16,6 +16,12 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 
 public class MapNavFragment extends Fragment implements OnMapReadyCallback {
     private GoogleMap map;
+    //round 1, 3, and 5
+    private String modelloPark = "53.257488, -6.746021";
+    //round 2
+    private String dunLaoghaire = "53.295956, -6.136956";
+    //round 5
+    private String watergrassHill = "52.001485, -8.326429";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
