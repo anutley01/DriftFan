@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
@@ -20,8 +22,9 @@
         android:layout_alignBottom="@+id/image_view"
         android:layout_margin="1dp"
         android:gravity="bottom"
-        android:textSize="35dp"
+        android:textSize="30dp"
         android:text="Welcome to DriftFan"
         android:textStyle="bold"
-        android:textColor="#17baef" />
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimary"/>
 </RelativeLayout>

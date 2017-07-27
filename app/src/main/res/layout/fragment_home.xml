@@ -42,13 +42,14 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:text="Next Drifting Championship"
-        android:textSize="25dp"
-        android:gravity="center"
-        android:textColor="@color/colorText"
+        android:textSize="23dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/colorPrimary"
         android:layout_alignBottom="@+id/idcsponsor"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="12dp" />
+        android:layout_marginBottom="12dp"
+        android:textAllCaps="true"/>
 
 
 
@@ -58,7 +59,7 @@
         android:gravity="center"
         android:src="@drawable/idc_countdown"
         android:id="@+id/countdowntv"
-        android:layout_marginTop="145dp"
+        android:layout_marginTop="150dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
