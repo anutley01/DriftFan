@@ -1,5 +1,6 @@
 package com.example.aids.a09application;
 
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -24,6 +26,8 @@ public class HomeFragment extends Fragment {
     private ImageView[] dots;
     Drawable active_dots;
     Drawable nonactive_dots;
+    TextView txtView;
+    Typeface font;
 
 
     public HomeFragment() {
@@ -39,9 +43,6 @@ public class HomeFragment extends Fragment {
         sliderDotsPanel = (LinearLayout) view.findViewById(R.id.SliderDots);
         active_dots = getDrawable(getActivity().getApplicationContext(), R.drawable.active_dot);
         nonactive_dots = getDrawable(getActivity().getApplicationContext(), R.drawable.nonactive_dot);
-
-
-
 
         adapter = new ViewPagerAdapter(this.getActivity());
         viewPager.setAdapter(adapter);
@@ -113,6 +114,8 @@ public class HomeFragment extends Fragment {
                             viewPager.setCurrentItem(3);
 
                         }
+                    if(getActivity() == null)
+                        onDetach();
 
 
 

@@ -55,15 +55,14 @@ public class MainActivity extends AppCompatActivity {
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
                         break;
-                    case R.id.nav_map:
+                    case R.id.nav_about:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new MapNavFragment());
+                        fragmentTransaction.replace(R.id.main_container, new AboutDriftingFragment());
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Navigation to Event");
+                        getSupportActionBar().setTitle("About Drifting");
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
                         break;
-
 
 
                 }
