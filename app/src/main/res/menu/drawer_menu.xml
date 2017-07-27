@@ -48,6 +48,10 @@
             android:id="@+id/nav_fanzone"
             android:title="Fanzone"
             android:icon="@drawable/bullet_point"></item>
+        <item
+            android:id="@+id/nav_map"
+            android:title="Navigation to Event"
+            android:icon="@drawable/bullet_point"></item>
     </group>
 
     <item

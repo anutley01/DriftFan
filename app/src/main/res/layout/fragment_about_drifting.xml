@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--The below ImageView is cropped to provide the best image without stretching the original png
+    file, and is set to 200dp as is the standard size that we chose for our ImageViews across
+    the application-->
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/about_drifting"/>
+
+    <!--A Linear Layout has been chosen for the TextView for the Name of the Place of Interest and the address
+    information so it is laid out horizontally. The #FFFFFF textColour is the same as the other
+    attraction and address headers that we used for the murals, museums and nightlife,
+    something agreed upon to maintain consistency within the UI-->
+
+    <LinearLayout
+        android:id="@+id/textLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?colorPrimary"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="casual"
+            android:text="About Drifting"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textIsSelectable="true"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/driftworksaknowledgement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:text="Courtesy of driftworks.com/blog/drifting/"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!--The below ImageButton will be used in an intent in the CrumlinRoad.java class in order
+    to trigger an intent that will provide the exact location of the mural by using a Uri. We
+    decided to use the same google_maps_icon from our drawable file to maintain consistency across
+    the application, as well for the layout_width and layout_height (both 48dp). In addition we
+    also used android:layout_marginTop="-32dp" so that the ImageButton was nicely positioned between
+    the final TextView and the Beginning of the ScrollView.-->
+
+    <ImageButton
+        android:id="@+id/more_info_about"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/info_icon"
+        app:srcCompat="@drawable/info_icon"
+        android:background="@drawable/oval"
+        android:layout_alignBottom="@+id/driftworksaknowledgement"
+        android:layout_marginTop="-32dp"
+        android:layout_marginLeft="16dp" />
+
+    <!--The below ScrollView has been implemented so that we may place a large amount of string
+    information on screen whilst still maintaining visibility of the ImageView. As with all other
+    ScrollViews we have set the textSize as the default 16dp, set the textColor to #100808 so that
+    it stands out against the plain white background, and the fontFamily "causal" font is used to
+    match the font used on the Home and Sub Section menus. Also all long descriptive information
+    has been stored in the strings.xml file to made the code tidier and easier to alter or
+    manage.-->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:id="@+id/crumlin_gaol_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/action_search"
+            android:fontFamily="casual"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:textColor="#100808"
+            />
+    </ScrollView>
+
+</LinearLayout>

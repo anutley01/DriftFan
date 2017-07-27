@@ -9,4 +9,19 @@
         android:layout_width="wrap_content"
         android:scaleType="centerCrop"
         />
+
+    <TextView
+        android:id="@+id/myImageViewText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/image_view"
+        android:layout_alignTop="@+id/image_view"
+        android:layout_alignRight="@+id/image_view"
+        android:layout_alignBottom="@+id/image_view"
+        android:layout_margin="1dp"
+        android:gravity="bottom"
+        android:textSize="35dp"
+        android:text="Welcome to DriftFan"
+        android:textStyle="bold"
+        android:textColor="#17baef" />
 </LinearLayout>
