@@ -63,11 +63,11 @@ public class MainActivity extends AppCompatActivity {
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
                         break;
-                    case R.id.nav_map:
+                    case R.id.nav_shop:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new MapNavFragment());
+                        fragmentTransaction.replace(R.id.main_container, new ShopFragment());
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Map");
+                        getSupportActionBar().setTitle("Shop");
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
                         break;

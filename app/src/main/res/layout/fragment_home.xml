@@ -1,10 +1,15 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.aids.a09application.HomeFragment"
-    android:background="#000000"
-    >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.aids.a09application.HomeFragment"
+        android:background="#000000"
+        >
 
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager"
@@ -27,33 +32,39 @@
         android:id="@+id/idcsponsor"
         android:src="@drawable/idc"
         android:gravity="center"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="55dp" />
+        android:layout_marginTop="179dp" />
 
     <TextView
         android:id="@+id/nextdrifttv"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_marginTop="85dp"
         android:text="Next Drifting Championship"
-        android:textSize="25dp"
-        android:gravity="center"
-        android:textColor="@color/colorText"
-        android:layout_below="@+id/SliderDots"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textSize="23dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignBottom="@+id/idcsponsor"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="12dp"
+        android:textAllCaps="true"/>
+
+
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/nextdrifttv"
         android:gravity="center"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:src="@drawable/idc_countdown"
-        android:id="@+id/countdowntv"/>
+        android:id="@+id/countdowntv"
+        android:layout_marginTop="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
+
+</ScrollView>
