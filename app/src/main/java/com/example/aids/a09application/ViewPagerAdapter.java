@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * Created by Aids on 26/07/2017.
@@ -17,7 +18,7 @@ public class ViewPagerAdapter extends PagerAdapter {
     private Context context;
     private LayoutInflater layoutInflater;
     private Integer[] images = {R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4};
-
+    private String[] texts= {"IDC ROUND 4 // WATERGRASSHILL", "IDC ROUND 5 // MONDELLO PARK","BDC ROUND 4 // DRIFTLAND","BDC ROUND 5 // TEESSIDE"};
     public ViewPagerAdapter(Context context) {
         this.context = context;
     }
@@ -38,7 +39,9 @@ public class ViewPagerAdapter extends PagerAdapter {
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.custom_layout, null);
         ImageView imageView = (ImageView) view.findViewById(R.id.image_view);
+        TextView tv= (TextView) view.findViewById(R.id.myImageViewText);
         imageView.setImageResource(images[position]);
+        tv.setText(texts[position]);
 
         ViewPager vp = (ViewPager) container;
         vp.addView(view, 0);
