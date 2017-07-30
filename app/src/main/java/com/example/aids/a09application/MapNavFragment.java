@@ -1,6 +1,5 @@
 package com.example.aids.a09application;
-
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,20 +7,14 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 
-/**
- * Created by Connor on 26/07/2017.
- */
+public class MapNavFragment extends MapFragment implements OnMapReadyCallback {
 
-public class MapNavFragment extends Fragment implements OnMapReadyCallback {
-    private GoogleMap map;
-    //round 1, 3, and 5
-    private String modelloPark = "53.257488, -6.746021";
-    //round 2
-    private String dunLaoghaire = "53.295956, -6.136956";
-    //round 5
-    private String watergrassHill = "52.001485, -8.326429";
+    //Google Map
+    private GoogleMap googleMap;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -41,20 +34,20 @@ public class MapNavFragment extends Fragment implements OnMapReadyCallback {
      * function to load map. If map is not created it will create it for you
      * */
     public void initialiseMap() {
-        if (map == null) {
-            com.google.android.gms.maps.MapFragment googleMap = (com.google.android.gms.maps.MapFragment) getFragmentManager().findFragmentById(R.id.nav_map);
+        if (googleMap == null) {
+            MapFragment googleMap = (MapFragment) getFragmentManager().findFragmentById(R.layout.fragment_nav_to_event);
             googleMap.getMapAsync(this);
         }
 
         // check if map is created successfully or not
-        if (map == null) {
-            Toast.makeText(getActivity(), "Sorry! unable to create maps", Toast.LENGTH_SHORT).show();
+        if (googleMap == null) {
+            Toast.makeText(getContext(), "Sorry! unable to create maps", Toast.LENGTH_SHORT).show();
         }
     }
 
     @Override
     public void onMapReady(GoogleMap map) {
-        this.map = map;
+        googleMap = map;
     }
 
     @Override

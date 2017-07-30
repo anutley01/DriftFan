@@ -1,5 +1,7 @@
 package com.example.aids.a09application;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -11,6 +13,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Button;
+
+import com.google.android.gms.maps.MapFragment;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
@@ -71,25 +76,21 @@ public class MainActivity extends AppCompatActivity {
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
                         break;
-                    case R.id.nav_media:
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new MediaFragment());
-                        fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Media");
-                        item.setCheckable(true);
+                    case R.id.nav_map:
+                        MapFragment mapFragment = new MapFragment();
+                        Intent intent =  new Intent (MainActivity.this, MapNavFragment.class);
+                        mapFragment.startActivity(intent);
                         drawerLayout.closeDrawers();
                         break;
 
-
-                }
-
-
+            }
                 return false;
             }
 
         });
 
     }
+
 
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
