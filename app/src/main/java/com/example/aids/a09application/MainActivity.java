@@ -71,6 +71,14 @@ public class MainActivity extends AppCompatActivity {
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
                         break;
+                    case R.id.nav_media:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new MediaFragment());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Media");
+                        item.setCheckable(true);
+                        drawerLayout.closeDrawers();
+                        break;
 
 
                 }
