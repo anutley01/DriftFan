@@ -31,7 +31,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="17dp"
         android:hint="Enter your password"
         android:inputType="textPassword"
         android:id="@+id/firstPassword"
@@ -41,11 +41,11 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="129dp"
+        android:layout_marginTop="21dp"
         android:hint="Confirm your password"
         android:inputType="textPassword"
         android:id="@+id/secondPassword"
-        android:layout_below="@+id/enterEmail"
+        android:layout_below="@+id/firstPassword"
         android:layout_centerHorizontal="true" />
 
     <SeekBar
@@ -60,7 +60,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@id/smallestPound"
+        android:id="@+id/smallestPound"
         android:textSize="15dp"
         android:text="£"
         android:layout_alignBottom="@+id/seekBarPrice"
@@ -92,9 +92,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Confirm your price range: "
-        android:layout_below="@+id/secondPassword"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp" />
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/busy"
+        android:layout_toEndOf="@+id/busy" />
 
     <Button
         android:id="@+id/submitButton"
@@ -142,6 +142,16 @@
         android:layout_alignTop="@+id/busy"
         android:text="Quiet"
         android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/PasswordMatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/secondPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="" />
+
 
     />
 
