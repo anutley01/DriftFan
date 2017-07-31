@@ -44,5 +44,7 @@ After their individual qualification runs, drivers are paired up against each ot
 There are many drifting championships around the world but some of the largest and most prolific include D1GP (Japan), Formula Drift (USA), British Drift Championship (UK), Irish Drift Championship (Ireland), Drift Allstars and King of Europe.
 </string>
 
+    <string name="section_format">Hello World from section: %1$d</string>
+
 </resources>
 

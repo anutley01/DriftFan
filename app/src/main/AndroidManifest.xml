@@ -27,6 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.aids.a09application.media_main"></activity>
 
 
         <!-- Google Maps API Key ! -->

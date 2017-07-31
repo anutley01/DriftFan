@@ -1,5 +1,6 @@
 package com.example.aids.a09application;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -72,15 +73,10 @@ public class MainActivity extends AppCompatActivity {
                         drawerLayout.closeDrawers();
                         break;
                     case R.id.nav_media:
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new MediaFragment());
-                        fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Media");
-                        item.setCheckable(true);
-                        drawerLayout.closeDrawers();
+                        Intent intent = new Intent(MainActivity.this, media_main.class);
+                        startActivity(intent);
+                        finish();
                         break;
-
-
                 }
 
 
