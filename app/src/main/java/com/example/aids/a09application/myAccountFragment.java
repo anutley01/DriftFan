@@ -8,6 +8,11 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.SeekBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import static com.example.aids.a09application.R.id.submitButton;
 
@@ -22,6 +27,25 @@ import static com.example.aids.a09application.R.id.submitButton;
 
 }*/
 public class myAccountFragment extends Fragment {
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_my_account, container, false);
+        EditText password1 = (EditText) view.findViewById(R.id.firstPassword);
+        EditText password2 = (EditText) view.findViewById(R.id.secondPassword);
+        TextView passwordMatch = (TextView) view.findViewById(R.id.PasswordMatch);
+        SeekBar priceRange = (SeekBar) view.findViewById(R.id.seekBarPrice);
+        TextView seekBarData = (TextView) view.findViewById(R.id.seekBarData);
+        Button submitData = (Button) view.findViewById(submitButton);
+        submitData.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                onButtonPressed();
+            }
+        });
+        return view;
+    }
+
     /* @Override
          public void onCreate(Bundle savedInstanceState){
              super.onCreate(savedInstanceState);
@@ -70,7 +94,7 @@ public class myAccountFragment extends Fragment {
 
 
     public void onPause(){
-        super.onPause();
+        myAccountFragment.super.onPause();
     }
 
     public void setButtonClickListener(){
@@ -82,6 +106,7 @@ public class myAccountFragment extends Fragment {
      */
     public void onButtonPressed(){
         toastDataSubmission();
+
     }
 
     /**
@@ -93,8 +118,5 @@ public class myAccountFragment extends Fragment {
         int duration = Toast.LENGTH_LONG;
         Toast toastBasic = Toast.makeText(contextForSubmitButton,message,duration); toastBasic.show();
     }
-
-
-
 
 }
