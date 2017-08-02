@@ -3,6 +3,7 @@ package com.example.aids.a09application;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +28,8 @@ public class AboutDriftingFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_about_drifting, container, false);
         aboutDriftinMoreInfo = (ImageButton) view.findViewById(R.id.more_info_about);
+        final TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabs);
+
 
         aboutDriftinMoreInfo.setOnClickListener(new View.OnClickListener() {
             @Override

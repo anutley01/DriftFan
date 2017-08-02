@@ -77,6 +77,14 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                         break;
+                    case R.id.nav_news:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new NewsFragment());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("News");
+                        item.setCheckable(true);
+                        drawerLayout.closeDrawers();
+                        break;
                 }
 
 

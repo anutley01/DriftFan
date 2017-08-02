@@ -1,11 +1,16 @@
 package com.example.aids.a09application;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -16,6 +21,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class media_main extends AppCompatActivity {
+
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle actionBarDrawerToggle;
+    FragmentTransaction fragmentTransaction;
+    NavigationView navigationView;
+    ViewGroup container;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -35,10 +46,97 @@ public class media_main extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_media_main);
+        setContentView(R.layout.media_main_fragment);
+
+        if (findViewById(R.id.tabs) != null)
+
+            // However, if we're being restored from a previous state,
+            // then we don't need to do anything and should return or else
+            // we could end up with overlapping fragments.
+            if (savedInstanceState != null)
+                return;
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ViewGroup mContainer = container;
+
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+
+        final TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.main_container, new HomeFragment());
+        fragmentTransaction.commit();
+        getSupportActionBar().setTitle("Drift Fan");
+        navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.Home:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new HomeFragment());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Home Fragment");
+                        item.setCheckable(true);
+                        drawerLayout.closeDrawers();
+                        ((TabLayout) findViewById(R.id.tabs)).removeAllViewsInLayout();
+                        break;
+                    case R.id.my_account:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new myAccountFragment());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("My Account");
+                        item.setCheckable(true);
+                        findViewById(R.id.tabs).setVisibility(View.GONE);
+                        drawerLayout.closeDrawers();
+                        break;
+                    case R.id.nav_about:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new AboutDriftingFragment());
+                        findViewById(R.id.tabs).setVisibility(View.GONE);
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("About Drifting");
+                        item.setCheckable(true);
+                        drawerLayout.closeDrawers();
+                        break;
+                    case R.id.nav_shop:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new ShopFragment());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Shop");
+                        item.setCheckable(true);
+                        drawerLayout.closeDrawers();
+                        findViewById(R.id.tabs).setVisibility(View.GONE);
+                        break;
+                    case R.id.nav_media:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new ShopFragment());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Shop");
+                        item.setCheckable(true);
+                        drawerLayout.closeDrawers();
+                        findViewById(R.id.tabs).setVisibility(View.GONE);
+                        break;
+
+                }
+
+
+                return false;
+            }
+
+            private void finish(media_main media_main) {
+            }
+
+        });
+
+
+
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -47,11 +145,15 @@ public class media_main extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
     }
 
+    @Override
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        actionBarDrawerToggle.syncState();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

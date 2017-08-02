@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -28,6 +29,8 @@ public class HomeFragment extends Fragment {
     Drawable nonactive_dots;
     TextView txtView;
     Typeface font;
+    WebView webView;
+    String url;
 
 
     public HomeFragment() {
@@ -60,7 +63,6 @@ public class HomeFragment extends Fragment {
             params.setMargins(8, 0, 8, 0);
             sliderDotsPanel.addView(dots[i], params);
 
-
         }
 
         dots[0].setImageDrawable(active_dots);
@@ -92,8 +94,6 @@ public class HomeFragment extends Fragment {
         timer.scheduleAtFixedRate(new myTimerTask(), 4000, 2000);
         return view;
 
-
-
     }
 
 
@@ -102,7 +102,7 @@ public class HomeFragment extends Fragment {
         @Override
         public void run() {
 
-            if (getActivity()== null) {
+            if (getActivity() == null) {
                 return;
 
             }
@@ -111,23 +111,29 @@ public class HomeFragment extends Fragment {
                 public void run() {
 
 
-                        if (viewPager.getCurrentItem() == 0) {
-                            viewPager.setCurrentItem(1);
-                        } else if (viewPager.getCurrentItem() == 1) {
-                            viewPager.setCurrentItem(2);
-                        } else if (viewPager.getCurrentItem() == 2) {
-                            viewPager.setCurrentItem(3);
+                    if (viewPager.getCurrentItem() == 0) {
+                        viewPager.setCurrentItem(1);
+                    } else if (viewPager.getCurrentItem() == 1) {
+                        viewPager.setCurrentItem(2);
+                    } else if (viewPager.getCurrentItem() == 2) {
+                        viewPager.setCurrentItem(3);
 
-                        }
+                    }
 
 
                 }
 
 
             });
+
+
         }
+
     }
+
 }
+
+
 
 
 

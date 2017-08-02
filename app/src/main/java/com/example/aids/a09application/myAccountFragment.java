@@ -8,11 +8,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.SeekBar;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import static com.example.aids.a09application.R.id.submitButton;
 
@@ -33,45 +28,10 @@ public class myAccountFragment extends Fragment {
              setContentView(R.layout.fragment_my_account);
              checkPasswordsMatch();
 
-         }*/
-    @Override
-    public void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       View view = inflater.inflate(R.layout.fragment_my_account, container, false);
-        //Initialise views
-        EditText password1 = (EditText) view.findViewById(R.id.firstPassword);
-        EditText password2 = (EditText) view.findViewById(R.id.secondPassword);
-        TextView passwordMatch = (TextView) view.findViewById(R.id.PasswordMatch);
-        SeekBar priceRange = (SeekBar) view.findViewById(R.id.seekBarPrice);
-        TextView seekBarData = (TextView) view.findViewById(R.id.seekBarData);
-        Button submitData = (Button) view.findViewById(submitButton);
-        submitData.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                onButtonPressed();
-            }
-                                      });
-
-        checkPasswordsMatch(password1,password2,passwordMatch);
-        //dataFromSeekbar(priceRange,seekBarData);
-
-        return view;
-}
-
-
-   /* public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        EditText password1 = (EditText) findViewById(R.id.firstPassword);
-        View view =  inflater.inflate(R.layout.fragment_my_account, container, false);
-        checkPasswordsMatch();
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_my_account, container, false);
-
     }
 
     /* @Override
