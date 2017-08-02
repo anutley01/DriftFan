@@ -1,13 +1,146 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.aids.a09application.myAccountFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    android:fillViewport="true">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="My Account" />
-
-</FrameLayout>
+        tools:context="com.example.aids.a09application.myAccountFragment">
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:id="@+id/myAccountText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Account"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="29dp"
+            android:hint="Enter your email address"
+            android:layout_below="@+id/myAccountText"
+            android:id="@+id/enterEmail"
+            android:layout_centerHorizontal="true"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:hint="Enter your password"
+            android:inputType="textPassword"
+            android:id="@+id/firstPassword"
+            android:layout_below="@+id/enterEmail"
+            android:layout_alignLeft="@+id/enterEmail"
+            android:layout_alignStart="@+id/enterEmail" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:hint="Confirm your password"
+            android:inputType="textPassword"
+            android:id="@+id/secondPassword"
+            android:layout_below="@+id/firstPassword"
+            android:layout_centerHorizontal="true" />
+        <SeekBar
+            android:id="@+id/seekBarPrice"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_below="@+id/priceRange"
+            android:layout_alignLeft="@+id/secondPassword"
+            android:layout_alignStart="@+id/secondPassword"
+            android:layout_marginTop="41dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/smallestPound"
+            android:textSize="15dp"
+            android:text="£"
+            android:layout_alignBottom="@+id/seekBarPrice"
+            android:layout_toLeftOf="@+id/firstPassword"
+            android:layout_toStartOf="@+id/firstPassword"
+            android:layout_marginBottom="19dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/middlePound"
+            android:textSize="30dp"
+            android:text="£"
+            android:layout_alignBaseline="@+id/smallestPound"
+            android:layout_alignBottom="@+id/smallestPound"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/largePound"
+            android:textSize="45dp"
+            android:text="£"
+            android:layout_alignBaseline="@+id/middlePound"
+            android:layout_alignBottom="@+id/middlePound"
+            android:layout_alignRight="@+id/seekBarPrice"
+            android:layout_alignEnd="@+id/seekBarPrice" />
+        <TextView
+            android:id="@+id/priceRange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirm your price range: "
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/busy"
+            android:layout_toEndOf="@+id/busy" />
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_below="@+id/seekBarPrice"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="137dp" />
+        <SeekBar
+            android:id="@+id/busyOrQuiet"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="59dp"
+            android:layout_below="@+id/confirmBusy"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:id="@+id/confirmBusy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Busy, or quiet restaurants/bars?"
+            android:layout_below="@+id/seekBarPrice"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="13dp" />
+        <TextView
+            android:id="@+id/busy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/busyOrQuiet"
+            android:layout_alignLeft="@+id/busyOrQuiet"
+            android:layout_alignStart="@+id/busyOrQuiet"
+            android:layout_marginBottom="17dp"
+            android:text="Busy"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/seekBarPrice"
+            android:layout_alignRight="@+id/seekBarPrice"
+            android:layout_alignTop="@+id/busy"
+            android:text="Quiet"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/PasswordMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/secondPassword"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:text="" />
+        />
+    </RelativeLayout>
+</ScrollView>

@@ -1,10 +1,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.aids.tabbedtest1.media_main">
+    tools:context=".media_main">
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+
+    <android.support.design.widget.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/navigation_view"
+        android:layout_gravity="start"
+        android:background="#000"
+        app:itemTextColor="@color/colorPrimary"
+        app:itemIconTint="#fff"
+        app:menu="@menu/drawer_menu"
+        app:theme="@style/NavigationViewStyle"
+        app:headerLayout="@layout/navigation_drawer_header">
+
+
+    </android.support.design.widget.NavigationView>
 </menu>
