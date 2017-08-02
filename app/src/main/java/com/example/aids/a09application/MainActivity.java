@@ -49,12 +49,12 @@ public class MainActivity extends AppCompatActivity {
                         drawerLayout.closeDrawers();
                         break;
                     case R.id.my_account:
-                        Intent openMyAccount = new Intent(MainActivity.this, myAccountFragment.class);
-                        startActivity(openMyAccount);
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new myAccountFragment());
+                        fragmentTransaction.commit();
                         getSupportActionBar().setTitle("My Account");
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
-                        finish();
                         break;
                     case R.id.nav_about:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();

@@ -3,12 +3,14 @@ package com.example.aids.a09application;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
 
 
 /*public class myAccountFragment extends Fragment {
@@ -20,21 +22,37 @@ import android.widget.TextView;
     }
 
 }*/
-public class myAccountFragment extends Activity {
-    EditText password1 = (EditText) findViewById(R.id.firstPassword);
-    EditText password2 = (EditText) findViewById(R.id.secondPassword);
-    TextView passwordMatch = (TextView) findViewById(R.id.PasswordMatch);
-    SeekBar priceRange = (SeekBar) findViewById(R.id.seekBarPrice);
+public class myAccountFragment extends Fragment {
+    /* @Override
+         public void onCreate(Bundle savedInstanceState){
+             super.onCreate(savedInstanceState);
+             setContentView(R.layout.fragment_my_account);
+             checkPasswordsMatch();
+
+         }*/
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_my_account);
-        checkPasswordsMatch();
-
     }
 
-
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+       View view = inflater.inflate(R.layout.fragment_my_account, container, false);
+        EditText password1 = (EditText) view.findViewById(R.id.firstPassword);
+        EditText password2 = (EditText) view.findViewById(R.id.secondPassword);
+        TextView passwordMatch = (TextView) view.findViewById(R.id.PasswordMatch);
+        SeekBar priceRange = (SeekBar) view.findViewById(R.id.seekBarPrice);
+        TextView seekBarData = (TextView) view.findViewById(R.id.seekBarData);
+        checkPasswordsMatch(password1,password2,passwordMatch);
+        dataFromSeekbar(priceRange,seekBarData);
+
+        return view;
+}
+
+
+   /* public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         EditText password1 = (EditText) findViewById(R.id.firstPassword);
         View view =  inflater.inflate(R.layout.fragment_my_account, container, false);
@@ -59,18 +77,25 @@ public class myAccountFragment extends Activity {
 
      }
  */
-    public void checkPasswordsMatch(){
-        if(password1.equals(password2)){
+    public void checkPasswordsMatch(EditText password1, EditText password2, TextView passwordMatch){
+        if(password1.getText().equals(password2)){
             passwordMatch.setText("Passwords match");
         } else {
             passwordMatch.setText("Passwords do not match");
         }}
 
 
-    public void dataFromSeekbar(){
-        int price = priceRange.getProgress();
+    public void dataFromSeekbar(SeekBar priceRange, TextView seekBarData){
+
+        Integer price = priceRange.getProgress();
+        String priceString = price.toString();
+        seekBarData.setText(price);
+
+    }
 
 
+    public void onPause(){
+        super.onPause();
     }
 
 
