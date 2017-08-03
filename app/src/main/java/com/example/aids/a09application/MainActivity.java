@@ -85,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
                         break;
+                    case R.id.nav_map:
+
                 }
 
 

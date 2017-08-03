@@ -36,7 +36,7 @@ public class myAccountFragment extends Fragment {
         EditText password2 = (EditText) view.findViewById(R.id.secondPassword);
         TextView passwordMatch = (TextView) view.findViewById(R.id.PasswordMatch);
         SeekBar priceRange = (SeekBar) view.findViewById(R.id.seekBarPrice);
-        TextView seekBarData = (TextView) view.findViewById(R.id.seekBarData);
+        //TextView seekBarData = (TextView) view.findViewById(R.id.seekBarData);
         Button submitData = (Button) view.findViewById(submitButton);
         submitData.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
