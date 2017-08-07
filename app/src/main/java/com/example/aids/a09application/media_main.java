@@ -2,6 +2,7 @@ package com.example.aids.a09application;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -20,6 +21,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import static com.example.aids.a09application.R.id.tabs;
+
 public class media_main extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
@@ -27,6 +30,7 @@ public class media_main extends AppCompatActivity {
     FragmentTransaction fragmentTransaction;
     NavigationView navigationView;
     ViewGroup container;
+    AppBarLayout appBar;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -48,7 +52,7 @@ public class media_main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media_main);
 
-        if (findViewById(R.id.tabs) != null)
+        if (findViewById(tabs) != null)
 
             // However, if we're being restored from a previous state,
             // then we don't need to do anything and should return or else
@@ -62,11 +66,12 @@ public class media_main extends AppCompatActivity {
         ViewGroup mContainer = container;
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        appBar = (AppBarLayout)findViewById(R.id.appbar1);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
 
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
 
-        final TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
 
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.main_container, new HomeFragment());
@@ -82,9 +87,10 @@ public class media_main extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.main_container, new HomeFragment());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("Home Fragment");
+                        appBar.setVisibility(View.INVISIBLE);
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
-                        ((TabLayout) findViewById(R.id.tabs)).removeAllViewsInLayout();
+
                         break;
                     case R.id.my_account:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -92,13 +98,12 @@ public class media_main extends AppCompatActivity {
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("My Account");
                         item.setCheckable(true);
-                        findViewById(R.id.tabs).setVisibility(View.GONE);
                         drawerLayout.closeDrawers();
                         break;
                     case R.id.nav_about:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container, new AboutDriftingFragment());
-                        findViewById(R.id.tabs).setVisibility(View.GONE);
+
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("About Drifting");
                         item.setCheckable(true);
@@ -111,7 +116,7 @@ public class media_main extends AppCompatActivity {
                         getSupportActionBar().setTitle("Shop");
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
-                        findViewById(R.id.tabs).setVisibility(View.GONE);
+
                         break;
                     case R.id.nav_media:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -120,8 +125,7 @@ public class media_main extends AppCompatActivity {
                         getSupportActionBar().setTitle("Shop");
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
-                        findViewById(R.id.tabs).setVisibility(View.GONE);
-                        break;
+                                                break;
 
                 }
 

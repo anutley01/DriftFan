@@ -34,7 +34,6 @@ public class HomeFragment extends Fragment {
     String url;
     TabLayout tabLayout;
 
-
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -48,7 +47,6 @@ public class HomeFragment extends Fragment {
         sliderDotsPanel = (LinearLayout) view.findViewById(R.id.SliderDots);
         active_dots = getDrawable(getActivity().getApplicationContext(), R.drawable.active_dot);
         nonactive_dots = getDrawable(getActivity().getApplicationContext(), R.drawable.nonactive_dot);
-
 
         adapter = new ViewPagerAdapter(this.getActivity());
         viewPager.setAdapter(adapter);
