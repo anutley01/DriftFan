@@ -46,7 +46,7 @@ public class media_main extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.media_main_fragment);
+        setContentView(R.layout.activity_media_main);
 
         if (findViewById(R.id.tabs) != null)
 

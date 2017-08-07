@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle actionBarDrawerToggle;
     FragmentTransaction fragmentTransaction;
     NavigationView navigationView;
+    Intent intent;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -72,11 +73,6 @@ public class MainActivity extends AppCompatActivity {
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
                         break;
-                    case R.id.nav_media:
-                        Intent intent = new Intent(MainActivity.this, media_main.class);
-                        startActivity(intent);
-                        finish();
-                        break;
                     case R.id.nav_news:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container, new NewsFragment());
@@ -84,6 +80,11 @@ public class MainActivity extends AppCompatActivity {
                         getSupportActionBar().setTitle("News");
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
+                        break;
+                    case R.id.nav_media:
+                        intent = new Intent(MainActivity.this, media_main.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        MainActivity.this.startActivity(intent);
                         break;
                 }
 

@@ -3,6 +3,7 @@ package com.example.aids.a09application;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -31,6 +32,7 @@ public class HomeFragment extends Fragment {
     Typeface font;
     WebView webView;
     String url;
+    TabLayout tabLayout;
 
 
     public HomeFragment() {
@@ -46,6 +48,7 @@ public class HomeFragment extends Fragment {
         sliderDotsPanel = (LinearLayout) view.findViewById(R.id.SliderDots);
         active_dots = getDrawable(getActivity().getApplicationContext(), R.drawable.active_dot);
         nonactive_dots = getDrawable(getActivity().getApplicationContext(), R.drawable.nonactive_dot);
+
 
         adapter = new ViewPagerAdapter(this.getActivity());
         viewPager.setAdapter(adapter);

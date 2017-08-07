@@ -12,7 +12,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Home Fragment</string>
 
-<string name="what_is_drifting">What is Drifting?
+    <string name="what_is_drifting">What is Drifting?
 Drifting is a driving style in which the driver uses the throttle, brakes, clutch, gear shifting and steering input to keep the car in a state of oversteer while manoeuvring from turn to turn. Drifters emphasise car control by coordinating the amount of countersteer (or opposite lock) with the simultaneous modulation of the throttle and brakes to shift the weight balance of the car back and forth through the turns. Furthermore, they strive to achieve this while adhering to the standard racing lines (or designated “clipping points” if drifting in competition) and maintaining extreme slip angles.
 
 Track taditionalists are often quick to point out that drifting is not the fastest way around a racetrack – and they’d be right, but so what? What matters most with drifting, whether it’s at a grassroots practice day or an international competition, is having fun! There is something inherently exciting about negotiating a track with the car completely sideways, quickly countersteering in the direction of the slide while delicately modulating pressure on the throttle to balance the car. Not enough throttle and the car will lose momentum and straighten up – too much throttle and the car will spin out.
@@ -45,6 +45,8 @@ There are many drifting championships around the world but some of the largest a
 </string>
 
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_media_main_activity">media_main_activity</string>
+    <string name="title_activity_media_main">media_main</string>
 
 </resources>
 
