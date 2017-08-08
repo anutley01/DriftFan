@@ -94,6 +94,7 @@ public class media_main extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.main_container, new myAccountFragment());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("My Account");
+                        appBar.setVisibility(View.INVISIBLE);
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
                         break;
