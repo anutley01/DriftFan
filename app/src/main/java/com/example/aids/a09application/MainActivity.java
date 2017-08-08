@@ -86,6 +86,9 @@ public class MainActivity extends AppCompatActivity {
                         drawerLayout.closeDrawers();
                         break;
                     case R.id.nav_map:
+                        Intent intent1 = new Intent(MainActivity.this, OpenMapActivity.class);
+                        startActivity(intent1);
+
 
                 }
 
