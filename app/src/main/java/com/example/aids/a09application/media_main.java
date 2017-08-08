@@ -1,5 +1,6 @@
 package com.example.aids.a09application;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
@@ -31,6 +32,7 @@ public class media_main extends AppCompatActivity {
     NavigationView navigationView;
     ViewGroup container;
     AppBarLayout appBar;
+    Intent intent;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -83,14 +85,9 @@ public class media_main extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.Home:
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new HomeFragment());
-                        fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Home Fragment");
-                        appBar.setVisibility(View.INVISIBLE);
-                        item.setCheckable(true);
-                        drawerLayout.closeDrawers();
-
+                        intent = new Intent(media_main.this, MainActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        media_main.this.startActivity(intent);
                         break;
                     case R.id.my_account:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -103,7 +100,6 @@ public class media_main extends AppCompatActivity {
                     case R.id.nav_about:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container, new AboutDriftingFragment());
-
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("About Drifting");
                         item.setCheckable(true);
@@ -125,7 +121,7 @@ public class media_main extends AppCompatActivity {
                         getSupportActionBar().setTitle("Shop");
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
-                                                break;
+                        break;
 
                 }
 
