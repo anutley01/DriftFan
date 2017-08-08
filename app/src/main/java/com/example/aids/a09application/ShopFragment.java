@@ -30,7 +30,6 @@ public class ShopFragment extends Fragment {
         View view = inflater.inflate(R.layout.shop_fragment, container, false);
         webView = (WebView) view.findViewById(R.id.webview1);
 
-
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
         url = Uri.parse("https://www.driftgames.life/collections/irish-drift-championship").toString();
