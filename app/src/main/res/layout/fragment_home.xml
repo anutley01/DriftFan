@@ -1,7 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ScrollView01"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -88,13 +88,15 @@
             android:layout_toEndOf="@+id/textView2"
             android:layout_toRightOf="@+id/textView2" />
 
-        <fragment
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/map"
-            class="com.google.android.gms.maps.SupportMapFragment"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="fill_parent"
             android:layout_height="275dp"
-            android:layout_below="@id/textView3"/>
-
+            android:layout_below="@id/textView3"
+            tools:context=".Map_Home_Code" />
 
     </RelativeLayout>
 

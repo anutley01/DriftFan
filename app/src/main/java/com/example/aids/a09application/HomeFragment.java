@@ -5,6 +5,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -66,6 +68,7 @@ public class HomeFragment extends Fragment {
 
         }
 
+
         dots[0].setImageDrawable(active_dots);
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -97,8 +100,19 @@ public class HomeFragment extends Fragment {
 
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        Fragment fragment = (fm.findFragmentById(R.id.map));
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.remove(fragment);
+        ft.commit();
 
-    public class myTimerTask extends TimerTask {
+
+
+}
+        public class myTimerTask extends TimerTask {
 
         @Override
         public void run() {
@@ -127,6 +141,8 @@ public class HomeFragment extends Fragment {
 
             });
         }
+
+
 
 
         }

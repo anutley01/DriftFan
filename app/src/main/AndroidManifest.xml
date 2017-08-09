@@ -37,7 +37,8 @@
         <activity
             android:name=".media_main"
             android:label="@string/title_activity_media_main"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+
     </application>
 
 </manifest>
