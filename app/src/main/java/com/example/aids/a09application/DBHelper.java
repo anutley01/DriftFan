@@ -104,7 +104,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + PASSWORD + "text);";
 
 
-
+    //DBHelper
     public DBHelper (Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
