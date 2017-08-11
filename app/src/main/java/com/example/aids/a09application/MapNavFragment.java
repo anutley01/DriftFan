@@ -15,6 +15,7 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -23,7 +24,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import static java.security.AccessController.checkPermission;
 import static java.security.AccessController.getContext;
 
-    public class MapNavFragment extends Fragment {
+    public class MapNavFragment extends FragmentActivity implements
+            GoogleMap.OnMarkerClickListener,
+            OnMapReadyCallback {
         private static final LatLng MONDELLO_PARK = new LatLng(53.257456, -6.746064);
         private static final LatLng DUN_LAOGHAIRE = new LatLng(53.295954, -6.136933);
         private static final LatLng WATERGRASSHILL = new LatLng(52.001564, -8.326386);
@@ -34,55 +37,45 @@ import static java.security.AccessController.getContext;
         private GoogleMap googleMap;
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_nav_to_event, container, false);
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.fragment_home);
 
-            mMapView = (MapView) rootView.findViewById(R.id.mapView);
-            mMapView.onCreate(savedInstanceState);
+            SupportMapFragment mapFragment =
+                    (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapView);
+            mapFragment.getMapAsync(this);
 
-            mMapView.onResume(); // needed to get the map to display immediately
+        }
 
-            try {
-                MapsInitializer.initialize(getActivity().getApplicationContext());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            mMapView.getMapAsync(new OnMapReadyCallback() {
+        @Override
+        public void onMapReady(final GoogleMap googleMap) {
+            googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener()
+            {
                 @Override
-                public void onMapReady(GoogleMap mMap) {
-                    googleMap = mMap;
-
-                    // For showing a move to my location button
-
-                    //googleMap.setMyLocationEnabled(true);
-
+                public void onMapClick(LatLng arg0)
+                {
+                    android.util.Log.i("onMapClick", "Horray!");
                     // For dropping a marker at a point on the Map
-                    mMondelloPark = mMap.addMarker(new MarkerOptions()
+                    mMondelloPark = googleMap.addMarker(new MarkerOptions()
                             .position(MONDELLO_PARK)
                             .title("Mondello Park - Rounds 1, 3, & 5"));
                     mMondelloPark.setTag(0);
 
-                    mDunLaoghaire = mMap.addMarker(new MarkerOptions()
+                    mDunLaoghaire = googleMap.addMarker(new MarkerOptions()
                             .position(DUN_LAOGHAIRE)
                             .title("Dun Laoghaire - Round 2"));
                     mDunLaoghaire.setTag(0);
 
-                    mWatergrasshill = mMap.addMarker(new MarkerOptions()
+                    mWatergrasshill = googleMap.addMarker(new MarkerOptions()
                             .position(WATERGRASSHILL)
                             .title("Watergrasshill - Round 4"));
                     mWatergrasshill.setTag(0);
-
-                    //mMap.setOnMarkerClickListener(MapNavFragment.this);
-
-
-                    // For zooming automatically to the location of the marker
-                    //CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(12).build();
-                    //googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLng(WATERGRASSHILL));
                 }
             });
 
-            return rootView;
+
+
         }
 
         @Override
@@ -107,6 +100,11 @@ import static java.security.AccessController.getContext;
         public void onLowMemory() {
             super.onLowMemory();
             mMapView.onLowMemory();
+        }
+
+        @Override
+        public boolean onMarkerClick(Marker marker) {
+            return false;
         }
     }
 

@@ -1,5 +1,6 @@
 package com.example.aids.a09application;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -9,20 +10,28 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import static android.support.v4.content.ContextCompat.getDrawable;
+import static com.example.aids.a09application.R.id.map;
 
-public class HomeFragment extends Fragment {
-
+public class HomeFragment extends Fragment{
+    GoogleMap googleMap;
+    MapView mapView;
     ViewPager viewPager;
     ViewPagerAdapter adapter;
     LinearLayout sliderDotsPanel;
@@ -35,6 +44,7 @@ public class HomeFragment extends Fragment {
     WebView webView;
     String url;
     TabLayout tabLayout;
+    private SupportMapFragment supportMapFragment;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -49,7 +59,7 @@ public class HomeFragment extends Fragment {
         sliderDotsPanel = (LinearLayout) view.findViewById(R.id.SliderDots);
         active_dots = getDrawable(getActivity().getApplicationContext(), R.drawable.active_dot);
         nonactive_dots = getDrawable(getActivity().getApplicationContext(), R.drawable.nonactive_dot);
-
+        mapView = (MapView) view.findViewById(R.id.mapView);
         adapter = new ViewPagerAdapter(this.getActivity());
         viewPager.setAdapter(adapter);
 
@@ -100,19 +110,21 @@ public class HomeFragment extends Fragment {
 
     }
 
+
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         FragmentManager fm = getActivity().getSupportFragmentManager();
-        Fragment fragment = (fm.findFragmentById(R.id.map));
+        Fragment fragment = (fm.findFragmentById(map));
         FragmentTransaction ft = fm.beginTransaction();
         ft.remove(fragment);
         ft.commit();
-
-
-
 }
-        public class myTimerTask extends TimerTask {
+
+
+
+    public class myTimerTask extends TimerTask {
 
         @Override
         public void run() {

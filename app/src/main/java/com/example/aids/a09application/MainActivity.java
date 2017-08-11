@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         MainActivity.this.startActivity(intent);
                         break;
+
                 }
 
 
@@ -101,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         actionBarDrawerToggle.syncState();
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
