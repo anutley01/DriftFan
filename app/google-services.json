@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "406128717634",
+    "firebase_url": "https://studious-nature-174710.firebaseio.com",
+    "project_id": "studious-nature-174710",
+    "storage_bucket": "studious-nature-174710.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406128717634:android:8fb6bb37d45513a3",
+        "android_client_info": {
+          "package_name": "com.example.aids.a09application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406128717634-f1m67ia6jdgim8bmobs76aorhgpch9lp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aids.a09application",
+            "certificate_hash": "3060f11ab94c5824ce3c81679538913fed3e6869"
+          }
+        },
+        {
+          "client_id": "406128717634-cdvnkinpaap8lj82oiu8dj81ttqvkuat.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjnNodjV1fOjpOevqEfRDZ2k25PAiW39k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "406128717634-cdvnkinpaap8lj82oiu8dj81ttqvkuat.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
