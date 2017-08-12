@@ -13,6 +13,7 @@
         android:gravity="center"
         android:textColor="#fff"
         android:textSize="15dp"
+        android:background="@drawable/shape_border"
         android:textAppearance="?android:textAppearanceLarge"/>
 
     <TextView
@@ -25,7 +26,14 @@
         android:textColor="#fff"
         android:textSize="15dp"
         android:layout_toRightOf="@+id/pos_id"
+        android:background="@drawable/shape_border"
         android:layout_toEndOf="@+id/pos_id" />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.2dp"
+        android:id="@+id/seperator"
+        android:visibility="visible"
+        android:background="@color/colorPrimary"/>
 
     <TextView
         android:layout_width="38dp"
@@ -36,6 +44,7 @@
         android:gravity="center"
         android:textColor="#fff"
         android:textAppearance="?android:textAppearanceLarge"
+        android:background="@drawable/shape_border"
         android:textSize="15dp"/>
 
     <TextView
@@ -47,6 +56,7 @@
         android:gravity="center"
         android:textColor="#fff"
         android:textSize="15dp"
+        android:background="@drawable/shape_border"
         android:textAppearance="?android:textAppearanceLarge"/>
 
     <TextView
@@ -58,6 +68,7 @@
         android:gravity="center"
         android:textColor="#fff"
         android:textSize="15dp"
+        android:background="@drawable/shape_border"
         android:textAppearance="?android:textAppearanceLarge"/>
 
     <TextView
@@ -69,6 +80,7 @@
         android:gravity="center"
         android:textColor="#fff"
         android:textSize="15dp"
+        android:background="@drawable/shape_border"
         android:textAppearance="?android:textAppearanceLarge"/>
 
     <TextView
@@ -80,6 +92,7 @@
         android:gravity="center"
         android:textColor="#fff"
         android:textSize="15dp"
+        android:background="@drawable/shape_border"
         android:textAppearance="?android:textAppearanceLarge"/>
 
     <TextView
@@ -91,6 +104,7 @@
         android:gravity="center"
         android:textColor="#fff"
         android:textSize="15dp"
+        android:background="@drawable/shape_border"
         android:textAppearance="?android:textAppearanceLarge"/>
 
 
