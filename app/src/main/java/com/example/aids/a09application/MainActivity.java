@@ -81,6 +81,14 @@ public class MainActivity extends AppCompatActivity {
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
                         break;
+                    case R.id.nav_results:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new StandingsFragment());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Standings");
+                        item.setCheckable(true);
+                        drawerLayout.closeDrawers();
+                        break;
                     case R.id.nav_media:
                         intent = new Intent(MainActivity.this, media_main.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

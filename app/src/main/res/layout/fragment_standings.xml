@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:background="#000">
+
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="match_parent"
+        android:id="@+id/pos_id"
+        android:layout_alignParentLeft="true"
+        android:text="Pos"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="15dp"
+        android:textAppearance="?android:textAppearanceLarge"/>
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:id="@+id/drivername_id"
+        android:text="Driver Name"
+        android:gravity="center"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="#fff"
+        android:textSize="15dp"
+        android:layout_toRightOf="@+id/pos_id"
+        android:layout_toEndOf="@+id/pos_id" />
+
+    <TextView
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:id="@+id/rd1score_id"
+        android:layout_toRightOf="@+id/drivername_id"
+        android:text="RD1"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:id="@+id/rd2score_id"
+        android:layout_toRightOf="@+id/rd1score_id"
+        android:text="RD2"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="15dp"
+        android:textAppearance="?android:textAppearanceLarge"/>
+
+    <TextView
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:id="@+id/rd3score_id"
+        android:layout_toRightOf="@+id/rd2score_id"
+        android:text="RD3"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="15dp"
+        android:textAppearance="?android:textAppearanceLarge"/>
+
+    <TextView
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:id="@+id/rd4score_id"
+        android:layout_toRightOf="@+id/rd3score_id"
+        android:text="RD4"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="15dp"
+        android:textAppearance="?android:textAppearanceLarge"/>
+
+    <TextView
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:id="@+id/rd5score_id"
+        android:layout_toRightOf="@+id/rd4score_id"
+        android:text="RD5"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="15dp"
+        android:textAppearance="?android:textAppearanceLarge"/>
+
+
+</RelativeLayout>
