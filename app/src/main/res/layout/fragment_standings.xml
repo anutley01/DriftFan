@@ -5,7 +5,7 @@
     android:background="#000">
 
     <TextView
-        android:layout_width="70dp"
+        android:layout_width="35dp"
         android:layout_height="match_parent"
         android:id="@+id/pos_id"
         android:layout_alignParentLeft="true"
@@ -16,7 +16,7 @@
         android:textAppearance="?android:textAppearanceLarge"/>
 
     <TextView
-        android:layout_width="150dp"
+        android:layout_width="83dp"
         android:layout_height="match_parent"
         android:id="@+id/drivername_id"
         android:text="Driver Name"
@@ -28,7 +28,7 @@
         android:layout_toEndOf="@+id/pos_id" />
 
     <TextView
-        android:layout_width="30dp"
+        android:layout_width="38dp"
         android:layout_height="match_parent"
         android:id="@+id/rd1score_id"
         android:layout_toRightOf="@+id/drivername_id"
@@ -39,7 +39,7 @@
         android:textSize="15dp"/>
 
     <TextView
-        android:layout_width="30dp"
+        android:layout_width="38dp"
         android:layout_height="match_parent"
         android:id="@+id/rd2score_id"
         android:layout_toRightOf="@+id/rd1score_id"
@@ -50,7 +50,7 @@
         android:textAppearance="?android:textAppearanceLarge"/>
 
     <TextView
-        android:layout_width="30dp"
+        android:layout_width="38dp"
         android:layout_height="match_parent"
         android:id="@+id/rd3score_id"
         android:layout_toRightOf="@+id/rd2score_id"
@@ -61,7 +61,7 @@
         android:textAppearance="?android:textAppearanceLarge"/>
 
     <TextView
-        android:layout_width="30dp"
+        android:layout_width="38dp"
         android:layout_height="match_parent"
         android:id="@+id/rd4score_id"
         android:layout_toRightOf="@+id/rd3score_id"
@@ -72,11 +72,22 @@
         android:textAppearance="?android:textAppearanceLarge"/>
 
     <TextView
-        android:layout_width="30dp"
+        android:layout_width="38dp"
         android:layout_height="match_parent"
         android:id="@+id/rd5score_id"
         android:layout_toRightOf="@+id/rd4score_id"
         android:text="RD5"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="15dp"
+        android:textAppearance="?android:textAppearanceLarge"/>
+
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="match_parent"
+        android:id="@+id/totalscore_id"
+        android:layout_toRightOf="@+id/rd5score_id"
+        android:text="Total"
         android:gravity="center"
         android:textColor="#fff"
         android:textSize="15dp"

@@ -22,7 +22,7 @@
         <item android:id="@+id/nav_calendar" android:title="Calendar"></item>
     </group>
     <group android:id="@+id/group4">
-        <item android:id="@+id/nav_results" android:title="Results"></item>
+        <item android:id="@+id/nav_standings" android:title="Standings"></item>
     </group>
     <group android:id="@+id/group8">
         <item android:id="@+id/nav_about" android:title="About Drifting"></item>
