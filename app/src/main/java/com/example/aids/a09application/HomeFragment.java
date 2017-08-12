@@ -1,35 +1,29 @@
 package com.example.aids.a09application;
 
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
 import static android.support.v4.content.ContextCompat.getDrawable;
-import static com.example.aids.a09application.R.id.map;
 
-public class HomeFragment extends Fragment{
+public class HomeFragment extends Fragment {
     GoogleMap googleMap;
     MapView mapView;
     ViewPager viewPager;
@@ -109,18 +103,6 @@ public class HomeFragment extends Fragment{
         return view;
 
     }
-
-
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        FragmentManager fm = getActivity().getSupportFragmentManager();
-        Fragment fragment = (fm.findFragmentById(map));
-        FragmentTransaction ft = fm.beginTransaction();
-        ft.remove(fragment);
-        ft.commit();
-}
 
 
 
