@@ -89,10 +89,13 @@ public class MainActivity extends AppCompatActivity {
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
                         break;
-                    case R.id.nav_media:
-                        intent = new Intent(MainActivity.this, media_main.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        MainActivity.this.startActivity(intent);
+                    case R.id.nav_gallery:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new MediaGallery());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Gallery");
+                        item.setCheckable(true);
+                        drawerLayout.closeDrawers();
                         break;
 
                 }

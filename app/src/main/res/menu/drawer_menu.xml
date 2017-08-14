@@ -16,7 +16,7 @@
         <item android:id="@+id/nav_live" android:title="Live"></item>
     </group>
     <group android:id="@+id/group2">
-        <item android:id="@+id/nav_media" android:title="Media"></item>
+        <item android:id="@+id/nav_gallery" android:title="Gallery"></item>
     </group>
     <group android:id="@+id/group3">
         <item android:id="@+id/nav_calendar" android:title="Calendar"></item>

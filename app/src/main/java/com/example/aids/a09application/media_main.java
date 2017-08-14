@@ -113,15 +113,6 @@ public class media_main extends AppCompatActivity {
                         getSupportActionBar().setTitle("Shop");
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
-
-                        break;
-                    case R.id.nav_media:
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new ShopFragment());
-                        fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Shop");
-                        item.setCheckable(true);
-                        drawerLayout.closeDrawers();
                         break;
 
                 }
@@ -227,7 +218,7 @@ public class media_main extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    media_gallery tb1 = new media_gallery();
+                    MediaGallery tb1 = new MediaGallery();
                     return tb1;
                 case 1:
                     media_video tb2 = new media_video();

@@ -18,7 +18,7 @@ public class ViewPagerAdapter extends PagerAdapter {
     private Context context;
     private LayoutInflater layoutInflater;
     private Integer[] images = {R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4};
-    private String[] texts= {"IDC ROUND 4 // WATERGRASSHILL", "IDC ROUND 5 // MONDELLO PARK","BDC ROUND 4 // DRIFTLAND","BDC ROUND 5 // TEESSIDE"};
+    private String[] texts= {"DRIFT TALK … WITH MATT CARTER", "DRIFT TALK … WITH JACK SHANAHAN","DRIFT TALK … WITH ALAN HYNES","WESTLAKE TYRES PARTNER THE BDC"};
     public ViewPagerAdapter(Context context) {
         this.context = context;
     }
