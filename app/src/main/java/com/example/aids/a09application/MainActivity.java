@@ -97,6 +97,14 @@ public class MainActivity extends AppCompatActivity {
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
                         break;
+                    case R.id.nav_map:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new OpenMapActivity());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Gallery");
+                        item.setCheckable(true);
+                        drawerLayout.closeDrawers();
+                        break;
 
                 }
 
