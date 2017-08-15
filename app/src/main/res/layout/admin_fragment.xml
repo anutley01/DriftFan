@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+                android:background="@color/black">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Onsite Admin Panel"
+        android:layout_gravity="center_horizontal"
+        android:textSize="35dp"
+        android:textColor="@color/colorPrimary"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:id="@+id/textViewadmin"/>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:text="Add Standings"
+        android:background="@color/colorPrimary"
+        android:id="@+id/buttonAddStandings"
+        android:layout_below="@id/textViewadmin"
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:text="Edit Standings"
+        android:id="@+id/buttonEditStandings"
+        android:background="@color/colorPrimary"
+        android:layout_below="@id/buttonAddStandings"
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        android:id="@+id/buttonViewStandings"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/buttonEditStandings"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="60dp"
+        android:text="View Standings"/>
+
+</LinearLayout>

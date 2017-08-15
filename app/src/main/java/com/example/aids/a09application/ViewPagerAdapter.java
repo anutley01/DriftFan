@@ -1,8 +1,12 @@
 package com.example.aids.a09application;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.BackgroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +45,16 @@ public class ViewPagerAdapter extends PagerAdapter {
         ImageView imageView = (ImageView) view.findViewById(R.id.image_view);
         TextView tv= (TextView) view.findViewById(R.id.myImageViewText);
         imageView.setImageResource(images[position]);
+
+        StringBuilder strBuilder = new StringBuilder();
+        for (int i = 0; i < texts.length; i++) {
+            strBuilder.append(texts[i]);
+        }
+        String newString = strBuilder.toString();
+
+        Spannable span = new SpannableString(newString);
+        span.setSpan(new BackgroundColorSpan( Color.BLACK), 0, tv.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        tv.setText(span);
         tv.setText(texts[position]);
 
         ViewPager vp = (ViewPager) container;

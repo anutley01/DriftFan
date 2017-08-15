@@ -50,14 +50,15 @@ public class MediaGallery extends Fragment {
 
         List<Data> data = new ArrayList<>();
 
-        data.add(new Data( R.drawable.pic1, "Image 1"));
-        data.add(new Data( R.drawable.pic2, "Image 2"));
-        data.add(new Data( R.drawable.pic3, "Image 3"));
-        data.add(new Data( R.drawable.pic4, "Image 1"));
-        data.add(new Data( R.drawable.pic5, "Image 2"));
-        data.add(new Data( R.drawable.pic6, "Image 3"));
+        data.add(new Data( R.drawable.pic1, "IDC ROUND 4 // WATERGRASSHILL"));
+        data.add(new Data( R.drawable.pic2, "IDC ROUND 4 // WATERGRASSHILL"));
+        data.add(new Data( R.drawable.pic3, "IDC ROUND 4 // WATERGRASSHILL"));
+        data.add(new Data( R.drawable.pic4, "IDC ROUND 4 // WATERGRASSHILL"));
+        data.add(new Data( R.drawable.pic5, "IDC ROUND 4 // WATERGRASSHILL"));
+        data.add(new Data( R.drawable.pic6, "IDC ROUND 4 // WATERGRASSHILL"));
 
         return data;
+        
     }
 
     public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.MyViewHolder> {

@@ -97,6 +97,14 @@ public class MainActivity extends AppCompatActivity {
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
                         break;
+                    case R.id.nav_admin:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new AdminLoginPanel());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Admin");
+                        item.setCheckable(true);
+                        drawerLayout.closeDrawers();
+                        break;
 
                 }
 
