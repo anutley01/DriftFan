@@ -1,0 +1,197 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/RegisterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Register"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/enterFirstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/RegisterText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:hint="Enter your First Name" />
+
+        <EditText
+            android:id="@+id/enterLastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/enterFirstName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:hint="Enter your Last Name" />
+        <EditText
+            android:id="@+id/enterUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/enterLastName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:hint="Enter your Username" />
+
+        <EditText
+            android:id="@+id/enterEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/availabilityButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:hint="Enter your email address" />
+
+        <EditText
+            android:id="@+id/firstPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/enterEmail"
+            android:layout_alignStart="@+id/enterEmail"
+            android:layout_below="@+id/enterEmail"
+            android:layout_marginTop="20dp"
+            android:hint="Enter your password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/secondPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/firstPassword"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:hint="Confirm your password"
+            android:inputType="textPassword" />
+
+        <SeekBar
+            android:id="@+id/seekBarPrice"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/secondPassword"
+            android:layout_alignStart="@+id/secondPassword"
+            android:layout_below="@+id/priceRange"
+            android:layout_marginTop="50dp"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/smallestPound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/seekBarPrice"
+            android:layout_marginBottom="20dp"
+            android:layout_toLeftOf="@+id/firstPassword"
+            android:layout_toStartOf="@+id/firstPassword"
+            android:text="£"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/middlePound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/smallestPound"
+            android:layout_alignBottom="@+id/smallestPound"
+            android:layout_centerHorizontal="true"
+            android:text="£"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/largePound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/middlePound"
+            android:layout_alignBottom="@+id/middlePound"
+            android:layout_alignEnd="@+id/seekBarPrice"
+            android:layout_alignRight="@+id/seekBarPrice"
+            android:text="£"
+            android:textSize="45dp" />
+
+        <TextView
+            android:id="@+id/priceRange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/busy"
+            android:layout_toRightOf="@+id/busy"
+            android:text="Confirm your price range: "
+            android:layout_below="@id/secondPassword"/>
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/seekBarPrice"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="137dp"
+            android:text="Submit" />
+
+        <SeekBar
+            android:id="@+id/busyOrQuiet"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/confirmBusy"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp" />
+
+        <TextView
+            android:id="@+id/confirmBusy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/seekBarPrice"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Busy, or quiet restaurants/bars?" />
+
+        <TextView
+            android:id="@+id/busy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/busyOrQuiet"
+            android:layout_alignLeft="@+id/busyOrQuiet"
+            android:layout_alignStart="@+id/busyOrQuiet"
+            android:layout_marginBottom="20dp"
+            android:text="Quiet"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/seekBarPrice"
+            android:layout_alignRight="@+id/seekBarPrice"
+            android:layout_alignTop="@+id/busy"
+            android:text="Busy"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/PasswordMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/secondPassword"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="" />
+
+        <Button
+            android:text="Check Availability"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/availabilityButton"
+            android:textSize="8sp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/enterUsername"
+            android:layout_alignRight="@+id/submitButton"
+            android:layout_alignEnd="@+id/submitButton" />
+
+    </RelativeLayout>
+</ScrollView>
