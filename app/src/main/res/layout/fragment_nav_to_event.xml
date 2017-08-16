@@ -20,7 +20,7 @@
         android:layout_width="184.5dp"
         android:layout_height="123.5dp"
         android:layout_marginTop="12dp"
-        class:srcCompat="@drawable/round1"
+        class:srcCompat="@drawable/img_round1"
         android:layout_below="@+id/mapInfo"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -29,7 +29,7 @@
         android:id="@+id/imageButton2"
         android:layout_width="184.5dp"
         android:layout_height="123.5dp"
-        class:srcCompat="@drawable/round2"
+        class:srcCompat="@drawable/img_round2"
         android:layout_alignTop="@+id/imageButton"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -38,7 +38,7 @@
         android:id="@+id/imageButton3"
         android:layout_width="183.5dp"
         android:layout_height="123.5dp"
-        class:srcCompat="@drawable/round3"
+        class:srcCompat="@drawable/img_round3"
         android:layout_below="@+id/imageButton"
         android:layout_alignRight="@+id/imageButton"
         android:layout_alignEnd="@+id/imageButton"
@@ -48,7 +48,7 @@
         android:id="@+id/imageButton4"
         android:layout_width="184.5dp"
         android:layout_height="123.5dp"
-        class:srcCompat="@drawable/round4"
+        class:srcCompat="@drawable/img_round4"
         android:layout_alignTop="@+id/imageButton3"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -58,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        class:srcCompat="@drawable/round5"
+        class:srcCompat="@drawable/img_round5"
         android:layout_below="@+id/imageButton3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

@@ -53,7 +53,7 @@ public class HomeFragment extends Fragment {
         sliderDotsPanel = (LinearLayout) view.findViewById(R.id.SliderDots);
         active_dots = getDrawable(getActivity().getApplicationContext(), R.drawable.active_dot);
         nonactive_dots = getDrawable(getActivity().getApplicationContext(), R.drawable.nonactive_dot);
-        mapView = (MapView) view.findViewById(R.id.mapView);
+        //mapView = (MapView) view.findViewById(R.id.mapView);
         adapter = new ViewPagerAdapter(this.getActivity());
         viewPager.setAdapter(adapter);
 
