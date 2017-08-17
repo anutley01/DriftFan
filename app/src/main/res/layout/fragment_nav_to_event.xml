@@ -16,7 +16,7 @@
         android:layout_marginTop="12dp" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/round1button"
         android:layout_width="184.5dp"
         android:layout_height="123.5dp"
         android:layout_marginTop="12dp"
@@ -26,40 +26,40 @@
         android:layout_alignParentStart="true" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/round2button"
         android:layout_width="184.5dp"
         android:layout_height="123.5dp"
         class:srcCompat="@drawable/img_round2"
-        android:layout_alignTop="@+id/imageButton"
+        android:layout_alignTop="@+id/round1button"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/round3button"
         android:layout_width="183.5dp"
         android:layout_height="123.5dp"
         class:srcCompat="@drawable/img_round3"
-        android:layout_below="@+id/imageButton"
-        android:layout_alignRight="@+id/imageButton"
-        android:layout_alignEnd="@+id/imageButton"
+        android:layout_below="@id/round1button"
+        android:layout_alignRight="@id/round1button"
+        android:layout_alignEnd="@id/round1button"
         android:layout_marginTop="31dp" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/round4button"
         android:layout_width="184.5dp"
         android:layout_height="123.5dp"
         class:srcCompat="@drawable/img_round4"
-        android:layout_alignTop="@+id/imageButton3"
+        android:layout_alignTop="@id/round3button"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/round5button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         class:srcCompat="@drawable/img_round5"
-        android:layout_below="@+id/imageButton3"
+        android:layout_below="@id/round3button"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
