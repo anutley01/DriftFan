@@ -24,9 +24,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import static java.security.AccessController.checkPermission;
 import static java.security.AccessController.getContext;
 
-    public class MapNavFragment extends FragmentActivity implements
-            GoogleMap.OnMarkerClickListener,
-            OnMapReadyCallback {
+    public class MapNavFragment extends FragmentActivity {//implements
+            //GoogleMap.OnMarkerClickListener,
+            //OnMapReadyCallback {
+        /*
         private static final LatLng MONDELLO_PARK = new LatLng(53.257456, -6.746064);
         private static final LatLng DUN_LAOGHAIRE = new LatLng(53.295954, -6.136933);
         private static final LatLng WATERGRASSHILL = new LatLng(52.001564, -8.326386);
@@ -177,4 +178,4 @@ import static java.security.AccessController.getContext;
         super.onResume();
         initialiseMap();
     }
-}*/
+}*/}
