@@ -39,10 +39,9 @@
         android:layout_width="183.5dp"
         android:layout_height="123.5dp"
         class:srcCompat="@drawable/img_round3"
-        android:layout_below="@id/round1button"
-        android:layout_alignRight="@id/round1button"
-        android:layout_alignEnd="@id/round1button"
-        android:layout_marginTop="31dp" />
+        android:layout_below="@+id/round1button"
+        android:layout_alignRight="@+id/round1button"
+        android:layout_alignEnd="@+id/round1button" />
 
     <ImageButton
         android:id="@+id/round4button"
@@ -57,11 +56,30 @@
         android:id="@+id/round5button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
         class:srcCompat="@drawable/img_round5"
-        android:layout_below="@id/round3button"
+        android:layout_below="@+id/round3button"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+<ImageButton
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/amateurDCbutton"
+    class:srcCompat="@drawable/iadcrounds"
+    android:layout_below="@+id/round5button"
+    />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 
 
 </RelativeLayout>
