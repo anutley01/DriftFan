@@ -105,14 +105,14 @@ public class MainActivity extends AppCompatActivity {
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
                         break;
-                    /*case R.id.nav_hotels:
+                    case R.id.nav_hotels:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container, new AccomodationButtonsFragment());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("Hotels and Restaurants");
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
-                        break;*/
+                        break;
                 }
 
 
