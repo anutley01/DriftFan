@@ -1,140 +1,120 @@
 package com.example.aids.a09application;
+
 import android.app.Activity;
-import android.app.Fragment;
-import android.os.AsyncTask;
+import android.app.ListActivity;
+import android.database.Cursor;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBarActivity;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-
-/**
- * Created by Connor on 17/08/2017.
- */
+import java.util.List;
+import java.util.Random;
 
 public class HotelsRestaurantFragment extends Activity {
-
-    String myJSON;
-
-    private static final String TAG_RESULTS="result";
-    private static final String TAG_ID = "hotel_id";
-    private static final String TAG_HOTEL_NAME = "hotel_name";
-    private static final String TAG_PHONE = "phone";
-    private static final String TAG_LAT ="latitude";
-    private static final String TAG_LONGITUDE = "longitude";
-    private static final String TAG_PRICE = "price";
-    private static final String TAG_VENUE_ID = "venue_id";
-
-    JSONArray peoples = null;
-
-    ArrayList<HashMap<String, String>> personList;
-
-    ListView list;
+SQLHelper sqlHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_accommodation_eateries);
-        list = (ListView) findViewById(R.id.listView1);
-        personList = new ArrayList<HashMap<String,String>>();
-        getData();
+        DisplayAll();
     }
 
-    public void getData(){
-        class GetDataJSON extends AsyncTask<String, Void, String> {
 
-            @Override
-            protected String doInBackground(String... params) {
-                DefaultHttpClient httpclient = new DefaultHttpClient(new BasicHttpParams());
-                HttpPost httppost = new HttpPost("http://163.172.142.145/phpmyadmin/");
-
-                // Depends on your web service
-                httppost.setHeader("Content-type", "application/json");
-
-                InputStream inputStream = null;
-                String result = null;
-                try {
-                    HttpResponse response = httpclient.execute(httppost);
-                    HttpEntity entity = response.getEntity();
-
-                    inputStream = entity.getContent();
-                    // json is UTF-8 by default
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"), 8);
-                    StringBuilder sb = new StringBuilder();
-
-                    String line = null;
-                    while ((line = reader.readLine()) != null)
-                    {
-                        sb.append(line + "\n");
-                    }
-                    result = sb.toString();
-                } catch (Exception e) {
-                    // Oops
-                }
-                finally {
-                    try{if(inputStream != null)inputStream.close();}catch(Exception squish){}
-                }
-                return result;
-            }
-
-            @Override
-            protected void onPostExecute(String result){
-                myJSON=result;
-                showList();
-            }
-        }
-        GetDataJSON g = new GetDataJSON();
-        g.execute();
-    }
-    protected void showList(){
-        try {
-            JSONObject jsonObj = new JSONObject(myJSON);
-            peoples = jsonObj.getJSONArray(TAG_HOTEL_NAME);
-
-            for(int loopCounter=0;loopCounter<peoples.length();loopCounter++){
-                JSONObject c = peoples.getJSONObject(loopCounter);
-                String id = c.getString(TAG_ID);
-                String name = c.getString(TAG_HOTEL_NAME);
-                String phone = c.getString(TAG_PHONE);
-
-                HashMap<String,String> hotels = new HashMap<String,String>();
-
-                hotels.put(TAG_ID,id);
-                hotels.put(TAG_HOTEL_NAME,name);
-                hotels.put(TAG_PHONE,phone);
-
-                personList.add(hotels);
-            }
-
-            ListAdapter adapter = new SimpleAdapter(
-                    HotelsRestaurantFragment.this, personList, R.layout.list_item,
-                    new String[]{TAG_ID,TAG_HOTEL_NAME,TAG_PHONE},
-                    new int[]{R.id.hotel_id, R.id.hotel_name, R.id.hotel_phone}
-            );
-
-            list.setAdapter(adapter);
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
+    public void DisplayAll(){
+    Cursor res = sqlHelper.getAllData();
+                    if (res.getCount() == 0){
+        //show message
+        return;
     }
 
+    StringBuffer buffer = new StringBuffer();
+                    while (res.moveToNext()){
+        buffer.append("Hotel ID: " +res.getString(0) + "\n");
+        buffer.append("Hotel Name: " +res.getString(1) + "\n");
+        buffer.append("Hotel Phone: " +res.getString(2) + "\n");
+        buffer.append("Latitude: " +res.getString(3) + "\n");
+        buffer.append("Longitude: " +res.getString(4) + "\n");
+        buffer.append("Price " +res.getString(5) + "\n");
+        buffer.append("Near to: " +res.getString(6) + "\n");
+    }
 }
 
+            }
+   /* SQLHelper sqlHelper;
+    private CommentsDataSource datasource;
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        sqlHelper = new SQLHelper(this);
+        //create new class CommentsDataSource and cast it to datasource
+        datasource = new CommentsDataSource(this);
+        //open the database
+        datasource.open();
+
+        //use method getAllComments() of datasource and pass the comments to values
+        List<Comment> values = datasource.getAllComments();
+
+        // Use the SimpleCursorAdapter to show the
+        // elements in a ListView
+        ArrayAdapter<Comment> adapter = new ArrayAdapter<Comment>(this,
+                android.R.layout.simple_list_item_1, values);
+        setListAdapter(adapter);
+    }
+
+    // Will be called via the onClick attribute
+    // of the buttons in main.xml
+    public void onClick(View view) {
+        @SuppressWarnings("unchecked")
+
+        //use method getListAdapter() of ArrayAdapter<Comment> class
+                // to get the ListAdaptor associated with the ListView
+                // ListAdaptor: Build a bridge between a ListView and the data for the list
+                ArrayAdapter<Comment> adapter = (ArrayAdapter<Comment>) getListAdapter();
+        Comment comment = null;
+        switch (view.getId()) {
+            case R.id.add:
+                String[] comments = new String[] { "UK", "NI", "Belfast" };
+
+                //randomly allocate a number 1-3
+                //nextInt (int n): Returns a pseudo-random uniformly distributed int in the half-open range [0, n).
+                int nextInt = new Random().nextInt(3);
+
+                //Save/create the new comment to the database
+                datasource.createComment(comments[nextInt]);
+
+                //add new comment into the list
+                comment=new Comment();
+                comment.setComment(comments[nextInt]);
+                adapter.add(comment);
+                break;
+            case R.id.delete:
+                if (getListAdapter().getCount() > 0) {
+                    //why getItem(0) refers to 0?
+                    comment = (Comment) getListAdapter().getItem(0);
+                    datasource.deleteComment(comment);
+                    adapter.remove(comment);
+                }
+                break;
+        }
+        //why use the following line of code - related to the list...
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onResume() {
+        datasource.open();
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        datasource.close();
+        super.onPause();
+    }
+*/

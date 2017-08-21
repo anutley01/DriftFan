@@ -25,7 +25,7 @@ import static com.example.aids.a09application.R.id.round5button;
  * Created by Connor on 02/08/2017.
  */
 
-public class OpenMapActivity extends Fragment implements View.OnClickListener {
+public class OpenMapActivity extends Fragment  {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -46,10 +46,6 @@ public class OpenMapActivity extends Fragment implements View.OnClickListener {
     }
 
 
-    @Override
-    public void onClick(View v) {
-
-    }
 
     /**
      * This method is used to open navigation to rounds 1, 3 and 5
