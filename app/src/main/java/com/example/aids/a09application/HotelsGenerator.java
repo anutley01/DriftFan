@@ -1,31 +1,24 @@
 package com.example.aids.a09application;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.database.Cursor;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ArrayAdapter;
 
-import java.util.List;
-import java.util.Random;
-
-public class HotelsRestaurantFragment extends Activity {
+public class HotelsGenerator extends Activity {}/*
 SQLHelper sqlHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_accommodation_eateries);
-        DisplayAll();
+        sqlHelper = new SQLHelper(this);
+        sqlHelper.getAllHotels();
+
     }
 
 
     public void DisplayAll(){
-    Cursor res = sqlHelper.getAllData();
+    Cursor res = sqlHelper.getAllHotels();
                     if (res.getCount() == 0){
         //show message
         return;
@@ -42,6 +35,9 @@ SQLHelper sqlHelper;
         buffer.append("Near to: " +res.getString(6) + "\n");
     }
 }
+
+
+
 
             }
    /* SQLHelper sqlHelper;

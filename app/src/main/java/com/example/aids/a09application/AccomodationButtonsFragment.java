@@ -2,10 +2,8 @@ package com.example.aids.a09application;
 
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +30,7 @@ public class AccomodationButtonsFragment extends Fragment {
         openHotel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentOpenHotelPage = new Intent(getActivity(), HotelsRestaurantFragment.class);
+                Intent intentOpenHotelPage = new Intent(getActivity(), HotelsList.class);
                 startActivity(intentOpenHotelPage);
             }
         });
