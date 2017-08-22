@@ -1,6 +1,7 @@
 package com.example.aids.a09application;
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
 import com.example.aids.a09application.Hotel;
@@ -15,7 +16,7 @@ import java.util.List;
  * Created by Connor on 22/08/2017.
  */
 
-public class HotelsList extends Activity {
+public class HotelsList extends AppCompatActivity {
     List<Hotel> getAllHotels;
     SQLHelper db = new SQLHelper(this);
 
@@ -29,6 +30,7 @@ public class HotelsList extends Activity {
         db.close();
         // set up ArrayList for buildingNames
         final List<String> buildingNames = new ArrayList<>();
+
         // loop through getAllBuilding List and add all building_name 's to buildingNames list
         for (int i = 0; i < getAllHotels.size(); i++) {
             buildingNames.add(getAllHotels.get(i).getPrice());
