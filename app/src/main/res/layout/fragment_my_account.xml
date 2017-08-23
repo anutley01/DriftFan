@@ -1,7 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:fillViewport="true">
+android:fillViewport="true"
+                android:background="@color/black">
 
 
 <Button
@@ -11,6 +12,7 @@ android:fillViewport="true">
     android:layout_alignParentTop="true"
     android:layout_centerHorizontal="true"
     android:layout_marginTop="57dp"
+    android:background="@color/colorPrimary"
     android:id="@+id/btnLogin" />
 
 <Button
@@ -21,5 +23,6 @@ android:fillViewport="true">
     android:id="@+id/btnRegister"
     android:layout_below="@+id/btnLogin"
     android:layout_alignLeft="@+id/btnLogin"
+    android:background="@color/colorPrimary"
     android:layout_alignStart="@+id/btnLogin" />
 </RelativeLayout>
