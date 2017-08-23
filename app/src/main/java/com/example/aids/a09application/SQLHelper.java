@@ -37,8 +37,8 @@ import java.util.List;
             + " integer primary key autoincrement, "
             + HOTEL_NAME + "text"
             + PHONE + " text," +
-            LATITUDE + " text,"+
-            LONGITUDE + " text,"+
+            LATITUDE + " double,"+
+            LONGITUDE + " double,"+
             PRICE + " text,"
             + NEAR_TO + "text" +");";
 
@@ -56,7 +56,7 @@ import java.util.List;
     @Override
     public void onCreate(SQLiteDatabase database) {
         database.execSQL(DATABASE_CREATE);//execute the table to create statements on the database
-        database.execSQL(insertData("Curragh B&B","+353 45 456 429", 53.124905,-6.789059, "A", "Mondello Park"));
+        database.execSQL(insertData("Curragh B&B", "+353 45 456 429", 53.124905, -6.789059, "A", "Mondello Park"));
         database.execSQL(insertData("No. 5 Bed and Breakfast", "+353 1 708 6400", 53.130330, -6.755625, "A", "Mondello Park"));
         database.execSQL(insertData("Maynooth Campus", "+353 85 110 0907", 53.379794, -6.595520, "A", "Mondello Park"));
         database.execSQL(insertData("Tulloch","+353 45 531 988", 53.171297, -6.973274, "A", "Mondello Park"));
@@ -148,7 +148,7 @@ import java.util.List;
     public String insertData(String hotelName, String phone, double latitude, double longitude, String price, String nearTo) {
         String insertHotelToDB = "INSERT INTO " + TABLE_HOTEL
                 + " (" + HOTEL_NAME + "," + PHONE + "," + LATITUDE + "," + LONGITUDE + "," + PRICE + "," + NEAR_TO
-                + ") VALUES ('" + hotelName + "'," + phone + "," + latitude + ",'" + longitude + "','" + price + "," + nearTo + "')";
+                + ") VALUES ('" + hotelName + "','" + phone + "'," + latitude + "," + longitude + ",'" + price + "','" + nearTo + "')";
         return insertHotelToDB;
     }
     /*public void createHotels(){
