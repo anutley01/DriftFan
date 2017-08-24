@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,12 +51,25 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         viewPager = (ViewPager) view.findViewById(R.id.view_pager);
+        TextView tv = (TextView) view.findViewById( R.id.textView3 );
+        TextView tv1 = (TextView) view.findViewById( R.id.textView4 );
         sliderDotsPanel = (LinearLayout) view.findViewById(R.id.SliderDots);
         active_dots = getDrawable(getActivity().getApplicationContext(), R.drawable.active_dot);
         nonactive_dots = getDrawable(getActivity().getApplicationContext(), R.drawable.nonactive_dot);
         //mapView = (MapView) view.findViewById(R.id.mapView);
         adapter = new ViewPagerAdapter(this.getActivity());
         viewPager.setAdapter(adapter);
+        tv.setText("Next Event in IDC - Round 5 – Japfest – The Final Fight – Mondello Park – September 23/24");
+        tv.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+        tv.setSingleLine(true);
+        tv.setMarqueeRepeatLimit(5);
+        tv.setSelected(true);
+        tv1.setText("Next Event in BDC - Round 5 – Fight Night – Teesside Autodrome – Sep 15/16");
+        tv1.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+        tv1.setSingleLine(true);
+        tv1.setMarqueeRepeatLimit(5);
+        tv1.setSelected(true);
+
 
         dotsCount = adapter.getCount();
         dots = new ImageView[dotsCount];

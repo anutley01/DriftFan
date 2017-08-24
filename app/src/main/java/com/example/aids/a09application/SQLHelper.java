@@ -14,7 +14,7 @@ import java.util.List;
  * Created by Connor on 31/07/2017.
  */
 
-    public class SQLHelper extends SQLiteOpenHelper {
+public class SQLHelper extends SQLiteOpenHelper {
     SQLHelper sqlHelper;
     //initialise the table of the database
     public static final String TABLE_HOTEL = "comments";
@@ -135,7 +135,7 @@ import java.util.List;
 
 
 
-//    @Override
+    //    @Override
 //    public void onCreate(SQLiteDatabase database) {
 //        database.execSQL(DATABASE_CREATE);//execute the table to create statements on the database
 //        database.execSQL(insertData("Curragh B&B", "+353 45 456 429", 53.124905, -6.789059, "A", "Mondello Park"));
@@ -196,7 +196,7 @@ import java.util.List;
 //        database.execSQL(insertData("Hotel Isaacs Cork", "+353 21 450 0011", 51.901687, -8.468098, "B", "Watergrasshill"));
 //        database.execSQL(insertData("GN Commons Inn", "+353 21 421 0300", 51.921757, -8.487141, "A", "Watergrasshill"));
 //    }
-   // mydatabase.execSQL("CREATE TABLE IF NOT EXISTS TutorialsPoint(Username VARCHAR,Password VARCHAR);");
+    // mydatabase.execSQL("CREATE TABLE IF NOT EXISTS TutorialsPoint(Username VARCHAR,Password VARCHAR);");
     //mydatabase.execSQL("INSERT INTO TutorialsPoint VALUES('admin','admin');");
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -225,7 +225,6 @@ import java.util.List;
         } else{
             return true;
         }
-
     }*/
     public String insertBulding(String hotelName, String phone, double latitude, double longitude, String price, String nearTo) {
         String insertHotelToDB = "INSERT INTO " + TABLE_HOTEL
