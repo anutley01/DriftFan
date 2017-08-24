@@ -1,6 +1,5 @@
 package com.example.aids.a09application;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
@@ -25,7 +24,7 @@ import java.util.List;
     public static final String LATITUDE = "latitude";
     public static final String LONGITUDE = "longitude";
     public static final String PRICE = "price";
-    public static final String NEAR_TO = "near to";
+    public static final String NEAR_TO = "NearTo";
 
     private static final String DATABASE_NAME = "DriftFan";
     private static final int DATABASE_VERSION = 1;
@@ -65,7 +64,7 @@ import java.util.List;
                 + HOTEL_NAME + " TEXT,"
                 + PHONE + " TEXT," + LATITUDE + " DOUBLE,"
                 + LONGITUDE + " DOUBLE," + PRICE + " TEXT,"
-                + NEAR_TO + "TEXT" +");";
+                + NEAR_TO + " TEXT" + ")";
         db.execSQL(CREATE_HOTEL);
 
         db.execSQL(insertBuilding("Curragh B&B", "+35345456429", 53.124905, -6.789059, "A", "Mondello Park"));
