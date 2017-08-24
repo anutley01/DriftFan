@@ -106,14 +106,23 @@ public class MainActivity extends AppCompatActivity {
                         drawerLayout.closeDrawers();
                         break;
                     case R.id.nav_hotels:
+                fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.main_container, new AccomodationButtonsFragment());
+                fragmentTransaction.commit();
+                getSupportActionBar().setTitle("Hotels and Restaurants");
+                item.setCheckable(true);
+                drawerLayout.closeDrawers();
+                break;
+                    case R.id.nav_calendar:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new AccomodationButtonsFragment());
+                        fragmentTransaction.replace(R.id.main_container, new CalendarFragment());
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Hotels and Restaurants");
+                        getSupportActionBar().setTitle("Calendar");
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
                         break;
-                }
+
+            }
 
 
                 return false;
