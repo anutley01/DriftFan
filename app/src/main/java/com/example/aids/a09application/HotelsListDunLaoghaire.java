@@ -12,13 +12,11 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.webkit.ConsoleMessage.MessageLevel.LOG;
-
 /**
- * Created by Connor on 22/08/2017.
+ * Created by Connor on 25/08/2017.
  */
 
-public class HotelsList extends AppCompatActivity {
+public class HotelsListDunLaoghaire extends AppCompatActivity {
     ListView hotelList;
     SQLHelper db = new SQLHelper(this);
     List<Hotel> getAllHotels;
@@ -30,7 +28,7 @@ public class HotelsList extends AppCompatActivity {
         setContentView(R.layout.hotel_list);
 
         hotelList = (ListView) findViewById(R.id.hotel_listView);
-        getAllHotels = db.getAllHotels();
+        getAllHotels = db.getAllHotelsDunLaoghaire();
         db.close();
 
         // set up ArrayList for buildingNames
@@ -47,12 +45,12 @@ public class HotelsList extends AppCompatActivity {
 
 
         // set up adapter for searchBar listView
-        adapter = new ArrayAdapter<>(HotelsList.this, android.R.layout.simple_list_item_1, buildingNames);
+        adapter = new ArrayAdapter<>(HotelsListDunLaoghaire.this, android.R.layout.simple_list_item_1, buildingNames);
         hotelList.setAdapter(adapter);
         hotelList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(HotelsList.this, HotelsGenerator.class);
+                Intent intent = new Intent(HotelsListDunLaoghaire.this, HotelsGenerator.class);
                 Bundle extras = new Bundle();
                 int hotelId = 1;
                 // set up string with the selected onItem building name
@@ -69,7 +67,8 @@ public class HotelsList extends AppCompatActivity {
                 startActivity(intent);
 
             }
-            });
+        });
 
     }
 }
+

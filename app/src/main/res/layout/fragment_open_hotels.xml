@@ -4,8 +4,20 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/hotelsButton"
+        android:id="@+id/hotelsMondello"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Hotels" />
+        android:text="View Hotels near Mondello Park" />
+
+    <Button
+        android:id="@+id/hotelsDunLaoghaire"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Hotels near Dun Laoghaire" />
+
+    <Button
+        android:id="@+id/hotelsWatergrasshill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Hotels near Watergrasshill" />
 </LinearLayout>

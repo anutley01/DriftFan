@@ -16,6 +16,7 @@ public class Hotel {
     public Hotel(){
 
     }
+
     public Hotel(int id, String hotelName, String phone, double latitude, double longitude, String price, String nearTo){
         this.id = id;
         this.hotelName = hotelName;

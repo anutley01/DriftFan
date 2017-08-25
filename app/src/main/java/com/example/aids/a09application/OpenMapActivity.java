@@ -27,6 +27,8 @@ import static com.example.aids.a09application.R.id.round5button;
 
 public class OpenMapActivity extends Fragment  {
 
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment

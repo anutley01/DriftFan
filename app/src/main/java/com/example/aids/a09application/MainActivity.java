@@ -105,6 +105,14 @@ public class MainActivity extends AppCompatActivity {
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
                         break;
+                    case R.id.nav_map:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new OpenMapActivity());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Navigation to Event");
+                        item.setCheckable(true);
+                        drawerLayout.closeDrawers();
+                        break;
                     case R.id.nav_hotels:
                 fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.main_container, new AccomodationButtonsFragment());
