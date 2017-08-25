@@ -17,6 +17,7 @@ public class Hotel {
 
     }
     public Hotel(int id, String hotelName, String phone, double latitude, double longitude, String price, String nearTo){
+        this.id = id;
         this.hotelName = hotelName;
         this.phone = phone;
         this.latitude = latitude;
@@ -38,7 +39,7 @@ public class Hotel {
     }
 
     public void setHotelName(String hotelName) {
-        hotelName = hotelName;
+        this.hotelName = hotelName;
     }
 
     public String getPhone() {

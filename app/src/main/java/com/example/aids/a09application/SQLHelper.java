@@ -27,32 +27,9 @@ public class SQLHelper extends SQLiteOpenHelper {
     public static final String NEAR_TO = "NearTo";
 
     private static final String DATABASE_NAME = "DriftFan";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 18;
 
-    // Database creation sql statement
-    //please remove the spaces in the code and see the results
-//    private static final String DATABASE_CREATE = "create table "
-//            + TABLE_HOTEL + "( " + HOTEL_ID
-//            + " integer primary key autoincrement, "
-//            + HOTEL_NAME + "text"
-//            + PHONE + " text," +
-//            LATITUDE + " double,"+
-//            LONGITUDE + " double,"+
-//            PRICE + " text,"
-//            + NEAR_TO + "text" +");";
-
-    public SQLHelper(Context context) {
-        //please change 'context' to 'this' and see the result
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);//super class of creating database
-        SQLiteDatabase db = this.getWritableDatabase();
-    }
-
-    /**
-     * "A" is low price bracket. "B" is medium. "C" is high. This is used for the collections.sort method for when the list of hotels is being displayed
-     *
-     * @paramdatabase
-     */
-
+    public SQLHelper(Context context) {super(context, DATABASE_NAME, null, DATABASE_VERSION);}
 
     @Override
     public void onCreate(SQLiteDatabase db) {
