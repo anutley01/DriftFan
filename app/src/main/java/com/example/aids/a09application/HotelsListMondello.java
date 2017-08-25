@@ -36,7 +36,6 @@ public class HotelsListMondello extends AppCompatActivity {
         // loop through getAllBuilding List and add all building_name 's to buildingNames list
         for (int i = 0; i < getAllHotels.size(); i++) {
             buildingNames.add(getAllHotels.get(i).getHotelName());
-            Log.d("building names",buildingNames.toString());
             //sort alphabetically
 
 

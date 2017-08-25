@@ -39,7 +39,7 @@ public class AccomodationButtonsFragment extends Fragment {
         openHotelWatergrasshill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentOpenHotelPage = new Intent(getActivity(), HotelsListMondello.class);
+                Intent intentOpenHotelPage = new Intent(getActivity(), HotelsListWatergrassHill.class);
                 startActivity(intentOpenHotelPage);
             }
         });

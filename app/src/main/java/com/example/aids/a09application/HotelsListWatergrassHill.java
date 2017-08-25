@@ -13,10 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Connor on 25/08/2017.
+ * Created by Johnsey on 25-Aug-17.
  */
 
-public class HotelsListDunLaoghaire extends AppCompatActivity {
+public class HotelsListWatergrassHill extends AppCompatActivity {
     ListView hotelList;
     SQLHelper db = new SQLHelper(this);
     List<Hotel> getAllHotels;
@@ -26,9 +26,8 @@ public class HotelsListDunLaoghaire extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hotel_list);
-
         hotelList = (ListView) findViewById(R.id.hotel_listView);
-        getAllHotels = db.getAllHotelsDunLaoghaire();
+        getAllHotels = db.getAllHotelsWatergrasshill();
         db.close();
 
         // set up ArrayList for buildingNames
@@ -37,20 +36,19 @@ public class HotelsListDunLaoghaire extends AppCompatActivity {
         // loop through getAllBuilding List and add all building_name 's to buildingNames list
         for (int i = 0; i < getAllHotels.size(); i++) {
             buildingNames.add(getAllHotels.get(i).getHotelName());
-
+            Log.d("building names",buildingNames.toString());
             //sort alphabetically
 
 
         }
 
-
         // set up adapter for searchBar listView
-        adapter = new ArrayAdapter<>(HotelsListDunLaoghaire.this, android.R.layout.simple_list_item_1, buildingNames);
+        adapter = new ArrayAdapter<>(HotelsListWatergrassHill.this, android.R.layout.simple_list_item_1, buildingNames);
         hotelList.setAdapter(adapter);
         hotelList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(HotelsListDunLaoghaire.this, HotelsGenerator.class);
+                Intent intent = new Intent(HotelsListWatergrassHill.this, HotelsGenerator.class);
                 Bundle extras = new Bundle();
                 int hotelId = 1;
                 // set up string with the selected onItem building name
@@ -71,4 +69,3 @@ public class HotelsListDunLaoghaire extends AppCompatActivity {
 
     }
 }
-
