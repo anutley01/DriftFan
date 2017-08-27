@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_standings:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new StandingsFragment());
+                        fragmentTransaction.replace(R.id.main_container, new StandingsList());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("Standings");
                         item.setCheckable(true);
