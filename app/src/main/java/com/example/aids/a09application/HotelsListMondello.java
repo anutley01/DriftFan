@@ -3,7 +3,6 @@ package com.example.aids.a09application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -21,6 +20,7 @@ public class HotelsListMondello extends AppCompatActivity {
     SQLHelper db = new SQLHelper(this);
     List<Hotel> getAllHotels;
     ArrayAdapter<String> adapter;
+    public static final String [] menu = {"View in maps", "Call"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class HotelsListMondello extends AppCompatActivity {
         hotelList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(HotelsListMondello.this, HotelsGenerator.class);
+                Intent intent = new Intent(HotelsListMondello.this, HotelsGeneratorMondello.class);
                 Bundle extras = new Bundle();
                 int hotelId = 1;
                 // set up string with the selected onItem building name
@@ -67,4 +67,5 @@ public class HotelsListMondello extends AppCompatActivity {
             });
 
     }
+
 }

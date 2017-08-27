@@ -3,7 +3,6 @@ package com.example.aids.a09application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -50,7 +49,7 @@ public class HotelsListDunLaoghaire extends AppCompatActivity {
         hotelList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(HotelsListDunLaoghaire.this, HotelsGenerator.class);
+                Intent intent = new Intent(HotelsListDunLaoghaire.this, HotelsGeneratorMondello.class);
                 Bundle extras = new Bundle();
                 int hotelId = 1;
                 // set up string with the selected onItem building name

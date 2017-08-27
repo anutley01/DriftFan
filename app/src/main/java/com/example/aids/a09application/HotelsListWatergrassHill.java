@@ -48,7 +48,7 @@ public class HotelsListWatergrassHill extends AppCompatActivity {
         hotelList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(HotelsListWatergrassHill.this, HotelsGenerator.class);
+                Intent intent = new Intent(HotelsListWatergrassHill.this, HotelsGeneratorMondello.class);
                 Bundle extras = new Bundle();
                 int hotelId = 1;
                 // set up string with the selected onItem building name

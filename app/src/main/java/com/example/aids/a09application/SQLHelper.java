@@ -27,10 +27,34 @@ public class SQLHelper extends SQLiteOpenHelper {
     public static final String LONGITUDE = "longitude";
     public static final String PRICE = "price";
     public static final String NEAR_TO = "NearTo";
-    public static final String TABLE_RESTAURANTS = "Restaurants";
+    public static final String TABLE_RESTAURANTS_MONDELLO = "MondelloRestaurants";
+    public static final String TABLE_RESTAURANTS_DUNLAOGHAIRE = "DunLaoghaireRestaurants";
+    public static final String TABLE_RESTAURANTS_WATERGRASSHILL = "WatergrasshillRestaurants";
+    public static final String RESTAURANT_ID = "restaurant_id";
+    public static final String RESTAURANT_NAME = "restaurant_name";
+
     private static final String DATABASE_NAME = "DriftFan";
     private static final int DATABASE_VERSION = 21;
+    public static final String CREATE_RESTAURANT_MONDELLO = "CREATE TABLE IF NOT EXISTS " + TABLE_RESTAURANTS_MONDELLO + "("
+            + RESTAURANT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
+            + RESTAURANT_NAME + " TEXT,"
+            + PHONE + " TEXT," + LATITUDE + " DOUBLE,"
+            + LONGITUDE + " DOUBLE," + PRICE + " TEXT,"
+            + NEAR_TO + " TEXT" + ")";
 
+    public static final String CREATE_RESTAURANT_DUNLAOGHAIRE = "CREATE TABLE IF NOT EXISTS " + TABLE_RESTAURANTS_DUNLAOGHAIRE + "("
+            + RESTAURANT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
+            + RESTAURANT_NAME + " TEXT,"
+            + PHONE + " TEXT," + LATITUDE + " DOUBLE,"
+            + LONGITUDE + " DOUBLE," + PRICE + " TEXT,"
+            + NEAR_TO + " TEXT" + ")";
+
+    public static final String CREATE_RESTAURANT_WATERGRASSHILL = "CREATE TABLE IF NOT EXISTS " + TABLE_RESTAURANTS_WATERGRASSHILL + "("
+            + RESTAURANT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
+            + RESTAURANT_NAME + " TEXT,"
+            + PHONE + " TEXT," + LATITUDE + " DOUBLE,"
+            + LONGITUDE + " DOUBLE," + PRICE + " TEXT,"
+            + NEAR_TO + " TEXT" + ")";
 
     public static final String CREATE_HOTEL_MONDELLO = "CREATE TABLE IF NOT EXISTS " + TABLE_HOTEL_MONDELLO + "("
             + HOTEL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
@@ -60,11 +84,15 @@ public class SQLHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_HOTEL_MONDELLO);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_HOTEL_DUNLAOGHAIRE);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_HOTEL_WATERGRASSHILL);
-
+        //db.execSQL("DROP TABLE IF EXISTS " + TABLE_RESTAURANTS_MONDELLO);
+        //db.execSQL("DROP TABLE IF EXISTS " + TABLE_RESTAURANTS_DUNLAOGHAIRE);
+        //db.execSQL("DROP TABLE IF EXISTS " + TABLE_RESTAURANTS_WATERGRASSHILL);
         db.execSQL(CREATE_HOTEL_MONDELLO);
         db.execSQL(CREATE_HOTEL_DUNLAOGHAIRE);
         db.execSQL(CREATE_HOTEL_WATERGRASSHILL);
-
+        //db.execSQL(CREATE_RESTAURANT_MONDELLO);
+        //db.execSQL(CREATE_RESTAURANT_DUNLAOGHAIRE);
+        //db.execSQL(CREATE_RESTAURANT_WATERGRASSHILL);
         db.execSQL(insertHotelMondello("Curragh B&B", "+35345456429", 53.124905, -6.789059, "A", "Mondello Park"));
         db.execSQL(insertHotelMondello("No. 5 Bed and Breakfast", "+353 1 708 6400", 53.130330, -6.755625, "A", "Mondello Park"));
         db.execSQL(insertHotelMondello("Maynooth Campus", "+353 85 110 0907", 53.379794, -6.595520, "A", "Mondello Park"));
@@ -147,6 +175,29 @@ public class SQLHelper extends SQLiteOpenHelper {
         return insertBuilding;
     }
 
+    public String insertRestaurantMondello(String restaurant_name, String phone, double latitude, double longitude, String price, String near_to) {
+        String insertBuilding = "INSERT INTO " + TABLE_RESTAURANTS_MONDELLO +
+                "(" + RESTAURANT_NAME + "," + PHONE + "," + LATITUDE + "," + LONGITUDE + "," + PRICE + "," + NEAR_TO
+                + ") VALUES ('"
+                + restaurant_name + "','" + phone + "', '" + latitude + "','" + longitude + "','" + price + "','" + near_to + "')";
+        return insertBuilding;
+    }
+
+    public String insertRestaurantDunLaoghaire(String restaurant_name, String phone, double latitude, double longitude, String price, String near_to) {
+        String insertBuilding = "INSERT INTO " + TABLE_RESTAURANTS_DUNLAOGHAIRE +
+                "(" + RESTAURANT_NAME + "," + PHONE + "," + LATITUDE + "," + LONGITUDE + "," + PRICE + "," + NEAR_TO
+                + ") VALUES ('"
+                + restaurant_name + "','" + phone + "', '" + latitude + "','" + longitude + "','" + price + "','" + near_to + "')";
+        return insertBuilding;
+    }
+
+    public String insertRestaurantWatergrasshill(String restaurant_name, String phone, double latitude, double longitude, String price, String near_to) {
+        String insertBuilding = "INSERT INTO " + TABLE_RESTAURANTS_WATERGRASSHILL +
+                "(" + RESTAURANT_NAME + "," + PHONE + "," + LATITUDE + "," + LONGITUDE + "," + PRICE + "," + NEAR_TO
+                + ") VALUES ('"
+                + restaurant_name + "','" + phone + "', '" + latitude + "','" + longitude + "','" + price + "','" + near_to + "')";
+        return insertBuilding;
+    }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

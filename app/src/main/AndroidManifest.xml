@@ -37,7 +37,7 @@
         <activity android:name=".RegisterActivity"/>
         <activity android:name=".LoginActivity"/>
         <activity android:name=".EditAccount"/>
-        <activity android:name=".HotelsGenerator"/>
+        <activity android:name=".HotelsGeneratorMondello"/>
         <activity android:name=".HotelsListMondello"/>
         <activity android:name=".HotelsListDunLaoghaire"/>
         <activity android:name=".HotelsListWatergrassHill"/>
