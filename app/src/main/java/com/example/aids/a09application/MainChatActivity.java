@@ -116,9 +116,9 @@ public class MainChatActivity extends AppCompatActivity {
                 //Get references to the views of chat_list_item.xml
 
                 TextView messageText, messageUser, messageTime;
-                messageText = (TextView) findViewById( R.id.message_text );
-                messageUser = (TextView) findViewById( R.id.message_user );
-                messageTime = (TextView) findViewById( R.id.message_time );
+                messageText = (TextView) v.findViewById( R.id.message_text );
+                messageUser = (TextView) v.findViewById( R.id.message_user );
+                messageTime = (TextView) v.findViewById( R.id.message_time );
 
                 messageText.setText( model.getMessageText() );
                 messageUser.setText( model.getMessageUser() );
