@@ -48,6 +48,7 @@ There are many drifting championships around the world but some of the largest a
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_media_main_activity">media_main_activity</string>
     <string name="title_activity_media_main">media_main</string>
+    <string name="title_activity_live_stream">LiveStreamActivity</string>
 
 </resources>
 

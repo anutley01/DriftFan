@@ -13,6 +13,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import static com.example.aids.a09application.R.id.main_container;
+
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     Toolbar toolbar;
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.main_container, new HomeFragment());
+        fragmentTransaction.add( main_container, new HomeFragment());
         fragmentTransaction.commit();
         getSupportActionBar().setTitle("Drift Fan");
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.Home:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new HomeFragment());
+                        fragmentTransaction.replace( main_container, new HomeFragment());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("Home Fragment");
                         item.setCheckable(true);
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.my_account:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new myAccountFragment());
+                        fragmentTransaction.replace( main_container, new myAccountFragment());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("My Account");
                         item.setCheckable(true);
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_about:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new AboutDriftingFragment());
+                        fragmentTransaction.replace( main_container, new AboutDriftingFragment());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("About Drifting");
                         item.setCheckable(true);
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_shop:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new ShopFragment());
+                        fragmentTransaction.replace( main_container, new ShopFragment());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("Shop");
                         item.setCheckable(true);
@@ -75,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_news:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new NewsFragment());
+                        fragmentTransaction.replace( main_container, new NewsFragment());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("News");
                         item.setCheckable(true);
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_standings:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new StandingsList());
+                        fragmentTransaction.replace( main_container, new StandingsList());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("Standings");
                         item.setCheckable(true);
@@ -91,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_gallery:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new MediaGallery());
+                        fragmentTransaction.replace( main_container, new MediaGallery());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("Gallery");
                         item.setCheckable(true);
@@ -99,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_admin:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new AdminLoginPanel());
+                        fragmentTransaction.replace( main_container, new AdminLoginPanel());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("Admin");
                         item.setCheckable(true);
@@ -107,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_map:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new OpenMapActivity());
+                        fragmentTransaction.replace( main_container, new OpenMapActivity());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("Navigation to Event");
                         item.setCheckable(true);
@@ -115,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_hotels:
                 fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.main_container, new AccomodationButtonsFragment());
+                fragmentTransaction.replace( main_container, new AccomodationButtonsFragment());
                 fragmentTransaction.commit();
                 getSupportActionBar().setTitle("Hotels and Restaurants");
                 item.setCheckable(true);
@@ -123,11 +125,24 @@ public class MainActivity extends AppCompatActivity {
                 break;
                     case R.id.nav_calendar:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new CalendarFragment());
+                        fragmentTransaction.replace( main_container, new CalendarFragment());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("Calendar");
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
+                        break;
+                    case R.id.nav_live:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace( main_container, new LiveFragment());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Live");
+                        item.setCheckable(true);
+                        drawerLayout.closeDrawers();
+                        break;
+                    case R.id.nav_fanzone:
+                        intent = new Intent(getApplicationContext(), MainChatActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
                         break;
 
             }
