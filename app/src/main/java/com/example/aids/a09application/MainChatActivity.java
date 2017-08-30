@@ -93,12 +93,15 @@ public class MainChatActivity extends AppCompatActivity {
 
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
             startActivityForResult( AuthUI.getInstance().createSignInIntentBuilder().build(), SIGN_IN_REQUEST_CODE );
-        } else {
+        }
+        else
+        {
             Snackbar.make( chat_activity_main, "Welcome" + FirebaseAuth.getInstance().getCurrentUser().getEmail(), Snackbar.LENGTH_SHORT ).show();
+
+            //Load Content
+            displayChatMessage();
         }
 
-        //Load Content
-        displayChatMessage();
 
     }
 

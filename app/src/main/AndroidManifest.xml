@@ -14,6 +14,8 @@
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
+        tools:replace ="android:supportsRtl"
+        tools:overrideLibrary="com.firebase.ui"
         android:label="DriftFan"
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -48,6 +50,8 @@
             android:name=".media_main"
             android:label="@string/title_activity_media_main"
             android:theme="@style/AppTheme"/>
+
+
     </application>
 
 </manifest>
