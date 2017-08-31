@@ -3,6 +3,7 @@ package com.example.aids.a09application;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -37,7 +38,8 @@ public class HotelsGeneratorMondello extends Activity {
         });
 
         Bundle b = getIntent().getExtras();
-        hotelID = b.getInt("BUILDING_ID");
+        hotelID = b.getInt("ID");
+        Log.d("id in generator",Integer.toString(hotelID));
 
         // create building list
         List<Hotel> getAllHotels = db.getAllHotelsMondello();

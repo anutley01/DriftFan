@@ -3,6 +3,7 @@ package com.example.aids.a09application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -60,6 +61,7 @@ public class HotelsListMondello extends AppCompatActivity {
                     }
                 }
                 extras.putInt("ID", (hotelId));
+                Log.d("id in list",Integer.toString(hotelId));
                 intent.putExtras(extras);
                 startActivity(intent);
 
