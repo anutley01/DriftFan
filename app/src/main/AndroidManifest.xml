@@ -37,8 +37,8 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBTRfL5yA7UzxvUwcw34KONXj5Tczhk_kQ"/>
 
+
         <activity android:name=".RegisterActivity"/>
-        <activity android:name=".LoginActivity"/>
         <activity android:name=".EditAccount"/>
         <activity android:name=".HotelsGeneratorMondello"/>
         <activity android:name=".HotelsListMondello"/>
@@ -46,6 +46,7 @@
         <activity android:name=".HotelsListWatergrassHill"/>
         <activity android:name=".LiveVideoViewer"/>
         <activity android:name=".MainChatActivity"/>
+        <activity android:name=".LoginActivity"/>
         <activity
             android:name=".media_main"
             android:label="@string/title_activity_media_main"
