@@ -12,9 +12,6 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Johnsey on 25-Aug-17.
- */
 
 public class HotelsListWatergrassHill extends AppCompatActivity {
     ListView hotelList;
@@ -25,7 +22,7 @@ public class HotelsListWatergrassHill extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.hotel_list);
+        setContentView(R.layout.listlayout);
         hotelList = (ListView) findViewById(R.id.hotel_listView);
         getAllHotels = db.getAllHotelsWatergrasshill();
         db.close();
@@ -35,8 +32,8 @@ public class HotelsListWatergrassHill extends AppCompatActivity {
 
         // loop through getAllBuilding List and add all building_name 's to buildingNames list
         for (int i = 0; i < getAllHotels.size(); i++) {
-            buildingNames.add(getAllHotels.get(i).getHotelName());
-            Log.d("building names",buildingNames.toString());
+            buildingNames.add(getAllHotels.get(i).getName());
+            Log.d("building names", buildingNames.toString());
             //sort alphabetically
 
 
@@ -48,19 +45,20 @@ public class HotelsListWatergrassHill extends AppCompatActivity {
         hotelList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(HotelsListWatergrassHill.this, HotelsGeneratorMondello.class);
+                Intent intent = new Intent(HotelsListWatergrassHill.this, HotelsGeneratorWatergrasshill.class);
                 Bundle extras = new Bundle();
                 int hotelId = 1;
                 // set up string with the selected onItem building name
                 Object hotelName = adapter.getItem(position);
                 //loop through buildings (info pulled from db) to match the building names
                 for (int i = 0; i < getAllHotels.size(); i++) {
-                    if (hotelName.equals(getAllHotels.get(i).getHotelName())) {
+                    if (hotelName.equals(getAllHotels.get(i).getName())) {
                         // get the corresponding building_id
                         hotelId = getAllHotels.get(i).getId();
                     }
                 }
                 extras.putInt("ID", (hotelId));
+                Log.d("id in list", Integer.toString(hotelId));
                 intent.putExtras(extras);
                 startActivity(intent);
 

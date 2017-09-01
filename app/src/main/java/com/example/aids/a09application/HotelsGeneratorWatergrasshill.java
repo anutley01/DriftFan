@@ -10,29 +10,30 @@ import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
-public class HotelsGeneratorMondello extends Activity {
+public class HotelsGeneratorWatergrasshill extends Activity {
     SQLHelper db = new SQLHelper(this);
     int hotelID;
     String hotelName, hotelPhone, price, near_to;
     double latitude, longitude;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_select);
-        ImageButton mapsButton = (ImageButton) findViewById(R.id.mapsButton);
-        ImageButton phoneButton = (ImageButton) findViewById(R.id.phoneButton);
-
+        ImageButton mapsButton = (ImageButton)findViewById(R.id.mapsButton);
+        ImageButton phoneButton = (ImageButton)findViewById(R.id.phoneButton);
+        TextView hotelIdText = (TextView)findViewById(R.id.hotelId);
         Bundle b = getIntent().getExtras();
         hotelID = b.getInt("ID");
-        Log.d("id in generator", Integer.toString(hotelID));
+        Log.d("id in generator",Integer.toString(hotelID));
 
         // create building list
-        List<Hotel> getAllHotels = db.getAllHotelsMondello();
+        List<Hotel> getAllHotels = db.getAllHotelsWatergrasshill();
 
         for (int i = 0; i < getAllHotels.size(); i++) {
             Hotel hotel = getAllHotels.get(i);
@@ -44,14 +45,11 @@ public class HotelsGeneratorMondello extends Activity {
                 longitude = hotel.getLongitude();
                 price = hotel.getPrice();
                 // set the empty fields to the data retrieved from the database
-                // textViewName.setText(buildingName);
-                //textViewAddress.setText(buildingAddress.replace(", ", "\n"));
-                //imageView.setImageResource(getImageId(this, buildingImage));
-                mapsButton.setOnClickListener(new View.OnClickListener() {
+                mapsButton.setOnClickListener(new View.OnClickListener(){
                     @Override
-                    public void onClick(View v) {
+                    public void onClick(View v){
                         // Create a Uri from an intent string. Use the result to create an Intent.
-                        Uri mondelloPark = Uri.parse("google.navigation:q=" + latitude + "," + longitude);
+                        Uri mondelloPark = Uri.parse("google.navigation:q="+ latitude + "," + longitude);
                         // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
                         Intent directToMondello = new Intent(Intent.ACTION_VIEW, mondelloPark);
                         // Make the Intent explicit by setting the Google Maps package
@@ -59,8 +57,7 @@ public class HotelsGeneratorMondello extends Activity {
                         // Attempt to start an activity that can handle the Intent
                         startActivity(directToMondello);
                     }
-                });
-                phoneButton.setOnClickListener(new View.OnClickListener() {
+                }); phoneButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + hotelPhone));
@@ -82,4 +79,3 @@ public class HotelsGeneratorMondello extends Activity {
 
             }
         }}}
-

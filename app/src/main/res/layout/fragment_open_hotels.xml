@@ -20,4 +20,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="View Hotels near Watergrasshill" />
+    <Button
+        android:id="@+id/restaurantsMondello"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Restaurants near Mondello Park" />
 </LinearLayout>

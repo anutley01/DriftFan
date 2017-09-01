@@ -26,7 +26,7 @@ public class HotelsListMondello extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.hotel_list);
+        setContentView(R.layout.listlayout);
         hotelList = (ListView) findViewById(R.id.hotel_listView);
         getAllHotels = db.getAllHotelsMondello();
         db.close();
@@ -34,9 +34,9 @@ public class HotelsListMondello extends AppCompatActivity {
         // set up ArrayList for buildingNames
         final List<String> buildingNames = new ArrayList<>();
 
-        // loop through getAllBuilding List and add all building_name 's to buildingNames list
+        // loop through getAllBuilding List and add all building_name's to buildingNames list
         for (int i = 0; i < getAllHotels.size(); i++) {
-            buildingNames.add(getAllHotels.get(i).getHotelName());
+            buildingNames.add(getAllHotels.get(i).getName());
             //sort alphabetically
 
 
@@ -55,7 +55,7 @@ public class HotelsListMondello extends AppCompatActivity {
                 Object hotelName = adapter.getItem(position);
                 //loop through buildings (info pulled from db) to match the building names
                 for (int i = 0; i < getAllHotels.size(); i++) {
-                    if (hotelName.equals(getAllHotels.get(i).getHotelName())) {
+                    if (hotelName.equals(getAllHotels.get(i).getName())) {
                         // get the corresponding building_id
                         hotelId = getAllHotels.get(i).getId();
                     }

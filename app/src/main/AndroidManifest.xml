@@ -9,6 +9,7 @@
     <uses-permission android:name="com.google.anroid.providers.gsf.permission.READ_GSERVICES"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -44,8 +45,11 @@
         <activity android:name=".HotelsListMondello"/>
         <activity android:name=".HotelsListDunLaoghaire"/>
         <activity android:name=".HotelsListWatergrassHill"/>
+        <activity android:name=".RestaurantListMondello"/>
         <activity android:name=".LiveVideoViewer"/>
         <activity android:name=".MainChatActivity"/>
+        <activity android:name=".HotelsGeneratorDunLaoghaire"/>
+        <activity android:name=".HotelsGeneratorWatergrasshill"/>
         <activity
             android:name=".media_main"
             android:label="@string/title_activity_media_main"
