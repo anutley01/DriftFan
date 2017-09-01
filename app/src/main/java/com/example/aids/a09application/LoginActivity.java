@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity implements AsyncResponse {
             public void onClick(View v) {
 
                 HashMap postData = new HashMap();
-              //  postData.put("mobile", "android");
+                //  postData.put("mobile", "android");
                 postData.put("txtUsername", etUsername.getText().toString());
                 postData.put("txtPassword", etPassword.getText().toString());
 

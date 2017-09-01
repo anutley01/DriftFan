@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">DriftFan</string>
     <string name="Media">Media</string>
+    <string name="facebook_app_id">118066628922057</string>
+    <string name="fb_login_protocol_scheme">fb118066628922057</string>
+
 
 
     <string name="drawer_open">drawer open</string>

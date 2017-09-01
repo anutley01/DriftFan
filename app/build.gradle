@@ -48,5 +48,7 @@ dependencies {
     compile 'com.firebaseui:firebase-ui-auth:1.1.1'
     compile 'com.firebaseui:firebase-ui:1.1.1'
     compile 'com.android.support:multidex:1.0.1'
+    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
+    compile 'com.github.sundeepk:compact-calendar-view:2.0.2.2'
 }
 apply plugin: 'com.google.gms.google-services'

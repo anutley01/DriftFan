@@ -6,7 +6,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,7 +16,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.text.format.DateFormat;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.database.FirebaseListAdapter;
@@ -53,7 +54,13 @@ public class MainChatActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate( R.menu.chat_main_menu, menu );
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_back);
+        actionBar.setDisplayShowHomeEnabled(true);
         return true;
+
     }
 
     @Override
@@ -122,7 +129,7 @@ public class MainChatActivity extends AppCompatActivity {
 
                 messageText.setText( model.getMessageText() );
                 messageUser.setText( model.getMessageUser() );
-                messageTime.setText( DateFormat.format( "dd-mm-yyyy (HH:MM:SS)",model.getMessageTime() ) );
+                messageTime.setText( DateFormat.format( "dd-mm-yyyy (HH:MM)",model.getMessageTime() ) );
             }
         };
 

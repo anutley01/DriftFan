@@ -2,10 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+    android:background="@color/black" >
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+    <com.github.sundeepk.compactcalendarview.CompactCalendarView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/compactcalendar_view"
+        android:layout_width="fill_parent"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="25dp"
+        android:layout_height="250dp"
+        app:compactCalendarTargetHeight="250dp"
+        app:compactCalendarTextSize="12sp"
+        app:compactCalendarBackgroundColor="@color/black"
+        app:compactCalendarTextColor="@color/colorPrimary"
+        app:compactCalendarCurrentSelectedDayBackgroundColor="@color/white"
+        app:compactCalendarCurrentDayBackgroundColor="@color/white"
+        app:compactCalendarMultiEventIndicatorColor="#fff"
+        />
+
 </LinearLayout>
