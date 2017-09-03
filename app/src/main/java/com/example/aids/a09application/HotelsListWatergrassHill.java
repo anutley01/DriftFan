@@ -45,9 +45,10 @@ public class HotelsListWatergrassHill extends AppCompatActivity {
         hotelList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(HotelsListWatergrassHill.this, HotelsGeneratorWatergrasshill.class);
+                Intent intent = new Intent(HotelsListWatergrassHill.this, HotelsGenerator.class);
                 Bundle extras = new Bundle();
                 int hotelId = 1;
+                String hotelNearTo = "None";
                 // set up string with the selected onItem building name
                 Object hotelName = adapter.getItem(position);
                 //loop through buildings (info pulled from db) to match the building names
@@ -55,10 +56,12 @@ public class HotelsListWatergrassHill extends AppCompatActivity {
                     if (hotelName.equals(getAllHotels.get(i).getName())) {
                         // get the corresponding building_id
                         hotelId = getAllHotels.get(i).getId();
+                        hotelNearTo = getAllHotels.get(i).getNearTo();
                     }
                 }
                 extras.putInt("ID", (hotelId));
                 Log.d("id in list", Integer.toString(hotelId));
+                extras.putString("NEAR_TO", (hotelNearTo));
                 intent.putExtras(extras);
                 startActivity(intent);
 

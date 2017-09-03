@@ -3,6 +3,7 @@ package com.example.aids.a09application;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -46,7 +47,7 @@ public class RestaurantListMondello extends Activity {
         restaurantList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(RestaurantListMondello.this, HotelsGeneratorMondello.class);
+                Intent intent = new Intent(RestaurantListMondello.this, RestaurantGenMondello.class);
                 Bundle extras = new Bundle();
                 int hotelId = 1;
                 // set up string with the selected onItem building name
@@ -58,10 +59,15 @@ public class RestaurantListMondello extends Activity {
                         hotelId = getAllRestaurants.get(i).getId();
                     }
                 }
+                extras.putInt("ID", (hotelId));
+                Log.d("id in list", Integer.toString(hotelId));
+                intent.putExtras(extras);
+                startActivity(intent);
+
             }
         });
 
     }
-
 }
+
 

@@ -41,15 +41,15 @@
 
         <activity android:name=".RegisterActivity"/>
         <activity android:name=".EditAccount"/>
-        <activity android:name=".HotelsGeneratorMondello"/>
         <activity android:name=".HotelsListMondello"/>
         <activity android:name=".HotelsListDunLaoghaire"/>
         <activity android:name=".HotelsListWatergrassHill"/>
         <activity android:name=".RestaurantListMondello"/>
         <activity android:name=".LiveVideoViewer"/>
         <activity android:name=".MainChatActivity"/>
-        <activity android:name=".HotelsGeneratorDunLaoghaire"/>
-        <activity android:name=".HotelsGeneratorWatergrasshill"/>
+        <activity android:name=".HotelsGenerator"/>
+        <activity android:name=".RestaurantGenMondello"/>
+
         <activity
             android:name=".media_main"
             android:label="@string/title_activity_media_main"

@@ -93,8 +93,8 @@ public class SQLHelper extends SQLiteOpenHelper {
         //db.execSQL(CREATE_RESTAURANT_DUNLAOGHAIRE);
         //db.execSQL(CREATE_RESTAURANT_WATERGRASSHILL);
         db.execSQL(insertHotelMondello(1,"Curragh B&B", "+35345456429", 53.124905, -6.789059, "A", "Mondello Park"));
-        db.execSQL(insertHotelMondello(2,"No. 5 Bed and Breakfast", "+353 1 708 6400", 53.130330, -6.755625, "A", "Mondello Park"));
-        db.execSQL(insertHotelMondello(3,"Maynooth Campus", "+353 85 110 0907", 53.379794, -6.595520, "A", "Mondello Park"));
+        db.execSQL(insertHotelMondello(2,"No. 5 Bed and Breakfast", "+353 85 110 0907", 53.130330, -6.755625, "A", "Mondello Park"));
+        db.execSQL(insertHotelMondello(3,"Maynooth Campus", "+353 1 708 6400", 53.379794, -6.595520, "A", "Mondello Park"));
         db.execSQL(insertHotelMondello(4,"Tulloch", "+353 45 531 988", 53.171297, -6.973274, "A", "Mondello Park"));
         db.execSQL(insertHotelMondello(5,"Kilcullen Home Stay", "+353 87 650 7195", 53.127930, -6.746819, "A", "Mondello Park"));
         db.execSQL(insertHotelMondello(6,"Cherryville House B&B", "+353 45 521 091", 53.155753, -6.963233, "A", "Mondello Park"));
