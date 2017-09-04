@@ -3,12 +3,14 @@ package com.example.aids.a09application;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -25,10 +27,12 @@ public class RestaurantGenMondello extends Activity {
         setContentView(R.layout.activity_hotel_select);
         ImageButton mapsButton = (ImageButton)findViewById(R.id.mapsButton);
         ImageButton phoneButton = (ImageButton)findViewById(R.id.phoneButton);
+        ImageButton infoButton = (ImageButton)findViewById(R.id.infoButton);
+        TextView dispHotel = (TextView)findViewById(R.id.displayHotelName);
         Bundle b = getIntent().getExtras();
         restaurantID = b.getInt("ID");
         near_to = b.getString("NEAR_TO");
-
+        final String mondelloPark;
         Log.d("id in generator",Integer.toString(restaurantID));
 
         List<Hotel> getAllHotels;
@@ -37,6 +41,7 @@ public class RestaurantGenMondello extends Activity {
             getAllHotels = db.getAllRestaurantsDunLaoghaire();
         } else if (near_to.equals("Mondello Park")){
             getAllHotels = db.getAllRestaurantsMondello();
+            mondelloPark = "Kildare";
         } else if (near_to.equals("Watergrasshill")){
             getAllHotels = db.getAllHotelsWatergrasshill();
         } else {
@@ -56,6 +61,7 @@ public class RestaurantGenMondello extends Activity {
                 latitude = hotel.getLatitude();
                 longitude = hotel.getLongitude();
                 // set the empty fields to the data retrieved from the database
+                dispHotel.setText(restaurantName);
                 mapsButton.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View v){
@@ -69,6 +75,22 @@ public class RestaurantGenMondello extends Activity {
                         return true;
                     }
                 });
+                infoButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        shortClickToastInfoButton();
+                    }
+                });
+                infoButton.setOnLongClickListener(new View.OnLongClickListener() {
+
+                    @Override
+                    public boolean onLongClick(View v) {
+                        Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=" + restaurantName + " " + near_to));
+                        startActivity(intent);
+                        return true;
+                    }
+                });
+
                 phoneButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -112,5 +134,9 @@ public class RestaurantGenMondello extends Activity {
             startActivity(intent);
             return;
         }
+    }
+
+    public void shortClickToastInfoButton(){
+        Toast.makeText(this, "Press and hold to open information in maps to this restaurant", Toast.LENGTH_LONG).show();
     }
 }

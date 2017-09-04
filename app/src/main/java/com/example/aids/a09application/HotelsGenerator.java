@@ -10,6 +10,7 @@ import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -27,6 +28,7 @@ public class HotelsGenerator extends Activity {
         ImageButton mapsButton = (ImageButton)findViewById(R.id.mapsButton);
         ImageButton phoneButton = (ImageButton)findViewById(R.id.phoneButton);
         ImageButton infoButton = (ImageButton)findViewById(R.id.infoButton);
+        TextView dispHotel = (TextView)findViewById(R.id.displayHotelName);
         Bundle b = getIntent().getExtras();
         hotelID = b.getInt("ID");
         near_to = b.getString("NEAR_TO");
@@ -54,7 +56,25 @@ public class HotelsGenerator extends Activity {
                     latitude = hotel.getLatitude();
                     longitude = hotel.getLongitude();
                     price = hotel.getPrice();
-                    // set the empty fields to the data retrieved from the database
+                    dispHotel.setText(hotelName);
+                    if(near_to.equals("Mondello Park")){
+                        near_to = "Kildare";
+                    }
+                    infoButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            shortClickToastInfoButton();
+                        }
+                    });
+                    infoButton.setOnLongClickListener(new View.OnLongClickListener() {
+
+                        @Override
+                        public boolean onLongClick(View v) {
+                            Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=" + hotelName + "    " + near_to));
+                            startActivity(intent);
+                            return true;
+                        }
+                    });
                     mapsButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -94,7 +114,9 @@ public class HotelsGenerator extends Activity {
     public void shortClickToastPhone(){
         Toast.makeText(this, "Press and hold to call this hotel", Toast.LENGTH_LONG).show();
     }
-
+    public void shortClickToastInfoButton(){
+        Toast.makeText(this, "Press and hold to view information about this hotel", Toast.LENGTH_LONG).show();
+    }
     public void longClickMapButton(){
         // Create a Uri from an intent string. Use the result to create an Intent.
         Uri restaurant = Uri.parse("google.navigation:q="+ latitude + "," + longitude);
