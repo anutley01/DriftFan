@@ -15,8 +15,8 @@ import java.util.List;
 
 public class RestaurantGenMondello extends Activity {
     SQLHelper db = new SQLHelper(this);
-    int hotelID;
-    String restaurantName, phone, price, near_to;
+    int restaurantID;
+    String restaurantName, phone, near_to;
     double latitude, longitude;
 
     @Override
@@ -26,16 +26,31 @@ public class RestaurantGenMondello extends Activity {
         ImageButton mapsButton = (ImageButton)findViewById(R.id.mapsButton);
         ImageButton phoneButton = (ImageButton)findViewById(R.id.phoneButton);
         Bundle b = getIntent().getExtras();
-        hotelID = b.getInt("ID");
-        Log.d("id in generator",Integer.toString(hotelID));
+        restaurantID = b.getInt("ID");
+        near_to = b.getString("NEAR_TO");
 
+        Log.d("id in generator",Integer.toString(restaurantID));
+
+        List<Hotel> getAllHotels;
         // create building list
-        List<Hotel> getAllHotels = db.getAllRestaurantsMondello();
+        if(near_to.equals("Dun Laoghaire")) {
+            getAllHotels = db.getAllRestaurantsDunLaoghaire();
+        } else if (near_to.equals("Mondello Park")){
+            getAllHotels = db.getAllRestaurantsMondello();
+        } else if (near_to.equals("Watergrasshill")){
+            getAllHotels = db.getAllHotelsWatergrasshill();
+        } else {
+            Log.d("The error is here.", "error");
+            getAllHotels = null;
+        }
+        //if (getAllHotels.equals(null)){
+          //  Toast.makeText(this, "There has been an error. Please restart the application.", Toast.LENGTH_LONG).show();
+        //} else {
 
         for (int i = 0; i < getAllHotels.size(); i++) {
             Hotel hotel = getAllHotels.get(i);
             // finds the correct building that was sent through via Intent from previous class
-            if (hotelID == hotel.getId()) {
+            if (restaurantID == hotel.getId()) {
                 restaurantName = hotel.getName();
                 phone = hotel.getPhone();
                 latitude = hotel.getLatitude();
@@ -74,7 +89,7 @@ public class RestaurantGenMondello extends Activity {
     }
 
     public void shortClickToastMap(){
-        Toast.makeText(this, "Press and hold to open navigation in maps to this hotel", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Press and hold to open navigation in maps to this restaurant", Toast.LENGTH_LONG).show();
     }
 
     public void shortClickToastPhone(){
@@ -95,13 +110,6 @@ public class RestaurantGenMondello extends Activity {
         Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
         if (ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             startActivity(intent);
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return;
         }
     }

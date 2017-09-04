@@ -23,6 +23,8 @@ public class AccomodationButtonsFragment extends Fragment {
         Button openHotelDunLaoghaire = (Button) view.findViewById(R.id.hotelsDunLaoghaire);
         Button openHotelWatergrasshill = (Button) view.findViewById(R.id.hotelsWatergrasshill);
         Button openRestaurantMondello = (Button) view.findViewById(R.id.restaurantsMondello);
+        Button openRestaurantDunLaoghaire = (Button) view.findViewById(R.id.restaurantsDunLaoghaire);
+        Button openRestaurantsWatergrasshill = (Button) view.findViewById(R.id.restaurantsWatergrasshill);
         openHotelMondello.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +51,20 @@ public class AccomodationButtonsFragment extends Fragment {
                 Intent intentOpenHotelPage = new Intent(getActivity(), RestaurantListMondello.class);
                 startActivity(intentOpenHotelPage);
             }
+        });openRestaurantDunLaoghaire.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intentOpenDunLaoghaireRest = new Intent(getActivity(), RestaurantListDunLaoghaire.class);
+                startActivity(intentOpenDunLaoghaireRest);
+            }
+        });openRestaurantsWatergrasshill.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent openWatergrasshillRest = new Intent(getActivity(), RestaurantListWatergrasshill.class);
+                startActivity(openWatergrasshillRest);
+            }
         });
+
         return view;
 
     }

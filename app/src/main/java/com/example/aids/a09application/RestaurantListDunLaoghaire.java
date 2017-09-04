@@ -16,7 +16,7 @@ import java.util.List;
  * Created by Connor on 30/08/2017.
  */
 
-public class RestaurantListMondello extends Activity {
+public class RestaurantListDunLaoghaire extends Activity {
 
     ListView restaurantList;
     SQLHelper db = new SQLHelper(this);
@@ -28,7 +28,7 @@ public class RestaurantListMondello extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listlayout);
         restaurantList = (ListView) findViewById(R.id.hotel_listView);
-        getAllRestaurants = db.getAllRestaurantsMondello();
+        getAllRestaurants = db.getAllRestaurantsDunLaoghaire();
         db.close();
 
         // set up ArrayList for buildingNames
@@ -41,12 +41,12 @@ public class RestaurantListMondello extends Activity {
         }
 
         // set up adapter for searchBar listView
-        adapter = new ArrayAdapter<>(RestaurantListMondello.this, android.R.layout.simple_list_item_1, buildingNames);
+        adapter = new ArrayAdapter<>(RestaurantListDunLaoghaire.this, android.R.layout.simple_list_item_1, buildingNames);
         restaurantList.setAdapter(adapter);
         restaurantList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(RestaurantListMondello.this, RestaurantGenMondello.class);
+                Intent intent = new Intent(RestaurantListDunLaoghaire.this, RestaurantGenMondello.class);
                 Bundle extras = new Bundle();
                 int hotelId = 1;
                 String nearTo = "None";
@@ -71,5 +71,3 @@ public class RestaurantListMondello extends Activity {
 
     }
 }
-
-

@@ -25,4 +25,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="View Restaurants near Mondello Park" />
+    <Button
+        android:id="@+id/restaurantsDunLaoghaire"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Restaurants near Dun Laoghaire" />
+    <Button
+        android:id="@+id/restaurantsWatergrasshill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Restaurants near Watergrasshill" />
 </LinearLayout>
