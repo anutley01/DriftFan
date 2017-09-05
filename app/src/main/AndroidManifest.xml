@@ -53,7 +53,6 @@
         <activity android:name=".MainChatActivity"/>
         <activity android:name=".HotelsGenerator"/>
         <activity android:name=".RestaurantGenMondello"/>
-        <activity android:name=".LoginActivity"/>
 
         <activity
             android:name=".media_main"
