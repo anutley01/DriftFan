@@ -35,13 +35,13 @@ public class SQLHelper extends SQLiteOpenHelper {
     public static final String TABLE_CAR_QUIZ = "Cars";
     public static final String CAR_ID = "car_id";
     public static final String CAR_NAME = "car_name";
-    public static final String INC_CAR_NAME_1 = "incorrect_car_name_two";
+    public static final String INC_CAR_NAME_1 = "incorrect_car_name_one";
     public static final String INC_CAR_NAME_2 = "incorrect_car_name_two";
     public static final String INC_CAR_NAME_3 = "incorrect_car_name_three";
     public static final String CAR_IMAGE = "car_image";
 
     private static final String DATABASE_NAME = "DriftFan";
-    private static final int DATABASE_VERSION = 32;
+    private static final int DATABASE_VERSION = 33;
 
     public static final String CREATE_CAR_QUIZ = "CREATE TABLE IF NOT EXISTS " + TABLE_CAR_QUIZ + "("
             + CAR_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"

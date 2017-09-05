@@ -40,6 +40,7 @@
 
 
         <activity android:name=".RegisterActivity"/>
+        <activity android:name=".LoginActivity"/>
         <activity android:name=".EditAccount"/>
         <activity android:name=".HotelsListMondello"/>
         <activity android:name=".HotelsListDunLaoghaire"/>

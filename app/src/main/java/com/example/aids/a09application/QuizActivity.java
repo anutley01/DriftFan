@@ -3,30 +3,39 @@ package com.example.aids.a09application;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.List;
 
+import static com.example.aids.a09application.R.id.answer1;
+import static com.example.aids.a09application.R.id.answer2;
+import static com.example.aids.a09application.R.id.answer3;
+import static com.example.aids.a09application.R.id.answer4;
+import static com.example.aids.a09application.R.id.carImage;
+
 /**
  * Created by Connor on 05/09/2017.
  */
 
-public class QuizActivity extends Activity{
+public class QuizActivity extends Activity {
     SQLHelper db = new SQLHelper(this);
     String carName, incorrectCarName1, incorrectCarName2, incorrectCarName3, carImageName;
-    ImageView carImage = (ImageView)findViewById(R.id.carImage);
-    Button answer1 = (Button)findViewById(R.id.answer1);
-    Button answer2 = (Button)findViewById(R.id.answer2);
-    Button answer3 = (Button)findViewById(R.id.answer3);
-    Button answer4 = (Button)findViewById(R.id.answer4);
-    Button next = (Button)findViewById(R.id.nextButtonQuiz);
+    Button answer1,answer2,answer3,answer4, next;
+    ImageView carImage;
     int wrongAnswers, correctAnswers;
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.question);
+        carImage = (ImageView)findViewById(R.id.carImage);
+        answer1 = (Button)findViewById(R.id.answer1);
+        answer2 = (Button)findViewById(R.id.answer2);
+        answer3 = (Button)findViewById(R.id.answer3);
+        answer4 = (Button)findViewById(R.id.answer4);
+        Button next = (Button)findViewById(R.id.nextButtonQuiz);
         List<Car> getAllCars = db.getAllCars();
         Bundle b = getIntent().getExtras();
         int id = b.getInt("QUESTION");
