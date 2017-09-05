@@ -28,7 +28,7 @@ public class HotelsListMondello extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listlayout);
         hotelList = (ListView) findViewById(R.id.hotel_listView);
-        getAllHotels = db.getAllHotelsMondello();
+        getAllHotels = db.getAllHotelsMondello("Mondello Park");
         db.close();
 
         // set up ArrayList for buildingNames

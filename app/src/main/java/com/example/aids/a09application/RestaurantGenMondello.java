@@ -43,7 +43,7 @@ public class RestaurantGenMondello extends Activity {
             getAllHotels = db.getAllRestaurantsMondello();
             mondelloPark = "Kildare";
         } else if (near_to.equals("Watergrasshill")){
-            getAllHotels = db.getAllHotelsWatergrasshill();
+            getAllHotels = db.getAllRestaurantsWatergrasshill();
         } else {
             Log.d("The error is here.", "error");
             getAllHotels = null;

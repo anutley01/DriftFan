@@ -27,7 +27,7 @@ public class HotelsListDunLaoghaire extends AppCompatActivity {
         setContentView(R.layout.listlayout);
 
         hotelList = (ListView) findViewById(R.id.hotel_listView);
-        getAllHotels = db.getAllHotelsDunLaoghaire();
+        getAllHotels = db.getAllHotelsMondello("Dun Laoghaire");
         db.close();
 
         // set up ArrayList for buildingNames

@@ -36,11 +36,11 @@ public class HotelsGenerator extends Activity {
         List<Hotel> getAllHotels;
         // create building list
         if(near_to.equals("Dun Laoghaire")) {
-            getAllHotels = db.getAllHotelsDunLaoghaire();
+            getAllHotels = db.getAllHotelsMondello("Dun Laoghaire");
         } else if (near_to.equals("Mondello Park")){
-            getAllHotels = db.getAllHotelsMondello();
+            getAllHotels = db.getAllHotelsMondello("Mondello Park");
         } else if (near_to.equals("Watergrasshill")){
-            getAllHotels = db.getAllHotelsDunLaoghaire();
+            getAllHotels = db.getAllHotelsMondello("Watergrasshill");
         } else {
             getAllHotels = null;
         }
