@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/carImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        app:srcCompat="@drawable/placeholder"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/answer1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/answer2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:text="Button"
+        android:layout_below="@+id/answer1"
+        android:layout_alignLeft="@+id/answer1"
+        android:layout_alignStart="@+id/answer1" />
+
+    <Button
+        android:id="@+id/answer3"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/answer2"
+        android:layout_alignStart="@+id/answer2"
+        android:layout_below="@+id/answer2"
+        android:layout_marginTop="13dp"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/answer4"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Button"
+        android:layout_below="@+id/answer3"
+        android:layout_alignLeft="@+id/answer3"
+        android:layout_alignStart="@+id/answer3" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="39dp"
+        android:text="Can you identify this car?"
+        android:layout_above="@+id/answer1"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/nextButtonQuiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/answer4"
+        android:layout_toRightOf="@+id/answer4"
+        android:text="Next" />
+
+
+</RelativeLayout>

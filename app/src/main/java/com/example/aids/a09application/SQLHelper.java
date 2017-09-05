@@ -32,9 +32,25 @@ public class SQLHelper extends SQLiteOpenHelper {
     public static final String TABLE_RESTAURANTS_WATERGRASSHILL = "WatergrasshillRestaurants";
     public static final String RESTAURANT_ID = "restaurant_id";
     public static final String RESTAURANT_NAME = "restaurant_name";
+    public static final String TABLE_CAR_QUIZ = "Cars";
+    public static final String CAR_ID = "car_id";
+    public static final String CAR_NAME = "car_name";
+    public static final String INC_CAR_NAME_1 = "incorrect_car_name_two";
+    public static final String INC_CAR_NAME_2 = "incorrect_car_name_two";
+    public static final String INC_CAR_NAME_3 = "incorrect_car_name_three";
+    public static final String CAR_IMAGE = "car_image";
 
     private static final String DATABASE_NAME = "DriftFan";
-    private static final int DATABASE_VERSION = 31;
+    private static final int DATABASE_VERSION = 32;
+
+    public static final String CREATE_CAR_QUIZ = "CREATE TABLE IF NOT EXISTS " + TABLE_CAR_QUIZ + "("
+            + CAR_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
+            + CAR_NAME + " TEXT," +
+            INC_CAR_NAME_1 + " TEXT," +
+            INC_CAR_NAME_2 + " TEXT," +
+            INC_CAR_NAME_3 + " TEXT," +
+            CAR_IMAGE + " TEXT"+ ")";
+
     public static final String CREATE_RESTAURANT_MONDELLO = "CREATE TABLE IF NOT EXISTS " + TABLE_RESTAURANTS_MONDELLO + "("
             + RESTAURANT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
             + RESTAURANT_NAME + " TEXT,"
@@ -87,12 +103,14 @@ public class SQLHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_RESTAURANTS_MONDELLO);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_RESTAURANTS_DUNLAOGHAIRE);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_RESTAURANTS_WATERGRASSHILL);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CAR_QUIZ);
         db.execSQL(CREATE_HOTEL_MONDELLO);
         db.execSQL(CREATE_HOTEL_DUNLAOGHAIRE);
         db.execSQL(CREATE_HOTEL_WATERGRASSHILL);
         db.execSQL(CREATE_RESTAURANT_MONDELLO);
         db.execSQL(CREATE_RESTAURANT_DUNLAOGHAIRE);
         db.execSQL(CREATE_RESTAURANT_WATERGRASSHILL);
+        db.execSQL(CREATE_CAR_QUIZ);
         db.execSQL(insertHotel(1,"Curragh B&B", "+35345456429", 53.124905, -6.789059, "A", "Mondello Park"));
         db.execSQL(insertHotel(2,"No. 5 Bed and Breakfast", "+353 85 110 0907", 53.130330, -6.755625, "A", "Mondello Park"));
         db.execSQL(insertHotel(3,"Maynooth Campus", "+353 1 708 6400", 53.379794, -6.595520, "A", "Mondello Park"));
@@ -192,6 +210,20 @@ public class SQLHelper extends SQLiteOpenHelper {
         db.execSQL(insertRestaurant(41,"Island Gate Restaurant and Bar", "+353 21 435 3951", 51.907600, -8.364202, "Watergrasshill"));
         db.execSQL(insertRestaurant(42,"Soba Asian Street Food, Glanmire", "+353 21 482 2737", 51.930674, -8.397485, "Watergrasshill"));
         db.execSQL(insertRestaurant(43,"Village Inn", "+353 21 451 8238", 51.914080, -8.428717, "Watergrasshill"));
+        db.execSQL(insertCar(1, "Nissan 180sx", "Nissan Silvia s15", "Nissan 350z", "Toyota G86", "@drawable/nissan_180sx"));
+        db.execSQL(insertCar(2, "Nissan Silvia s14", "Nissan Silvia S15", "Toyota Soarer", "Honda Civic", "@drawable/nissan_silvia_s14"));
+        db.execSQL(insertCar(3, "Nissan Silvia s15", "BMW M3", "Mazda RX-7", "Toyota G86", "@drawable/nissan_silvia_s15"));
+        db.execSQL(insertCar(4, "Nissan 350Z", "Nissan Skyline R33", "Mercedes C63 AMG", "Chevy Lumina", "@drawable/nissan_350z"));
+        db.execSQL(insertCar(5,"Nissan Skyline R33", "Mercedes C63 AMG", "Nissan 350z", "Toyota Supra", "@drawable/nissan_skyline_r33"));
+        db.execSQL(insertCar(6, "Toyota GT86", "Toyota Supra", "Toyota AE86", "BMW M3", "@drawable/toyota_gt86"));
+        db.execSQL(insertCar(7, "Toyota Supra", "Mazda MX-5", "Mazda RX-7", "Toyota Chaser", "@drawable/toyota_supra"));
+        db.execSQL(insertCar(8, "Toyota Ae86", "BMW M3", "Nissan 180sx", "Nissan Silvia s14", "@drawable/toyota_ae86"));
+        db.execSQL(insertCar(9, "Toyota CHASER", "Toyota Altezza", "Nissan 350z", "Nissan Skyline R33", "@drawable/toyota_chaser"));
+        db.execSQL(insertCar(10, "Toyota Soarer", "BMW X5", "Mazda MX-5", "Toyota Supra", "@drawable/toyota_soarer"));
+        db.execSQL(insertCar(11, "BMW m3", "Mazda MX-5", "Nissan Skyline R33", "Nissan 180sx", "@drawable/bmw_m3"));
+        db.execSQL(insertCar(12, "Mazda MX-5", "Mazda RX-7", "Toyota G86", "Toyota Altezza/Lexus IS200", "@drawable/mazda_mx5"));
+        db.execSQL(insertCar(13, "Mazda RX-7", "Toyota Supra", "Toyota AE86", "Honda Civic", "@drawable/mazda_rx7"));
+        db.execSQL(insertCar(14, "Toyota Altezza/Lexus IS200", "Toyota Supra", "Nissan Silvia s15", "Nissan Silvia s14", "@drawable/toyota_altezza"));
     }
     public String insertHotel(int hotelId, String hotel_name, String phone, double latitude, double longitude, String price, String near_to) {
         if (near_to.equals("Mondello Park")){
@@ -218,6 +250,13 @@ public class SQLHelper extends SQLiteOpenHelper {
         }
     }
 
+    public String insertCar(int id, String car_name, String inc_carname1, String inc_carname2, String inc_carname3, String car_image){
+        String insertCar = "INSERT INTO " + TABLE_CAR_QUIZ +
+                "(" + CAR_ID + "," + CAR_NAME + "," + INC_CAR_NAME_1 + "," + INC_CAR_NAME_2 + "," + INC_CAR_NAME_3 + "," + CAR_IMAGE +
+        ") VALUES (" + id + ",'"
+                + car_name + "','" + inc_carname1 + "', '" + inc_carname2 + "','" + inc_carname3 + "','" + car_image + "')";
+        return insertCar;
+    }
    /* public String insertHotelDunLaoghaire(int hotelId,String hotel_name, String phone, double latitude, double longitude, String price, String near_to) {
         String insertBuilding = "INSERT INTO " + TABLE_HOTEL_DUNLAOGHAIRE +
                 "(" + HOTEL_ID + "," + HOTEL_NAME + "," + PHONE + "," + LATITUDE + "," + LONGITUDE + "," + PRICE + "," + NEAR_TO
@@ -376,6 +415,33 @@ public class SQLHelper extends SQLiteOpenHelper {
         // Return a list of buildings
         return hotelsList;
     }*/
+
+    public List<Car> getAllCars() {
+        List<Car> CarList = new ArrayList<Car>();
+        // SELECT ALL query
+        String selectQuery = "SELECT * FROM " + TABLE_CAR_QUIZ;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // Loop through all rows and add them to the list
+        if (cursor.moveToFirst()) {
+            do {
+                Car car = new Car();
+                car.setCarID(Integer.parseInt(cursor.getString(0)));
+                car.setCarName(cursor.getString(1));
+                car.setIncorrectCarName1(cursor.getString(2));
+                car.setIncorrectCarName2(cursor.getString(3));
+                car.setIncorrectCarName3(cursor.getString(4));
+                car.setCarImage(cursor.getString(5));
+                // Add buildings to list
+                CarList.add(car);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        // Return a list of buildings
+        return CarList;
+    }
 
     public List<Hotel> getAllRestaurantsMondello() {
         List<Hotel> hotelsList = new ArrayList<Hotel>();
