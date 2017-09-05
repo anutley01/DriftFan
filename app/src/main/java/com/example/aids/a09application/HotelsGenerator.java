@@ -67,7 +67,6 @@ public class HotelsGenerator extends Activity {
                         }
                     });
                     infoButton.setOnLongClickListener(new View.OnLongClickListener() {
-
                         @Override
                         public boolean onLongClick(View v) {
                             Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=" + hotelName + "    " + near_to));
