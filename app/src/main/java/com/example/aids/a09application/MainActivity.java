@@ -144,6 +144,15 @@ public class MainActivity extends AppCompatActivity {
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                         break;
+                    case R.id.nav_quiz:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(main_container, new OpenQuizFragment());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Quiz");
+                        item.setCheckable(true);
+                        drawerLayout.closeDrawers();
+                        break;
+
 
             }
 

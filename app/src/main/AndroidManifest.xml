@@ -47,6 +47,7 @@
         <activity android:name=".RestaurantListMondello"/>
         <activity android:name=".RestaurantListDunLaoghaire"/>
         <activity android:name=".RestaurantListWatergrasshill"/>
+        <activity android:name=".QuizActivity"/>
         <activity android:name=".LiveVideoViewer"/>
         <activity android:name=".MainChatActivity"/>
         <activity android:name=".HotelsGenerator"/>

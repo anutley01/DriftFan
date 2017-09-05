@@ -12,7 +12,7 @@ import android.widget.Button;
  * Created by Connor on 18/08/2017.
  */
 
-public class AccomodationButtonsFragment extends Fragment {
+public class AccomodationButtonsFragment extends android.support.v4.app.Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
