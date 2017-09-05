@@ -43,7 +43,7 @@ public class CalendarFragment extends Fragment {
 
         //Set an event for Teachers' Professional Day 2016 which is 21st of October
 
-        Event ev1 = new Event(Color.RED, 1477040400000L, "Teachers' Professional Day");
+        Event ev1 = new Event(Color.RED, 1477040400000L, "BDC ROUND 5 // TEESSIDE AUTODROME");
         compactCalendar.addEvent(ev1);
 
         compactCalendar.setListener(new CompactCalendarView.CompactCalendarViewListener() {
@@ -51,8 +51,8 @@ public class CalendarFragment extends Fragment {
             public void onDayClick(Date dateClicked) {
                 Context context = getApplicationContext();
 
-                if (dateClicked.toString().compareTo("Fri Oct 21 00:00:00 AST 2016") == 0) {
-                    Toast.makeText(context, "Teachers' Professional Day", Toast.LENGTH_SHORT).show();
+                if (dateClicked.toString().compareTo("Fri Sep 15 00:00:00 AST 2017") == 0) {
+                    Toast.makeText(context, "BDC ROUND 5 // TEESSIDE AUTODROME", Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(context, "No Events Planned for that day", Toast.LENGTH_SHORT).show();
                 }
