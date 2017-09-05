@@ -235,7 +235,7 @@ public class SQLHelper extends SQLiteOpenHelper {
 
     public String insertRestaurantWatergrasshill(int restaurant_id, String restaurant_name, String phone, double latitude, double longitude, String near_to) {
         String insertBuilding = "INSERT INTO " + TABLE_RESTAURANTS_WATERGRASSHILL +
-                "(" + RESTAURANT_NAME + "," + PHONE + "," + LATITUDE + "," + LONGITUDE + "," + NEAR_TO + ") VALUES (" + restaurant_id + ",'"
+                "(" + RESTAURANT_ID + "," + RESTAURANT_NAME + "," + PHONE + "," + LATITUDE + "," + LONGITUDE + "," + NEAR_TO + ") VALUES (" + restaurant_id + ",'"
                 + restaurant_name + "','" + phone + "', " + latitude + "," + longitude + ", '" + near_to + "')";
         return insertBuilding;
     }
