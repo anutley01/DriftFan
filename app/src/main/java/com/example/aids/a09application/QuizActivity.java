@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -22,7 +23,6 @@ public class QuizActivity extends Activity {
     ImageView carImage;
     Bundle b;
     public int correctAnswers,wrongAnswers, id;
-
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -40,6 +40,7 @@ public class QuizActivity extends Activity {
         List<Car> getAllCars = db.getAllCars();
         Bundle b = getIntent().getExtras();
         id = b.getInt("QUESTION");
+        Log.d("Question id",Integer.toString(id));
         if(id <= 14){
             currentScore.setText("Current score: " + correctAnswers);
         question(id);
@@ -98,8 +99,11 @@ public class QuizActivity extends Activity {
                         public boolean onLongClick(View v) {
                             Intent nextQuestion = new Intent(getApplicationContext(), QuizActivity.class);
                             Bundle extras = new Bundle();
-                            extras.putInt("SCORE", correctAnswers++);
-                            extras.putInt("QUESTION", id++);
+                            correctAnswers++;
+                            id++;
+                            extras.putInt("SCORE", correctAnswers);
+                            extras.putInt("QUESTION", id);
+                            Log.d("Question id after",Integer.toString(id));
                             nextQuestion.putExtras(extras);
                             startActivity(nextQuestion);
                             finish();
