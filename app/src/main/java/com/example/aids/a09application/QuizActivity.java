@@ -20,9 +20,9 @@ public class QuizActivity extends Activity {
     String carName, incorrectCarName1, incorrectCarName2, incorrectCarName3, carImageName;
     Button answer1,answer2,answer3,answer4, next;
     ImageView carImage;
-    Bundle b = getIntent().getExtras();
-    public int correctAnswers = b.getInt("SCORE");
-    public int wrongAnswers = b.getInt("WRONG");
+    Bundle b;
+    public int correctAnswers,wrongAnswers;
+
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -33,6 +33,12 @@ public class QuizActivity extends Activity {
         answer3 = (Button)findViewById(R.id.answer3);
         answer4 = (Button)findViewById(R.id.answer4);
         TextView currentScore = (TextView)findViewById(R.id.score);
+
+        b = getIntent().getExtras();
+        correctAnswers = b.getInt("SCORE");
+        wrongAnswers = b.getInt("WRONG");
+
+
         Button next = (Button)findViewById(R.id.nextButtonQuiz);
         List<Car> getAllCars = db.getAllCars();
         Bundle b = getIntent().getExtras();
