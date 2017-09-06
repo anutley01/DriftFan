@@ -25,6 +25,8 @@ public class OpenQuizFragment extends android.support.v4.app.Fragment {
                 Intent openQuiz = new Intent(getActivity(), QuizActivity.class);
                 Bundle extras = new Bundle();
                 extras.putInt("QUESTION", 1);
+                extras.putInt("SCORE", 0);
+                extras.putInt("WRONG", 0);
                 openQuiz.putExtras(extras);
                 startActivity(openQuiz);
             }
