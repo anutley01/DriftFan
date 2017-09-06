@@ -17,7 +17,6 @@ import java.util.List;
  */
 
 public class RestaurantListWatergrasshill extends Activity {
-
     ListView restaurantList;
     SQLHelper db = new SQLHelper(this);
     List<Hotel> getAllRestaurants;

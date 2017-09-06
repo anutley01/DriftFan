@@ -57,10 +57,10 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="39dp"
         android:text="Can you identify this car?"
-        android:layout_above="@+id/answer1"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/carImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp" />
 
     <Button
         android:id="@+id/nextButtonQuiz"
@@ -75,10 +75,19 @@
         android:id="@+id/score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="17dp"
+        android:text="TextView"
+        android:layout_above="@+id/incorrectAnswers"
+        android:layout_alignLeft="@+id/incorrectAnswers"
+        android:layout_alignStart="@+id/incorrectAnswers" />
+
+    <TextView
+        android:id="@+id/incorrectAnswers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
         android:layout_above="@+id/answer1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="11dp"
-        android:text="TextView" />
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
