@@ -21,7 +21,7 @@ public class QuizActivity extends Activity {
     Button answer1,answer2,answer3,answer4, next;
     ImageView carImage;
     Bundle b;
-    public int correctAnswers,wrongAnswers;
+    public int correctAnswers,wrongAnswers, id;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -33,30 +33,29 @@ public class QuizActivity extends Activity {
         answer3 = (Button)findViewById(R.id.answer3);
         answer4 = (Button)findViewById(R.id.answer4);
         TextView currentScore = (TextView)findViewById(R.id.score);
-
         b = getIntent().getExtras();
         correctAnswers = b.getInt("SCORE");
         wrongAnswers = b.getInt("WRONG");
-
-
         Button next = (Button)findViewById(R.id.nextButtonQuiz);
         List<Car> getAllCars = db.getAllCars();
         Bundle b = getIntent().getExtras();
-        int id = b.getInt("QUESTION");
+        id = b.getInt("QUESTION");
         if(id <= 14){
-        question(id);
             currentScore.setText("Current score: " + correctAnswers);
+        question(id);
+
         } else if (id > 14){
             endQuiz();
         }
 
+
         }
 
-    public void question(int carID){
+    public int question(int carID){
+        int toReturn;
             List<Car> getAllCars = db.getAllCars();
             for (int i = 0; i < getAllCars.size(); i++) {
                 Car car = getAllCars.get(i);
-                // finds the correct building that was sent through via Intent from previous class
                 if (carID == car.getCarID()) {
                     carName = car.getCarName();
                     incorrectCarName1 = car.getIncorrectCarName1();
@@ -64,6 +63,7 @@ public class QuizActivity extends Activity {
                     incorrectCarName3 = car.getIncorrectCarName3();
                     carImageName = car.getCarImage();
                     carImage.setImageResource(getImageId(this, carImageName));
+                }
                     if(carID == 1||carID == 4|| carID == 7 || carID == 10|| carID == 13) {
                         answer1.setText(carName);
                         answer2.setText(incorrectCarName1);
@@ -84,7 +84,8 @@ public class QuizActivity extends Activity {
                         correctAnswer(answer2);
                     }
                 }
-            }}
+                return 1;
+            }
 
 
     public static int getImageId(Context context, String imageName) {
@@ -98,12 +99,15 @@ public class QuizActivity extends Activity {
                             Intent nextQuestion = new Intent(getApplicationContext(), QuizActivity.class);
                             Bundle extras = new Bundle();
                             extras.putInt("SCORE", correctAnswers++);
+                            extras.putInt("QUESTION", id++);
                             nextQuestion.putExtras(extras);
                             startActivity(nextQuestion);
+                            finish();
                         return true;
                         }
                     });
                     }
+
     public void endQuiz(){
 
     }
