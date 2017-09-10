@@ -3,7 +3,6 @@ package com.example.aids.a09application;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -15,7 +14,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
-public class RestaurantGenMondello extends Activity {
+public class RestaurantGenerator extends Activity {
     SQLHelper db = new SQLHelper(this);
     int restaurantID;
     String restaurantName, phone, near_to;
@@ -32,22 +31,22 @@ public class RestaurantGenMondello extends Activity {
         Bundle b = getIntent().getExtras();
         restaurantID = b.getInt("ID");
         near_to = b.getString("NEAR_TO");
-        final String mondelloPark;
         Log.d("id in generator",Integer.toString(restaurantID));
 
         List<Hotel> getAllHotels;
+        getAllHotels = db.getAllRestaurants(near_to);
         // create building list
-        if(near_to.equals("Dun Laoghaire")) {
-            getAllHotels = db.getAllRestaurantsDunLaoghaire();
+        /*if(near_to.equals("Dun Laoghaire")) {
+            getAllHotels = db.getAllRestaurants(near_to);
         } else if (near_to.equals("Mondello Park")){
-            getAllHotels = db.getAllRestaurantsMondello();
-            mondelloPark = "Kildare";
+            getAllHotels = db.getAllRestaurants(near_to);
+            near_to = "Kildare";
         } else if (near_to.equals("Watergrasshill")){
-            getAllHotels = db.getAllRestaurantsWatergrasshill();
+            getAllHotels = db.getAllRestaurants(near_to);
         } else {
             Log.d("The error is here.", "error");
             getAllHotels = null;
-        }
+        }*/
         //if (getAllHotels.equals(null)){
           //  Toast.makeText(this, "There has been an error. Please restart the application.", Toast.LENGTH_LONG).show();
         //} else {

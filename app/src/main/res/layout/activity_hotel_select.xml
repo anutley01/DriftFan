@@ -8,7 +8,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/black">
 
     <ImageButton
         android:id="@+id/mapsButton"
@@ -16,7 +17,8 @@
         android:layout_height="wrap_content"
         android:src="@drawable/mapslogo"
         android:layout_below="@+id/displayHotelName"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary"/>
 
 
     <ImageButton
@@ -27,7 +29,8 @@
         android:layout_below="@+id/mapsButton"
         android:layout_alignLeft="@+id/infoButton"
         android:layout_alignStart="@+id/infoButton"
-        android:layout_marginTop="225dp" />
+        android:layout_marginTop="225dp"
+        android:background="@color/colorPrimary"/>
 
     <ImageButton
         android:id="@+id/infoButton"
@@ -36,7 +39,8 @@
         android:src="@drawable/info_icon_resized"
         android:layout_below="@+id/mapsButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="15dp"
+        android:background="@color/colorPrimary" />
 
     <TextView
         android:id="@+id/displayHotelName"
@@ -44,7 +48,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="15dp"
+        android:textColor="@color/colorPrimary"
+        />
 
 
 </RelativeLayout>

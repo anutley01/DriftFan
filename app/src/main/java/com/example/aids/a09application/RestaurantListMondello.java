@@ -28,7 +28,7 @@ public class RestaurantListMondello extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listlayout);
         restaurantList = (ListView) findViewById(R.id.hotel_listView);
-        getAllRestaurants = db.getAllRestaurantsMondello();
+        getAllRestaurants = db.getAllRestaurants("Mondello Park");
         db.close();
 
         // set up ArrayList for buildingNames
@@ -46,7 +46,7 @@ public class RestaurantListMondello extends Activity {
         restaurantList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(RestaurantListMondello.this, RestaurantGenMondello.class);
+                Intent intent = new Intent(RestaurantListMondello.this, RestaurantGenerator.class);
                 Bundle extras = new Bundle();
                 int hotelId = 1;
                 String nearTo = "None";

@@ -24,7 +24,7 @@ public class HotelsListWatergrassHill extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listlayout);
         hotelList = (ListView) findViewById(R.id.hotel_listView);
-        getAllHotels = db.getAllHotelsMondello("Watergrasshill");
+        getAllHotels = db.getAllHotels("Watergrasshill");
         db.close();
 
         // set up ArrayList for buildingNames

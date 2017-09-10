@@ -1,38 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/black">
 
     <Button
         android:id="@+id/hotelsMondello"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Hotels near Mondello Park" />
+        android:text="View Hotels near Mondello Park"
+        android:background="@color/colorPrimary"/>
 
     <Button
         android:id="@+id/hotelsDunLaoghaire"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Hotels near Dun Laoghaire" />
+        android:text="View Hotels near Dun Laoghaire"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/hotelsMondello"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/hotelsWatergrasshill"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Hotels near Watergrasshill" />
+        android:text="View Hotels near Watergrasshill"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="39dp"
+        android:layout_below="@+id/hotelsDunLaoghaire"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <Button
         android:id="@+id/restaurantsMondello"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Restaurants near Mondello Park" />
+        android:text="View Restaurants near Mondello Park"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/hotelsWatergrasshill"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="46dp" />
     <Button
         android:id="@+id/restaurantsDunLaoghaire"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Restaurants near Dun Laoghaire" />
+        android:text="View Restaurants near Dun Laoghaire"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="37dp"
+        android:layout_below="@+id/restaurantsMondello"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <Button
         android:id="@+id/restaurantsWatergrasshill"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Restaurants near Watergrasshill" />
-</LinearLayout>
+        android:text="View Restaurants near Watergrasshill"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/restaurantsDunLaoghaire"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="39dp" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src= "@drawable/navigation_header"
+        android:layout_below="@+id/restaurantsWatergrasshill"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>
+</ScrollView>

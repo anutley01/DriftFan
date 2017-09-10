@@ -52,7 +52,7 @@
         <activity android:name=".LiveVideoViewer"/>
         <activity android:name=".MainChatActivity"/>
         <activity android:name=".HotelsGenerator"/>
-        <activity android:name=".RestaurantGenMondello"/>
+        <activity android:name=".RestaurantGenerator"/>
         <activity android:name=".Score"/>
 
         <activity

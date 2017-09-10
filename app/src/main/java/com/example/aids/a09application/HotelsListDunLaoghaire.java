@@ -27,24 +27,24 @@ public class HotelsListDunLaoghaire extends AppCompatActivity {
         setContentView(R.layout.listlayout);
 
         hotelList = (ListView) findViewById(R.id.hotel_listView);
-        getAllHotels = db.getAllHotelsMondello("Dun Laoghaire");
+        getAllHotels = db.getAllHotels("Dun Laoghaire");
         db.close();
 
         // set up ArrayList for buildingNames
-        final List<String> buildingNames = new ArrayList<>();
+        final List<String> hotelNames = new ArrayList<>();
 
-        // loop through getAllBuilding List and add all building_name 's to buildingNames list
+
         for (int i = 0; i < getAllHotels.size(); i++) {
-            buildingNames.add(getAllHotels.get(i).getName());
+            hotelNames.add(getAllHotels.get(i).getName());
 
-            //sort alphabetically
+
 
 
         }
 
 
-        // set up adapter for searchBar listView
-        adapter = new ArrayAdapter<>(HotelsListDunLaoghaire.this, android.R.layout.simple_list_item_1, buildingNames);
+
+        adapter = new ArrayAdapter<>(HotelsListDunLaoghaire.this, android.R.layout.simple_list_item_1, hotelNames);
         hotelList.setAdapter(adapter);
         hotelList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

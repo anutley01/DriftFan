@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/black">
 
 
     <ImageView
@@ -21,7 +22,8 @@
         android:layout_height="wrap_content"
         android:text="Button"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary"/>
 
     <Button
         android:id="@+id/answer2"
@@ -31,7 +33,8 @@
         android:text="Button"
         android:layout_below="@+id/answer1"
         android:layout_alignLeft="@+id/answer1"
-        android:layout_alignStart="@+id/answer1" />
+        android:layout_alignStart="@+id/answer1"
+        android:background="@color/colorPrimary"/>
 
     <Button
         android:id="@+id/answer3"
@@ -41,7 +44,8 @@
         android:layout_alignStart="@+id/answer2"
         android:layout_below="@+id/answer2"
         android:layout_marginTop="13dp"
-        android:text="Button" />
+        android:text="Button"
+        android:background="@color/colorPrimary"/>
 
     <Button
         android:id="@+id/answer4"
@@ -51,7 +55,8 @@
         android:text="Button"
         android:layout_below="@+id/answer3"
         android:layout_alignLeft="@+id/answer3"
-        android:layout_alignStart="@+id/answer3" />
+        android:layout_alignStart="@+id/answer3"
+        android:background="@color/colorPrimary"/>
 
     <TextView
         android:id="@+id/textView5"
@@ -60,16 +65,8 @@
         android:text="Can you identify this car?"
         android:layout_below="@+id/carImage"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp" />
-
-    <Button
-        android:id="@+id/nextButtonQuiz"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/answer4"
-        android:layout_toRightOf="@+id/answer4"
-        android:text="Next" />
+        android:layout_marginTop="17dp"
+        android:textColor="@color/colorPrimary"/>
 
     <TextView
         android:id="@+id/score"
@@ -79,7 +76,8 @@
         android:text="TextView"
         android:layout_above="@+id/incorrectAnswers"
         android:layout_alignLeft="@+id/incorrectAnswers"
-        android:layout_alignStart="@+id/incorrectAnswers" />
+        android:layout_alignStart="@+id/incorrectAnswers"
+        android:textColor="#4af605"/>
 
     <TextView
         android:id="@+id/incorrectAnswers"
@@ -87,7 +85,8 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:layout_above="@+id/answer1"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff0000"/>
 
 
 </RelativeLayout>

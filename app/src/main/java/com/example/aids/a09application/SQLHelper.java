@@ -41,7 +41,7 @@ public class SQLHelper extends SQLiteOpenHelper {
     public static final String CAR_IMAGE = "car_image";
 
     private static final String DATABASE_NAME = "DriftFan";
-    private static final int DATABASE_VERSION = 33;
+    private static final int DATABASE_VERSION = 37;
 
     public static final String CREATE_CAR_QUIZ = "CREATE TABLE IF NOT EXISTS " + TABLE_CAR_QUIZ + "("
             + CAR_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
@@ -51,12 +51,12 @@ public class SQLHelper extends SQLiteOpenHelper {
             INC_CAR_NAME_3 + " TEXT," +
             CAR_IMAGE + " TEXT"+ ")";
 
-    public static final String CREATE_RESTAURANT_MONDELLO = "CREATE TABLE IF NOT EXISTS " + TABLE_RESTAURANTS_MONDELLO + "("
-            + RESTAURANT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
-            + RESTAURANT_NAME + " TEXT,"
-            + PHONE + " TEXT," + LATITUDE + " DOUBLE,"
-            + LONGITUDE + " DOUBLE," +
-            NEAR_TO + " TEXT " + ")";
+        public static final String CREATE_RESTAURANT_MONDELLO = "CREATE TABLE IF NOT EXISTS " + TABLE_RESTAURANTS_MONDELLO + "("
+                + RESTAURANT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
+                + RESTAURANT_NAME + " TEXT,"
+                + PHONE + " TEXT," + LATITUDE + " DOUBLE,"
+                + LONGITUDE + " DOUBLE," +
+                NEAR_TO + " TEXT " + ")";
 
     public static final String CREATE_RESTAURANT_DUNLAOGHAIRE = "CREATE TABLE IF NOT EXISTS " + TABLE_RESTAURANTS_DUNLAOGHAIRE + "("
             + RESTAURANT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
@@ -111,7 +111,7 @@ public class SQLHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_RESTAURANT_DUNLAOGHAIRE);
         db.execSQL(CREATE_RESTAURANT_WATERGRASSHILL);
         db.execSQL(CREATE_CAR_QUIZ);
-        db.execSQL(insertHotel(1,"Curragh B&B", "+35345456429", 53.124905, -6.789059, "A", "Mondello Park"));
+        db.execSQL(insertHotel(1,"Curragh BandB", "+35345456429", 53.124905, -6.789059, "A", "Mondello Park"));
         db.execSQL(insertHotel(2,"No. 5 Bed and Breakfast", "+353 85 110 0907", 53.130330, -6.755625, "A", "Mondello Park"));
         db.execSQL(insertHotel(3,"Maynooth Campus", "+353 1 708 6400", 53.379794, -6.595520, "A", "Mondello Park"));
         db.execSQL(insertHotel(4,"Tulloch", "+353 45 531 988", 53.171297, -6.973274, "A", "Mondello Park"));
@@ -320,7 +320,7 @@ public class SQLHelper extends SQLiteOpenHelper {
         onCreate(db);//create a database
     }
 
-    public List<Hotel> getAllHotelsMondello(String hotelsToPull) {
+    public List<Hotel> getAllHotels(String hotelsToPull) {
         String selectQuery;
         if (hotelsToPull.equals("Mondello Park")){
           selectQuery = "SELECT * FROM " + TABLE_HOTEL_MONDELLO;
@@ -359,63 +359,6 @@ public class SQLHelper extends SQLiteOpenHelper {
     }
 
 
-    /*public List<Hotel> getAllHotelsDunLaoghaire() {
-        List<Hotel> hotelsList = new ArrayList<Hotel>();
-        // SELECT ALL query
-        String selectQuery = "SELECT * FROM " + TABLE_HOTEL_DUNLAOGHAIRE;
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        // Loop through all rows and add them to the list
-        if (cursor.moveToFirst()) {
-            do {
-                Hotel hotel = new Hotel();
-                hotel.setId(Integer.parseInt(cursor.getString(0)));
-                hotel.setName(cursor.getString(1));
-                hotel.setPhone(cursor.getString(2));
-                hotel.setLatitude(Double.parseDouble(cursor.getString(3)));
-                hotel.setLongitude(Double.parseDouble(cursor.getString(4)));
-                hotel.setPrice(cursor.getString(5));
-                hotel.setNearTo(cursor.getString(6));
-                // Add buildings to list
-                hotelsList.add(hotel);
-            } while (cursor.moveToNext());
-        }
-        cursor.close();
-        // Return a list of buildings
-        return hotelsList;
-    }*/
-
-
-    /*public List<Hotel> getAllHotelsWatergrasshill() {
-        List<Hotel> hotelsList = new ArrayList<Hotel>();
-        // SELECT ALL query
-        String selectQuery = "SELECT * FROM " + TABLE_HOTEL_WATERGRASSHILL;
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        // Loop through all rows and add them to the list
-        if (cursor.moveToFirst()) {
-            do {
-                Hotel hotel = new Hotel();
-                hotel.setId(Integer.parseInt(cursor.getString(0)));
-                hotel.setName(cursor.getString(1));
-                hotel.setPhone(cursor.getString(2));
-                hotel.setLatitude(Double.parseDouble(cursor.getString(3)));
-                hotel.setLongitude(Double.parseDouble(cursor.getString(4)));
-                hotel.setPrice(cursor.getString(5));
-                hotel.setNearTo(cursor.getString(6));
-                // Add buildings to list
-                hotelsList.add(hotel);
-            } while (cursor.moveToNext());
-        }
-        cursor.close();
-        // Return a list of buildings
-        return hotelsList;
-    }*/
-
     public List<Car> getAllCars() {
         List<Car> CarList = new ArrayList<Car>();
         // SELECT ALL query
@@ -443,11 +386,19 @@ public class SQLHelper extends SQLiteOpenHelper {
         return CarList;
     }
 
-    public List<Hotel> getAllRestaurantsMondello() {
+    public List<Hotel> getAllRestaurants(String restaurantsToPull) {
+        String selectQuery;
         List<Hotel> hotelsList = new ArrayList<Hotel>();
         // SELECT ALL query
-        String selectQuery = "SELECT * FROM " + TABLE_RESTAURANTS_MONDELLO;
-
+        if(restaurantsToPull.equals("Mondello Park")) {
+            selectQuery = "SELECT * FROM " + TABLE_RESTAURANTS_MONDELLO;
+        } else if (restaurantsToPull.equals("Dun Laoghaire")) {
+            selectQuery = "SELECT * FROM " + TABLE_RESTAURANTS_DUNLAOGHAIRE;
+        }else if (restaurantsToPull.equals("Watergrasshill")){
+            selectQuery = "SELECT * FROM "+ TABLE_RESTAURANTS_WATERGRASSHILL;
+        } else {
+            selectQuery = "none";
+        }
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
@@ -468,67 +419,6 @@ public class SQLHelper extends SQLiteOpenHelper {
         cursor.close();
         // Return a list of buildings
         return hotelsList;
-    }
-
-    public List<Hotel> getAllRestaurantsDunLaoghaire() {
-        List<Hotel> hotelsList = new ArrayList<Hotel>();
-        // SELECT ALL query
-        String selectQuery = "SELECT * FROM " + TABLE_RESTAURANTS_DUNLAOGHAIRE;
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        // Loop through all rows and add them to the list
-        if (cursor.moveToFirst()) {
-            do {
-                Hotel restaurant = new Hotel();
-                restaurant.setId(Integer.parseInt(cursor.getString(0)));
-                restaurant.setName(cursor.getString(1));
-                restaurant.setPhone(cursor.getString(2));
-                restaurant.setLatitude(Double.parseDouble(cursor.getString(3)));
-                restaurant.setLongitude(Double.parseDouble(cursor.getString(4)));
-                restaurant.setNearTo(cursor.getString(5));
-                // Add buildings to list
-                hotelsList.add(restaurant);
-            } while (cursor.moveToNext());
-        }
-        cursor.close();
-        // Return a list of buildings
-        return hotelsList;
-    }
-
-    public List<Hotel> getAllRestaurantsWatergrasshill() {
-        List<Hotel> hotelsList = new ArrayList<Hotel>();
-        // SELECT ALL query
-        String selectQuery = "SELECT * FROM " + TABLE_RESTAURANTS_WATERGRASSHILL;
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        // Loop through all rows and add them to the list
-        if (cursor.moveToFirst()) {
-            do {
-                Hotel restaurant = new Hotel();
-                restaurant.setId(Integer.parseInt(cursor.getString(0)));
-                restaurant.setName(cursor.getString(1));
-                restaurant.setPhone(cursor.getString(2));
-                restaurant.setLatitude(Double.parseDouble(cursor.getString(3)));
-                restaurant.setLongitude(Double.parseDouble(cursor.getString(4)));
-                restaurant.setNearTo(cursor.getString(5));
-                // Add buildings to list
-                hotelsList.add(restaurant);
-            } while (cursor.moveToNext());
-        }
-        cursor.close();
-        // Return a list of buildings
-        return hotelsList;
-    }
-
-
-    public int numberOfRows() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        int numRows = (int) DatabaseUtils.queryNumEntries(db, TABLE_HOTEL_MONDELLO);
-        return numRows;
     }
 
 }

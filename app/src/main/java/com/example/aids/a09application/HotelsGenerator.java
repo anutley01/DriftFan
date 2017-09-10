@@ -1,7 +1,6 @@
 package com.example.aids.a09application;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -36,11 +35,11 @@ public class HotelsGenerator extends Activity {
         List<Hotel> getAllHotels;
         // create building list
         if(near_to.equals("Dun Laoghaire")) {
-            getAllHotels = db.getAllHotelsMondello("Dun Laoghaire");
+            getAllHotels = db.getAllHotels("Dun Laoghaire");
         } else if (near_to.equals("Mondello Park")){
-            getAllHotels = db.getAllHotelsMondello("Mondello Park");
+            getAllHotels = db.getAllHotels("Mondello Park");
         } else if (near_to.equals("Watergrasshill")){
-            getAllHotels = db.getAllHotelsMondello("Watergrasshill");
+            getAllHotels = db.getAllHotels("Watergrasshill");
         } else {
             getAllHotels = null;
         }
@@ -69,7 +68,7 @@ public class HotelsGenerator extends Activity {
                     infoButton.setOnLongClickListener(new View.OnLongClickListener() {
                         @Override
                         public boolean onLongClick(View v) {
-                            Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=" + hotelName + "    " + near_to));
+                            Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=" + hotelName + " " + near_to));
                             startActivity(intent);
                             return true;
                         }

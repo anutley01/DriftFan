@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/black">
 
     <TextView
         android:id="@+id/textView6"
@@ -19,21 +20,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:layout_marginTop="58dp"
-        android:layout_below="@+id/numberOfWrong"
-        android:layout_centerHorizontal="true"
         android:textSize="35dp"
-        android:textColor="#5edf23"/>
+        android:textColor="#5edf23"
+        android:layout_below="@+id/textView6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp" />
 
     <TextView
         android:id="@+id/numberOfWrong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/numberOfRight"
-        android:layout_alignStart="@+id/numberOfRight"
         android:textSize="35dp"
         android:textColor="#ff0000"
-        />
+        android:layout_marginBottom="159dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/numberOfRight"
+        android:layout_alignStart="@+id/numberOfRight" />
 </RelativeLayout>

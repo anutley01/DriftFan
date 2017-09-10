@@ -38,7 +38,6 @@ public class QuizActivity extends Activity {
         b = getIntent().getExtras();
         correctAnswers = b.getInt("SCORE");
         wrongAnswers = b.getInt("WRONG");
-        Button next = (Button)findViewById(R.id.nextButtonQuiz);
         List<Car> getAllCars = db.getAllCars();
         Bundle b = getIntent().getExtras();
         id = b.getInt("QUESTION");
@@ -46,8 +45,7 @@ public class QuizActivity extends Activity {
         if(id <= 14){
             currentScore.setText("Current score: " + correctAnswers);
             currentWrong.setText("Wrong answers: " + wrongAnswers);
-
-        question(id);
+            question(id);
 
         } else if (id > 14){
             endQuiz();
