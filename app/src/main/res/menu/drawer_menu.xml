@@ -43,7 +43,7 @@
         <item android:id="@+id/nav_map" android:title="Navigation to Event"></item>
     </group>
     <group android:id="@+id/group14">
-        <item android:id="@+id/nav_hotels" android:title="Hotels Nearby"></item>
+        <item android:id="@+id/nav_hotels" android:title="Hotels and Restaurants"></item>
     </group>
     <group android:id="@+id/group15">
         <item android:id="@+id/nav_quiz" android:title="Quiz"></item>

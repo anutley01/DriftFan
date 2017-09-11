@@ -12,46 +12,48 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Author: Connor
+ */
 
-public class HotelsListWatergrassHill extends AppCompatActivity {
+public class HotelsList extends AppCompatActivity {
     ListView hotelList;
     SQLHelper db = new SQLHelper(this);
     List<Hotel> getAllHotels;
     ArrayAdapter<String> adapter;
+    public static final String [] menu = {"View in maps", "Call"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listlayout);
         hotelList = (ListView) findViewById(R.id.hotel_listView);
-        getAllHotels = db.getAllHotels("Watergrasshill");
+        Bundle b = getIntent().getExtras();
+        String near_to = b.getString("NEAR_TO");
+        getAllHotels = db.getAllHotels(near_to);
         db.close();
 
-        // set up ArrayList for buildingNames
-        final List<String> buildingNames = new ArrayList<>();
+        // set up ArrayList for hotelNames
+        final List<String> hotelNames = new ArrayList<>();
 
-        // loop through getAllBuilding List and add all building_name 's to buildingNames list
+
         for (int i = 0; i < getAllHotels.size(); i++) {
-            buildingNames.add(getAllHotels.get(i).getName());
-            Log.d("building names", buildingNames.toString());
-            //sort alphabetically
-
+            hotelNames.add(getAllHotels.get(i).getName());
 
         }
 
-        // set up adapter for searchBar listView
-        adapter = new ArrayAdapter<>(HotelsListWatergrassHill.this, android.R.layout.simple_list_item_1, buildingNames);
+        // set up adapter
+        adapter = new ArrayAdapter<>(HotelsList.this, android.R.layout.simple_list_item_1, hotelNames);
         hotelList.setAdapter(adapter);
         hotelList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(HotelsListWatergrassHill.this, HotelsGenerator.class);
+                Intent intent = new Intent(HotelsList.this, HotelsGenerator.class);
                 Bundle extras = new Bundle();
                 int hotelId = 1;
                 String hotelNearTo = "None";
-                // set up string with the selected onItem building name
                 Object hotelName = adapter.getItem(position);
-                //loop through buildings (info pulled from db) to match the building names
+
                 for (int i = 0; i < getAllHotels.size(); i++) {
                     if (hotelName.equals(getAllHotels.get(i).getName())) {
                         // get the corresponding building_id
@@ -60,13 +62,14 @@ public class HotelsListWatergrassHill extends AppCompatActivity {
                     }
                 }
                 extras.putInt("ID", (hotelId));
-                Log.d("id in list", Integer.toString(hotelId));
+                Log.d("id in list",Integer.toString(hotelId));
                 extras.putString("NEAR_TO", (hotelNearTo));
                 intent.putExtras(extras);
                 startActivity(intent);
 
             }
-        });
+            });
 
     }
+
 }

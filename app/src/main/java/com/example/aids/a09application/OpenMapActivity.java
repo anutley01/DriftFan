@@ -23,6 +23,7 @@ import static com.example.aids.a09application.R.id.round5button;
 
 /**
  * Created by Connor on 02/08/2017.
+ * Opens google maps from each imagebutton
  */
 
 public class OpenMapActivity extends Fragment  {

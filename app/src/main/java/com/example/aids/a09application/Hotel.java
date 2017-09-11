@@ -1,7 +1,8 @@
 package com.example.aids.a09application;
 
 /**
- * Created by Connor on 22/08/2017.
+ * Author: Connor
+ * Getters and setters for both Hotel and Restaurant
  */
 
 public class Hotel {

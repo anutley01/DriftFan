@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+
 import static com.example.aids.a09application.R.id.main_container;
 
 public class MainActivity extends AppCompatActivity {
@@ -165,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
+    //Prevents the user from closing the app accidentally
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
@@ -178,8 +179,6 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .setNegativeButton("No", null)
                 .show();
-
-
     }
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {

@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import java.util.List;
 
+/**
+ * Author: Connor
+ */
 public class HotelsGenerator extends Activity {
     SQLHelper db = new SQLHelper(this);
     int hotelID;

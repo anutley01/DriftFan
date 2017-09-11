@@ -35,21 +35,6 @@ public class RestaurantGenerator extends Activity {
 
         List<Hotel> getAllHotels;
         getAllHotels = db.getAllRestaurants(near_to);
-        // create building list
-        /*if(near_to.equals("Dun Laoghaire")) {
-            getAllHotels = db.getAllRestaurants(near_to);
-        } else if (near_to.equals("Mondello Park")){
-            getAllHotels = db.getAllRestaurants(near_to);
-            near_to = "Kildare";
-        } else if (near_to.equals("Watergrasshill")){
-            getAllHotels = db.getAllRestaurants(near_to);
-        } else {
-            Log.d("The error is here.", "error");
-            getAllHotels = null;
-        }*/
-        //if (getAllHotels.equals(null)){
-          //  Toast.makeText(this, "There has been an error. Please restart the application.", Toast.LENGTH_LONG).show();
-        //} else {
 
         for (int i = 0; i < getAllHotels.size(); i++) {
             Hotel hotel = getAllHotels.get(i);

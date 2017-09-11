@@ -41,7 +41,7 @@ public class SQLHelper extends SQLiteOpenHelper {
     public static final String CAR_IMAGE = "car_image";
 
     private static final String DATABASE_NAME = "DriftFan";
-    private static final int DATABASE_VERSION = 37;
+    private static final int DATABASE_VERSION = 38;
 
     public static final String CREATE_CAR_QUIZ = "CREATE TABLE IF NOT EXISTS " + TABLE_CAR_QUIZ + "("
             + CAR_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
@@ -323,11 +323,11 @@ public class SQLHelper extends SQLiteOpenHelper {
     public List<Hotel> getAllHotels(String hotelsToPull) {
         String selectQuery;
         if (hotelsToPull.equals("Mondello Park")){
-          selectQuery = "SELECT * FROM " + TABLE_HOTEL_MONDELLO;
+          selectQuery = "SELECT * FROM " + TABLE_HOTEL_MONDELLO + " ORDER BY " + PRICE;
         } else if (hotelsToPull.equals("Dun Laoghaire")){
-            selectQuery = "SELECT * FROM " + TABLE_HOTEL_DUNLAOGHAIRE;
+            selectQuery = "SELECT * FROM " + TABLE_HOTEL_DUNLAOGHAIRE + " ORDER BY " + PRICE;
         } else if (hotelsToPull.equals("Watergrasshill")){
-            selectQuery = "SELECT * FROM " + TABLE_HOTEL_WATERGRASSHILL;
+            selectQuery = "SELECT * FROM " + TABLE_HOTEL_WATERGRASSHILL + " ORDER BY " + PRICE;
         } else {
             selectQuery = "none";
         }

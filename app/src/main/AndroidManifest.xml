@@ -42,12 +42,8 @@
         <activity android:name=".RegisterActivity"/>
         <activity android:name=".LoginActivity"/>
         <activity android:name=".EditAccount"/>
-        <activity android:name=".HotelsListMondello"/>
-        <activity android:name=".HotelsListDunLaoghaire"/>
-        <activity android:name=".HotelsListWatergrassHill"/>
-        <activity android:name=".RestaurantListMondello"/>
-        <activity android:name=".RestaurantListDunLaoghaire"/>
-        <activity android:name=".RestaurantListWatergrasshill"/>
+        <activity android:name=".HotelsList"/>
+        <activity android:name=".RestaurantList"/>
         <activity android:name=".QuizActivity"/>
         <activity android:name=".LiveVideoViewer"/>
         <activity android:name=".MainChatActivity"/>

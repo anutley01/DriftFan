@@ -1,7 +1,8 @@
 package com.example.aids.a09application;
 
 /**
- * Created by Connor on 05/09/2017.
+ * Author: Connor
+ * Class contains getters and setters for the "car" in the quiz activity
  */
 
 public class Car {
