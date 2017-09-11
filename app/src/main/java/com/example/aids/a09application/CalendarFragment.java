@@ -26,7 +26,7 @@ public class CalendarFragment extends Fragment {
 
         public GregorianCalendar month, itemmonth;// calendar instances.
 
-        public CalendarAdapt adapter;// adapter instance
+        public CalendarAdapter adapter;// adapter instance
         public Handler handler;// for grabbing some event values for showing the dot
         // marker.
         public ArrayList<String> items; // container to store calendar items which
@@ -42,7 +42,7 @@ public class CalendarFragment extends Fragment {
             itemmonth = (GregorianCalendar) month.clone();
 
             items = new ArrayList<String>();
-            adapter = new CalendarAdapt(getActivity(), month);
+            adapter = new CalendarAdapter(getActivity(), month);
 
             GridView gridview = (GridView) view.findViewById(R.id.gridview);
             gridview.setAdapter(adapter);
@@ -79,8 +79,8 @@ public class CalendarFragment extends Fragment {
                 public void onItemClick(AdapterView<?> parent, View v,
                                         int position, long id) {
 
-                    ((CalendarAdapt) parent.getAdapter()).setSelected(v);
-                    String selectedGridDate = CalendarAdapt.dayString
+                    ((CalendarAdapter) parent.getAdapter()).setSelected(v);
+                    String selectedGridDate = CalendarAdapter.dayString
                             .get(position);
                     String[] separatedTime = selectedGridDate.split("-");
                     String gridvalueString = separatedTime[2].replaceFirst("^0*",
@@ -94,7 +94,7 @@ public class CalendarFragment extends Fragment {
                         setNextMonth();
                         refreshCalendar();
                     }
-                    ((CalendarAdapt) parent.getAdapter()).setSelected(v);
+                    ((CalendarAdapter) parent.getAdapter()).setSelected(v);
 
                     showToast(selectedGridDate);
 
