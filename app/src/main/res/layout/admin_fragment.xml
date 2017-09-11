@@ -19,7 +19,7 @@
     <Button
         android:layout_width="150dp"
         android:layout_height="45dp"
-        android:text="Add Standings"
+        android:text="Fetch Standings"
         android:background="@color/colorPrimary"
         android:id="@+id/buttonAddStandings"
         android:layout_below="@id/textViewadmin"

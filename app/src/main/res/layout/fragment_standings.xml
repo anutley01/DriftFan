@@ -1,111 +1,44 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="75dp"
-    android:background="#000">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="35dp"
-        android:layout_height="match_parent"
-        android:id="@+id/pos_id"
-        android:layout_alignParentLeft="true"
-        android:text="Pos"
-        android:gravity="center"
-        android:textColor="#fff"
-        android:textSize="15dp"
-        android:background="@drawable/shape_border"
-        android:textAppearance="?android:textAppearanceLarge"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Get JSON Response"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Get JSON"
+        android:id="@+id/button"
+        android:layout_below="@+id/buttontwo"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parse"
+        android:layout_marginTop="30dp"
+        android:id="@+id/buttontwo"
+        android:onClick="parseJSON"
+        android:layout_below="@+id/textView"
+        android:layout_alignRight="@+id/button"
+        android:layout_alignEnd="@+id/button"/>
 
     <TextView
-        android:layout_width="83dp"
-        android:layout_height="match_parent"
-        android:id="@+id/drivername_id"
-        android:text="Driver Name"
-        android:gravity="center"
-        android:textAppearance="?android:textAppearanceLarge"
-        android:textColor="#fff"
-        android:textSize="15dp"
-        android:layout_toRightOf="@+id/pos_id"
-        android:background="@drawable/shape_border"
-        android:layout_toEndOf="@+id/pos_id" />
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="0.2dp"
-        android:id="@+id/seperator"
-        android:visibility="visible"
-        android:background="@color/colorPrimary"/>
-
-    <TextView
-        android:layout_width="38dp"
-        android:layout_height="match_parent"
-        android:id="@+id/rd1score_id"
-        android:layout_toRightOf="@+id/drivername_id"
-        android:text="RD1"
-        android:gravity="center"
-        android:textColor="#fff"
-        android:textAppearance="?android:textAppearanceLarge"
-        android:background="@drawable/shape_border"
-        android:textSize="15dp"/>
-
-    <TextView
-        android:layout_width="38dp"
-        android:layout_height="match_parent"
-        android:id="@+id/rd2score_id"
-        android:layout_toRightOf="@+id/rd1score_id"
-        android:text="RD2"
-        android:gravity="center"
-        android:textColor="#fff"
-        android:textSize="15dp"
-        android:background="@drawable/shape_border"
-        android:textAppearance="?android:textAppearanceLarge"/>
-
-    <TextView
-        android:layout_width="38dp"
-        android:layout_height="match_parent"
-        android:id="@+id/rd3score_id"
-        android:layout_toRightOf="@+id/rd2score_id"
-        android:text="RD3"
-        android:gravity="center"
-        android:textColor="#fff"
-        android:textSize="15dp"
-        android:background="@drawable/shape_border"
-        android:textAppearance="?android:textAppearanceLarge"/>
-
-    <TextView
-        android:layout_width="38dp"
-        android:layout_height="match_parent"
-        android:id="@+id/rd4score_id"
-        android:layout_toRightOf="@+id/rd3score_id"
-        android:text="RD4"
-        android:gravity="center"
-        android:textColor="#fff"
-        android:textSize="15dp"
-        android:background="@drawable/shape_border"
-        android:textAppearance="?android:textAppearanceLarge"/>
-
-    <TextView
-        android:layout_width="38dp"
-        android:layout_height="match_parent"
-        android:id="@+id/rd5score_id"
-        android:layout_toRightOf="@+id/rd4score_id"
-        android:text="RD5"
-        android:gravity="center"
-        android:textColor="#fff"
-        android:textSize="15dp"
-        android:background="@drawable/shape_border"
-        android:textAppearance="?android:textAppearanceLarge"/>
-
-    <TextView
-        android:layout_width="70dp"
-        android:layout_height="match_parent"
-        android:id="@+id/totalscore_id"
-        android:layout_toRightOf="@+id/rd5score_id"
-        android:text="Total"
-        android:gravity="center"
-        android:textColor="#fff"
-        android:textSize="15dp"
-        android:background="@drawable/shape_border"
-        android:textAppearance="?android:textAppearanceLarge"/>
-
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JSON"
+        android:id="@+id/result"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
