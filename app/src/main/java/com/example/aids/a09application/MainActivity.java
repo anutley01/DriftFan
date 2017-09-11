@@ -86,14 +86,14 @@ public class MainActivity extends AppCompatActivity {
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
                         break;
-                    /*case R.id.nav_standings:
+                    case R.id.nav_standings:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace( main_container, new StandingsList());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("Standings");
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
-                        break;*/
+                        break;
                     case R.id.nav_gallery:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace( main_container, new MediaGallery());
