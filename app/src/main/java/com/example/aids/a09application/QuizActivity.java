@@ -20,7 +20,7 @@ import java.util.List;
 public class QuizActivity extends Activity {
     SQLHelper db = new SQLHelper(this);
     String carName, incorrectCarName1, incorrectCarName2, incorrectCarName3, carImageName;
-    Button answer1,answer2,answer3,answer4, next;
+    Button answer1,answer2,answer3,answer4;
     ImageView carImage;
     Bundle b;
     public int correctAnswers,wrongAnswers, id;

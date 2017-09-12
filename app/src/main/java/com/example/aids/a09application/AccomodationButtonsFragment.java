@@ -33,7 +33,11 @@ public class AccomodationButtonsFragment extends android.support.v4.app.Fragment
         nightLifeKildare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent nightlife = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.tripadvisor.co.uk/Attractions-g186614-Activities-c20-County_Kildare.html"));
+                //Intent nightlife = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.tripadvisor.co.uk/Attractions-g186614-Activities-c20-County_Kildare.html"));
+                Intent nightlife = new Intent(getContext(), NightlifeWebView.class);
+                Bundle extras = new Bundle();
+                extras.putString("TOWN", ("Mondello Park"));
+                nightlife.putExtras(extras);
                 startActivity(nightlife);
             }
         });
@@ -41,15 +45,20 @@ public class AccomodationButtonsFragment extends android.support.v4.app.Fragment
         nightLifeDunLaoghaire.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent nightlife = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.dublintourist.com/directory/nightlife/south_county/dun_laoghaire/"));
+                Intent nightlife = new Intent(getContext(), NightlifeWebView.class);
+                Bundle extras = new Bundle();
+                extras.putString("TOWN", ("Dun Laoghaire"));
+                nightlife.putExtras(extras);
                 startActivity(nightlife);
             }
         });
         nightLifeWatergrasshill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent nightlife = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.irishtourist.com/directory/nightlife/southwest/cork/east_cork/watergrasshill/"));
+                Intent nightlife = new Intent(getContext(), NightlifeWebView.class);
+                Bundle extras = new Bundle();
+                extras.putString("TOWN", ("Watergrasshill"));
+                nightlife.putExtras(extras);
                 startActivity(nightlife);
             }
         });

@@ -26,4 +26,16 @@ android:fillViewport="true"
     android:background="@color/colorPrimary"
     android:layout_alignStart="@+id/btnLogin" />
 
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:text="Register your details with Driftfan for monthly giveaways and prizes!"
+        android:layout_below="@+id/btnRegister"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>
