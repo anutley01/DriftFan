@@ -2,6 +2,7 @@ package com.example.aids.a09application;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,8 +19,9 @@ public class LiveVideoViewer extends Activity {
 
     ProgressDialog pDialog;
     VideoView videoView;
+    private boolean isCanceled;
 
-    String VideoUrl = "m.youtube.com/watch?v=umtn_s_rNEU";
+    String VideoUrl = "https://vimeo.com/193755452";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,7 +34,18 @@ public class LiveVideoViewer extends Activity {
         pDialog.setTitle( "Drifting Live Streaming" );
         pDialog.setMessage( "Buffering" );
         pDialog.setIndeterminate( false );
-        pDialog.setCancelable( false );
+        pDialog.setCancelable( true );
+
+        // Put a cancel button in progress dialog
+        pDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener(){
+            // Set a click listener for progress dialog cancel button
+            @Override
+            public void onClick(DialogInterface dialog, int which){
+                // dismiss the progress dialog
+                pDialog.dismiss();
+            }
+        });
+
 
         pDialog.show();
         try {

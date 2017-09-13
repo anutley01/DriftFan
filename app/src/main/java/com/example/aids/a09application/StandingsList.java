@@ -1,8 +1,11 @@
 package com.example.aids.a09application;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
@@ -27,29 +30,26 @@ import static com.example.aids.a09application.R.id.main_container;
  * Created by Aids on 29/08/2017.
  */
 
-public class StandingsList extends Fragment implements View.OnClickListener {
+public class StandingsList extends Activity implements View.OnClickListener {
     //make member variable is Views
     Button mButton;
     Button mButton1;
     TextView mResult;
     String JSON_RESPONSE;
     String json_string;
-    FragmentTransaction fragmentTransaction;
 
     ProgressDialog mProgressDialog;
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate( R.layout.fragment_standings, container, false );
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_standings);
 
 
         //get reference of the views
-        mButton = (Button) view.findViewById( R.id.button );
-        mButton1 = (Button) view.findViewById( R.id.buttontwo );
-        mResult = (TextView) view.findViewById( R.id.result );
+        mButton = (Button) findViewById( R.id.button );
+        mButton1 = (Button) findViewById( R.id.buttontwo );
+        mResult = (TextView) findViewById( R.id.result );
         mButton1.setOnClickListener(this);
 
         //when button is clicked
@@ -61,7 +61,7 @@ public class StandingsList extends Fragment implements View.OnClickListener {
             }
         } );
 
-        return view;
+
     }
 
 
@@ -69,7 +69,7 @@ public class StandingsList extends Fragment implements View.OnClickListener {
             String serverUrl;
 
             public getJsonResponse() {
-                mProgressDialog = new ProgressDialog( getActivity() );
+                mProgressDialog = new ProgressDialog(StandingsList.this);
                 mProgressDialog.setMessage( "Please Wait" );
                 mProgressDialog.setTitle( "Processing" );
                 mProgressDialog.setCancelable( false );
@@ -131,10 +131,8 @@ public class StandingsList extends Fragment implements View.OnClickListener {
 
                 switch (view.getId()) {
                     case R.id.buttontwo:
-                        fragmentTransaction = getFragmentManager().beginTransaction();
-                        fragmentTransaction.replace( main_container, new DisplayListView());
-                        fragmentTransaction.commit();
-                        break;
+                        Intent intent = new Intent(this, DisplayListView.class);
+                        startActivity(intent);
 
                 }
 

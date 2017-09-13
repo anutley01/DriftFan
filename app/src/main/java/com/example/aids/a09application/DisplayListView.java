@@ -1,5 +1,6 @@
 package com.example.aids.a09application;
 
+import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,7 +14,7 @@ import android.widget.ListView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class DisplayListView extends Fragment {
+public class DisplayListView extends Activity {
 
     String json_string;
     JSONObject jsonObject;
@@ -25,17 +26,16 @@ public class DisplayListView extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.display_list_view_layout, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.display_list_view_layout);
 
-        webView = (WebView) view.findViewById(R.id.webviewNews);
+
+    webView = (WebView) findViewById(R.id.webviewStandings);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
-        url = Uri.parse("http://163.172.142.145/driver_view.php").toString();
+        url = Uri.parse("http://www.idcnation.com/standings/").toString();
         webView.loadUrl(url);
-        return view;
     }
 
 }
