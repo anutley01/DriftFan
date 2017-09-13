@@ -61,7 +61,6 @@ public class StandingsList extends Activity implements View.OnClickListener {
             }
         } );
 
-
     }
 
 
