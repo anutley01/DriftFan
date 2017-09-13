@@ -20,6 +20,10 @@ public class RestaurantGenerator extends Activity {
     String restaurantName, phone, near_to;
     double latitude, longitude;
 
+    /**
+     * functionality for selected restaurant's buttons
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);

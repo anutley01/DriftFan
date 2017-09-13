@@ -4,12 +4,15 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-/**
- * Created by Connor on 06/09/2017.
- */
+
 
 public class Score extends Activity {
     int correctAnswers, wrongAnswers;
+
+    /**
+     * displays user score
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);

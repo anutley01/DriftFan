@@ -22,14 +22,16 @@ import static com.example.aids.a09application.R.id.round3button;
 import static com.example.aids.a09application.R.id.round4button;
 import static com.example.aids.a09application.R.id.round5button;
 
-/**
- * Created by Connor on 02/08/2017.
- * Opens google maps from each imagebutton
- */
 
 public class OpenMapActivity extends Fragment  {
 
-
+    /**
+     * navigation to the event
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

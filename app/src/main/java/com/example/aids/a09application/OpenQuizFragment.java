@@ -13,6 +13,13 @@ import android.widget.Button;
  */
 
 public class OpenQuizFragment extends android.support.v4.app.Fragment {
+    /**
+     * allows the user to start a quiz
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -24,6 +31,7 @@ public class OpenQuizFragment extends android.support.v4.app.Fragment {
             public void onClick(View v) {
                 Intent openQuiz = new Intent(getActivity(), QuizActivity.class);
                 Bundle extras = new Bundle();
+                //variables to be used in next activity
                 extras.putInt("QUESTION", 1);
                 extras.putInt("SCORE", 0);
                 extras.putInt("WRONG", 0);

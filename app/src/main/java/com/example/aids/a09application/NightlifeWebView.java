@@ -6,9 +6,6 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-/**
- * Created by Connor on 12/09/2017.
- */
 
 public class NightlifeWebView extends Activity {
     @Override

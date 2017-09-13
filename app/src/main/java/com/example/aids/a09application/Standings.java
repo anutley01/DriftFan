@@ -5,6 +5,9 @@ package com.example.aids.a09application;
  */
 
 public class Standings {
+    /**
+     * getters and setters for standings table
+     */
     private int driver_id;
     private int team_id;
     private String firstName;

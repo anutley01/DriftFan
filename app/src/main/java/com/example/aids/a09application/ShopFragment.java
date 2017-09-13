@@ -14,7 +14,7 @@ import android.webkit.WebViewClient;
  */
 
 public class ShopFragment extends Fragment {
-
+    //declare vars
     private WebView webView;
     String url = "https://www.driftgames.life/collections/irish-drift-championship";
 
@@ -22,7 +22,7 @@ public class ShopFragment extends Fragment {
     public ShopFragment() {
         // Required empty public constructor
     }
-
+    //set webview to apparel website for IDC
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

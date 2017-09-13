@@ -24,6 +24,12 @@ public class QuizActivity extends Activity {
     ImageView carImage;
     Bundle b;
     public int correctAnswers,wrongAnswers, id;
+
+    /**
+     * quiz activity for the user
+     * activity calls itself until there is no more questions to answer
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -54,6 +60,11 @@ public class QuizActivity extends Activity {
 
         }
 
+    /**
+     * pulls data from database to generate answers to the question
+     * @param carID
+     * @return
+     */
     public int question(int carID){
         int toReturn;
             List<Car> getAllCars = db.getAllCars();
@@ -67,6 +78,7 @@ public class QuizActivity extends Activity {
                     carImageName = car.getCarImage();
                     carImage.setImageResource(getImageId(this, carImageName));
                 }
+                // set up correct and incorrect answers
                     if(carID == 1||carID == 4|| carID == 7 || carID == 10|| carID == 13) {
                         answer1.setText(carName);
                         answer2.setText(incorrectCarName1);
@@ -111,12 +123,16 @@ public class QuizActivity extends Activity {
                 return 1;
             }
 
-
+    // allows file to be used from drawable folder
     public static int getImageId(Context context, String imageName) {
         return context.getResources().getIdentifier(imageName, null, context.getPackageName());
                 }
 
-                public void correctAnswer(Button button){
+    /**
+     * increments variable correct answer and starts a new activity
+     * @param button
+     */
+    public void correctAnswer(Button button){
                     button.setOnLongClickListener(new View.OnLongClickListener(){
                         @Override
                         public boolean onLongClick(View v) {
@@ -137,7 +153,11 @@ public class QuizActivity extends Activity {
                     });
                     }
 
-                    public void shortClickButton(Button button){
+    /**
+     * prevents the user from selecting buttons in error
+     * @param button
+     */
+    public void shortClickButton(Button button){
                         button.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -146,6 +166,10 @@ public class QuizActivity extends Activity {
                         });
                     }
 
+    /**
+     * increments the wrong answers and starts a new activity
+     * @param button
+     */
                     public void incorrectAnswer(Button button){
                         button.setOnLongClickListener(new View.OnLongClickListener(){
                             @Override
@@ -167,7 +191,9 @@ public class QuizActivity extends Activity {
                     }
 
 
-
+    /**
+     * starts an intent to the score activity once the quiz has finished
+     */
     public void endQuiz(){
         Intent endOfQuiz = new Intent(this, Score.class);
         Bundle extras = new Bundle();

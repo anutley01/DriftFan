@@ -10,9 +10,6 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Connor on 31/07/2017.
- */
 
 public class SQLHelper extends SQLiteOpenHelper {
     SQLHelper sqlHelper;
@@ -51,51 +48,58 @@ public class SQLHelper extends SQLiteOpenHelper {
             INC_CAR_NAME_2 + " TEXT," +
             INC_CAR_NAME_3 + " TEXT," +
             CAR_IMAGE + " TEXT"+ ")";
-
+        //mondello restaurant table
         public static final String CREATE_RESTAURANT_MONDELLO = "CREATE TABLE IF NOT EXISTS " + TABLE_RESTAURANTS_MONDELLO + "("
                 + RESTAURANT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
                 + RESTAURANT_NAME + " TEXT,"
                 + PHONE + " TEXT," + LATITUDE + " DOUBLE,"
                 + LONGITUDE + " DOUBLE," +
                 NEAR_TO + " TEXT " + ")";
-
+    //dun laoghaire restaurant table
     public static final String CREATE_RESTAURANT_DUNLAOGHAIRE = "CREATE TABLE IF NOT EXISTS " + TABLE_RESTAURANTS_DUNLAOGHAIRE + "("
             + RESTAURANT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
             + RESTAURANT_NAME + " TEXT,"
             + PHONE + " TEXT," + LATITUDE + " DOUBLE,"
             + LONGITUDE + " DOUBLE,"
             + NEAR_TO + " TEXT" + ")";
-
+    //watergrasshill restaurant table
     public static final String CREATE_RESTAURANT_WATERGRASSHILL = "CREATE TABLE IF NOT EXISTS " + TABLE_RESTAURANTS_WATERGRASSHILL + "("
             + RESTAURANT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
             + RESTAURANT_NAME + " TEXT,"
             + PHONE + " TEXT," + LATITUDE + " DOUBLE,"
             + LONGITUDE + " DOUBLE,"
             + NEAR_TO + " TEXT" + ")";
-
+    //mondello hotels table
     public static final String CREATE_HOTEL_MONDELLO = "CREATE TABLE IF NOT EXISTS " + TABLE_HOTEL_MONDELLO + "("
             + HOTEL_ID + " INTEGER PRIMARY KEY,"
             + HOTEL_NAME + " TEXT,"
             + PHONE + " TEXT," + LATITUDE + " DOUBLE,"
             + LONGITUDE + " DOUBLE," + PRICE + " TEXT,"
             + NEAR_TO + " TEXT" + ")";
+    //dun laoghaire hotels table
     public static final String CREATE_HOTEL_DUNLAOGHAIRE = "CREATE TABLE IF NOT EXISTS " + TABLE_HOTEL_DUNLAOGHAIRE + "("
             + HOTEL_ID + " INTEGER PRIMARY KEY,"
             + HOTEL_NAME + " TEXT,"
             + PHONE + " TEXT," + LATITUDE + " DOUBLE,"
             + LONGITUDE + " DOUBLE," + PRICE + " TEXT,"
             + NEAR_TO + " TEXT" + ")";
+    //watergrasshill hotels table
     public static final String CREATE_HOTEL_WATERGRASSHILL = "CREATE TABLE IF NOT EXISTS " + TABLE_HOTEL_WATERGRASSHILL + "("
             + HOTEL_ID + " INTEGER PRIMARY KEY,"
             + HOTEL_NAME + " TEXT,"
             + PHONE + " TEXT," + LATITUDE + " DOUBLE,"
             + LONGITUDE + " DOUBLE," + PRICE + " TEXT,"
             + NEAR_TO + " TEXT" + ")";
-
+    //constructor
     public SQLHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
+    //create and populate all tables
 
+    /**
+     *
+     * @param db
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_HOTEL_MONDELLO);
@@ -226,6 +230,19 @@ public class SQLHelper extends SQLiteOpenHelper {
         db.execSQL(insertCar(13, "Mazda RX-7", "Toyota Supra", "Toyota AE86", "Honda Civic", "@drawable/mazda_rx7"));
         db.execSQL(insertCar(14, "Toyota Altezza/Lexus IS200", "Toyota Supra", "Nissan Silvia s15", "Nissan Silvia s14", "@drawable/toyota_altezza"));
     }
+
+
+    /**
+     * inserts data respective tables based upon constructor arguments
+     * @param hotelId
+     * @param hotel_name
+     * @param phone
+     * @param latitude
+     * @param longitude
+     * @param price
+     * @param near_to
+     * @return
+     */
     public String insertHotel(int hotelId, String hotel_name, String phone, double latitude, double longitude, String price, String near_to) {
         if (near_to.equals("Mondello Park")){
             String insertBuilding = "INSERT INTO " + TABLE_HOTEL_MONDELLO +
@@ -251,6 +268,16 @@ public class SQLHelper extends SQLiteOpenHelper {
         }
     }
 
+    /**
+     * inserts data to the car table which will be used for the quiz
+     * @param id
+     * @param car_name
+     * @param inc_carname1
+     * @param inc_carname2
+     * @param inc_carname3
+     * @param car_image
+     * @return
+     */
     public String insertCar(int id, String car_name, String inc_carname1, String inc_carname2, String inc_carname3, String car_image){
         String insertCar = "INSERT INTO " + TABLE_CAR_QUIZ +
                 "(" + CAR_ID + "," + CAR_NAME + "," + INC_CAR_NAME_1 + "," + INC_CAR_NAME_2 + "," + INC_CAR_NAME_3 + "," + CAR_IMAGE +
@@ -258,22 +285,19 @@ public class SQLHelper extends SQLiteOpenHelper {
                 + car_name + "','" + inc_carname1 + "', '" + inc_carname2 + "','" + inc_carname3 + "','" + car_image + "')";
         return insertCar;
     }
-   /* public String insertHotelDunLaoghaire(int hotelId,String hotel_name, String phone, double latitude, double longitude, String price, String near_to) {
-        String insertBuilding = "INSERT INTO " + TABLE_HOTEL_DUNLAOGHAIRE +
-                "(" + HOTEL_ID + "," + HOTEL_NAME + "," + PHONE + "," + LATITUDE + "," + LONGITUDE + "," + PRICE + "," + NEAR_TO
-                + ") VALUES (" + hotelId + ",'"
-                + hotel_name + "','" + phone + "', '" + latitude + "','" + longitude + "','" + price + "','" + near_to + "')";
-        return insertBuilding;
-    }
 
-    public String insertHotelWatergrasshill(int hotelId, String hotel_name, String phone, double latitude, double longitude, String price, String near_to) {
-        String insertBuilding = "INSERT INTO " + TABLE_HOTEL_WATERGRASSHILL +
-                "(" + HOTEL_ID + "," + HOTEL_NAME + "," + PHONE + "," + LATITUDE + "," + LONGITUDE + "," + PRICE + "," + NEAR_TO
-                + ") VALUES (" + hotelId + ",'"
-                + hotel_name + "','" + phone + "', '" + latitude + "','" + longitude + "','" + price + "','" + near_to + "')";
-        return insertBuilding;
-    }*/
 
+
+    /**
+     * inserts data to restaurant tables based on constructor arguments
+     * @param restaurant_id
+     * @param restaurant_name
+     * @param phone
+     * @param latitude
+     * @param longitude
+     * @param near_to
+     * @return
+     */
     public String insertRestaurant(int restaurant_id, String restaurant_name, String phone, double latitude, double longitude, String near_to) {
         if(near_to.equals("Mondello Park")) {
             String insertBuilding = "INSERT INTO " + TABLE_RESTAURANTS_MONDELLO +
@@ -295,21 +319,6 @@ public class SQLHelper extends SQLiteOpenHelper {
         }
     }
 
-   /* public String insertRestaurantDunLaoghaire(int restaurant_id, String restaurant_name, String phone, double latitude, double longitude, String near_to) {
-        String insertBuilding = "INSERT INTO " + TABLE_RESTAURANTS_DUNLAOGHAIRE +
-                "(" + RESTAURANT_ID + "," + RESTAURANT_NAME + "," + PHONE + "," + LATITUDE + "," + LONGITUDE + "," + NEAR_TO + ") VALUES (" + restaurant_id + ",'"
-                + restaurant_name + "','" + phone + "', " + latitude + "," + longitude + ", '" + near_to + "'" + ")";
-        return insertBuilding;
-    }
-
-
-    public String insertRestaurantWatergrasshill(int restaurant_id, String restaurant_name, String phone, double latitude, double longitude, String near_to) {
-        String insertBuilding = "INSERT INTO " + TABLE_RESTAURANTS_WATERGRASSHILL +
-                "(" + RESTAURANT_ID + "," + RESTAURANT_NAME + "," + PHONE + "," + LATITUDE + "," + LONGITUDE + "," + NEAR_TO + ") VALUES (" + restaurant_id + ",'"
-                + restaurant_name + "','" + phone + "', " + latitude + "," + longitude + ", '" + near_to + "')";
-        return insertBuilding;
-    }*/
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         //adds the statement to log
@@ -319,7 +328,13 @@ public class SQLHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_HOTEL_MONDELLO);
         onCreate(db);//create a database
     }
-    //returns list of hotels based upon parameter argument
+
+
+    /**
+     * returns list of hotels based upon parameter argument
+     * @param hotelsToPull
+     * @return
+     */
     public List<Hotel> getAllHotels(String hotelsToPull) {
         String selectQuery;
         if (hotelsToPull.equals("Mondello Park")){
@@ -357,7 +372,10 @@ public class SQLHelper extends SQLiteOpenHelper {
         return hotelsList;
     }
 
-
+    /**
+     * returns a list of cars from the database
+     * @return
+     */
     public List<Car> getAllCars() {
         List<Car> CarList = new ArrayList<Car>();
         // SELECT ALL query
@@ -385,6 +403,11 @@ public class SQLHelper extends SQLiteOpenHelper {
         return CarList;
     }
 
+    /**
+     * returns a list of hotels based upon parameter args
+     * @param restaurantsToPull
+     * @return
+     */
     public List<Hotel> getAllRestaurants(String restaurantsToPull) {
         String selectQuery;
         List<Hotel> hotelsList = new ArrayList<Hotel>();

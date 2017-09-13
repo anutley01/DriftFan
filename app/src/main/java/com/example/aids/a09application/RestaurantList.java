@@ -12,9 +12,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Connor on 30/08/2017.
- */
+
 
 public class RestaurantList extends Activity {
     //declaration of variables
