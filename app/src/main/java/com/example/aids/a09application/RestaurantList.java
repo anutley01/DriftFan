@@ -47,7 +47,7 @@ public class RestaurantList extends Activity {
 
         }
 
-        // set up adapter
+        // set up adapter and populate list
         adapter = new ArrayAdapter<>(RestaurantList.this, android.R.layout.simple_list_item_1, restaurantNames);
         restaurantList.setAdapter(adapter);
         restaurantList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -57,9 +57,8 @@ public class RestaurantList extends Activity {
                 Bundle extras = new Bundle();
                 int hotelId = 1;
                 String nearTo = "None";
-                // set up string with the selected onItem building name
                 String restaurantName = adapter.getItem(position);
-                //loop through buildings (info pulled from db) to match the building names
+
                 for (int i = 0; i < getAllRestaurants.size(); i++) {
                     if (restaurantName.equals(getAllRestaurants.get(i).getName())) {
                         // getName the corresponding building_id
@@ -67,6 +66,7 @@ public class RestaurantList extends Activity {
                         nearTo = getAllRestaurants.get(i).getNearTo();
                     }
                 }
+                //pass extras to next activity
                 extras.putInt("ID", (hotelId));
                 Log.d("id in list", Integer.toString(hotelId));
                 extras.putString("NEAR_TO", (nearTo));

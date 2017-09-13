@@ -33,12 +33,12 @@ public class QuizActivity extends Activity {
         answer2 = (Button)findViewById(R.id.answer2);
         answer3 = (Button)findViewById(R.id.answer3);
         answer4 = (Button)findViewById(R.id.answer4);
+        List<Car> getAllCars = db.getAllCars();
         TextView currentWrong = (TextView)findViewById(R.id.incorrectAnswers);
         TextView currentScore = (TextView)findViewById(R.id.score);
         b = getIntent().getExtras();
         correctAnswers = b.getInt("SCORE");
         wrongAnswers = b.getInt("WRONG");
-        List<Car> getAllCars = db.getAllCars();
         Bundle b = getIntent().getExtras();
         id = b.getInt("QUESTION");
         Log.d("Question id",Integer.toString(id));

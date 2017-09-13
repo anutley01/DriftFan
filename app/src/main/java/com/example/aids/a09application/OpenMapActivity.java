@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 
 import java.util.Map;
 
+import static com.example.aids.a09application.R.id.amateurDCbutton;
 import static com.example.aids.a09application.R.id.openMapsButton;
 import static com.example.aids.a09application.R.id.round1button;
 import static com.example.aids.a09application.R.id.round2button;
@@ -39,11 +40,13 @@ public class OpenMapActivity extends Fragment  {
         ImageButton round3 = (ImageButton) view.findViewById(round3button);
         ImageButton round4 = (ImageButton) view.findViewById(round4button);
         ImageButton round5 = (ImageButton) view.findViewById(round5button);
+        ImageButton iadc = (ImageButton) view.findViewById(amateurDCbutton);
         setRound1ClickListener(round1);
         setRound1ClickListener(round3);
         setRound2ClickListener(round2);
         setRound4ClickListener(round4);
         setRound1ClickListener(round5);
+        setRound1ClickListener(iadc);
 
         return view;
     }
@@ -59,42 +62,50 @@ public class OpenMapActivity extends Fragment  {
             public void onClick(View v){
                 // Create a Uri from an intent string. Use the result to create an Intent.
                 Uri mondelloPark = Uri.parse("google.navigation:q=53.257450, -6.745986");
-                // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
+                // Create an Intent. Set the action to ACTION_VIEW
                 Intent directToMondello = new Intent(Intent.ACTION_VIEW, mondelloPark);
                 // Make the Intent explicit by setting the Google Maps package
                 directToMondello.setPackage("com.google.android.apps.maps");
-                // Attempt to start an activity that can handle the Intent
+                // Start activity
                 startActivity(directToMondello);
             }
         });
     }
 
+    /**
+     * Method for round2 button
+     * @param round2
+     */
     public void setRound2ClickListener(ImageButton round2){
         round2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 // Create a Uri from an intent string. Use the result to create an Intent.
                 Uri dunLaoghaire = Uri.parse("google.navigation:q=53.294951, -6.133538");
-                // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
+                // Create an Intent. Set the action to ACTION_VIEW
                 Intent directToDunLaoghaire = new Intent(Intent.ACTION_VIEW, dunLaoghaire);
                 // Make the Intent explicit by setting the Google Maps package
                 directToDunLaoghaire.setPackage("com.google.android.apps.maps");
-                // Attempt to start an activity that can handle the Intent
+                // Start activity
                 startActivity(directToDunLaoghaire);
 
             }
         });
     }
 
+    /**
+     * Method for round4 button
+     * @param round4
+     */
     public void setRound4ClickListener(ImageButton round4){
         round4.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 // Create a Uri from an intent string. Use the result to create an Intent.
                 Uri watergrasshill = Uri.parse("google.navigation:q=52.001571, -8.326375");
-                // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
+                // Create an Intent. Set the action to ACTION_VIEW
                 Intent directToWatergrasshill = new Intent(Intent.ACTION_VIEW, watergrasshill);
                 // Make the Intent explicit by setting the Google Maps package
                 directToWatergrasshill.setPackage("com.google.android.apps.maps");
-                // Attempt to start an activity that can handle the Intent
+                // Start activity
                 startActivity(directToWatergrasshill);
             }
         });

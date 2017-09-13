@@ -38,13 +38,13 @@ public class RestaurantGenerator extends Activity {
 
         for (int i = 0; i < getAllHotels.size(); i++) {
             Hotel hotel = getAllHotels.get(i);
-            // finds the correct building that was sent through via Intent from previous class
+            //uses the restaurant ID passed in from intent to find the restaurant
             if (restaurantID == hotel.getId()) {
                 restaurantName = hotel.getName();
                 phone = hotel.getPhone();
                 latitude = hotel.getLatitude();
                 longitude = hotel.getLongitude();
-                // set the empty fields to the data retrieved from the database
+
                 dispHotel.setText(restaurantName);
                 mapsButton.setOnClickListener(new View.OnClickListener(){
                     @Override
@@ -59,6 +59,7 @@ public class RestaurantGenerator extends Activity {
                         return true;
                     }
                 });
+
                 infoButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -93,15 +94,15 @@ public class RestaurantGenerator extends Activity {
 
         }
     }
-
+    //displays a toast to remind user how to access functionality
     public void shortClickToastMap(){
         Toast.makeText(this, "Press and hold to open navigation in maps to this restaurant", Toast.LENGTH_LONG).show();
     }
-
+    //displays a toast to remind user how to access functionality
     public void shortClickToastPhone(){
         Toast.makeText(this, "Press and hold to call this restaurant", Toast.LENGTH_LONG).show();
     }
-
+    //opens navigation mode in google maps
     public void longClickMapButton(){
         // Create a Uri from an intent string. Use the result to create an Intent.
         Uri restaurant = Uri.parse("google.navigation:q="+ latitude + "," + longitude);
@@ -112,6 +113,7 @@ public class RestaurantGenerator extends Activity {
         // Attempt to start an activity that can handle the Intent
         startActivity(directToRestaurant);
     }
+    //opens the phone application with the number pre-dialled
     public void longClickPhoneButton() {
         Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
         if (ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
@@ -119,7 +121,7 @@ public class RestaurantGenerator extends Activity {
             return;
         }
     }
-
+    //displays a toast to remind user how to access functionality
     public void shortClickToastInfoButton(){
         Toast.makeText(this, "Press and hold to open information in maps to this restaurant", Toast.LENGTH_LONG).show();
     }

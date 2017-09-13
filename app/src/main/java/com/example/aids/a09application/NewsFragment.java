@@ -14,7 +14,7 @@ import android.webkit.WebViewClient;
  */
 
 public class NewsFragment extends Fragment {
-
+    //declaration of variables
     WebView webView;
     String url;
 
@@ -27,6 +27,7 @@ public class NewsFragment extends Fragment {
         webView = (WebView) view.findViewById(R.id.webviewNews);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
+        //open webview on Irish Drift Championship news page
         url = Uri.parse("http://www.idcnation.com/news/").toString();
         webView.loadUrl(url);
         return view;

@@ -16,10 +16,11 @@ import java.util.List;
 
 public class SQLHelper extends SQLiteOpenHelper {
     SQLHelper sqlHelper;
-    //initialise the table of the database
+    //initialise the tables of the database
     public static final String TABLE_HOTEL_MONDELLO = "HotelMondello";
     public static final String TABLE_HOTEL_DUNLAOGHAIRE = "HotelDunLaoghaire";
     public static final String TABLE_HOTEL_WATERGRASSHILL = "HotelWatergrasshill";
+    //create columns
     public static final String HOTEL_ID = "hotel_id";
     public static final String HOTEL_NAME = "hotel_name";
     public static final String PHONE = "phone";
@@ -39,7 +40,7 @@ public class SQLHelper extends SQLiteOpenHelper {
     public static final String INC_CAR_NAME_2 = "incorrect_car_name_two";
     public static final String INC_CAR_NAME_3 = "incorrect_car_name_three";
     public static final String CAR_IMAGE = "car_image";
-
+    //define database version
     private static final String DATABASE_NAME = "DriftFan";
     private static final int DATABASE_VERSION = 38;
 
@@ -311,15 +312,14 @@ public class SQLHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        //send a warn message: tag - source of the log message; msg - message to be logged
-        //please try to remove some of the spaces and see the consequence
+        //adds the statement to log
         Log.w(SQLHelper.class.getName(),
                 "Upgrading database from version " + oldVersion + " to "
                         + newVersion + ", which will destroy all old data");
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_HOTEL_MONDELLO);//execute a SQL statement
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_HOTEL_MONDELLO);
         onCreate(db);//create a database
     }
-
+    //returns list of hotels based upon parameter argument
     public List<Hotel> getAllHotels(String hotelsToPull) {
         String selectQuery;
         if (hotelsToPull.equals("Mondello Park")){
@@ -332,8 +332,7 @@ public class SQLHelper extends SQLiteOpenHelper {
             selectQuery = "none";
         }
         List<Hotel> hotelsList = new ArrayList<Hotel>();
-        // SELECT ALL query
-        //String selectQuery = "SELECT * FROM " + TABLE_HOTEL_MONDELLO;
+
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -349,12 +348,12 @@ public class SQLHelper extends SQLiteOpenHelper {
                 hotel.setLongitude(Double.parseDouble(cursor.getString(4)));
                 hotel.setPrice(cursor.getString(5));
                 hotel.setNearTo(cursor.getString(6));
-                // Add buildings to list
+                // add hotel to list
                 hotelsList.add(hotel);
             } while (cursor.moveToNext());
         }
         cursor.close();
-        // Return a list of buildings
+        // Return hotel list
         return hotelsList;
     }
 
@@ -377,19 +376,19 @@ public class SQLHelper extends SQLiteOpenHelper {
                 car.setIncorrectCarName2(cursor.getString(3));
                 car.setIncorrectCarName3(cursor.getString(4));
                 car.setCarImage(cursor.getString(5));
-                // Add buildings to list
+                // Add car to list
                 CarList.add(car);
             } while (cursor.moveToNext());
         }
         cursor.close();
-        // Return a list of buildings
+        //return car list
         return CarList;
     }
 
     public List<Hotel> getAllRestaurants(String restaurantsToPull) {
         String selectQuery;
         List<Hotel> hotelsList = new ArrayList<Hotel>();
-        // SELECT ALL query
+        //decide which statement to execute based upon parameter args
         if(restaurantsToPull.equals("Mondello Park")) {
             selectQuery = "SELECT * FROM " + TABLE_RESTAURANTS_MONDELLO;
         } else if (restaurantsToPull.equals("Dun Laoghaire")) {
@@ -412,12 +411,12 @@ public class SQLHelper extends SQLiteOpenHelper {
                 restaurant.setLatitude(Double.parseDouble(cursor.getString(3)));
                 restaurant.setLongitude(Double.parseDouble(cursor.getString(4)));
                 restaurant.setNearTo(cursor.getString(5));
-                // Add buildings to list
+                // Add restaurants to list
                 hotelsList.add(restaurant);
             } while (cursor.moveToNext());
         }
         cursor.close();
-        // Return a list of buildings
+        // Return a list restaurants
         return hotelsList;
     }
 

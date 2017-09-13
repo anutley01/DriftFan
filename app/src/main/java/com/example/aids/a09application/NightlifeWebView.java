@@ -15,15 +15,18 @@ public class NightlifeWebView extends Activity {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.web_view_nightlife);
+        //unparcel info from previous class
         Bundle b = getIntent().getExtras();
         String town = b.getString("TOWN");
 
         WebView nightlifeWebView = (WebView)findViewById(R.id.webviewNightlife);
         nightlifeWebView.getSettings().setJavaScriptEnabled(true);
         nightlifeWebView.setWebViewClient(new WebViewClient());
+        //Use data from intent to decide which webpage to open in the webview
         if (town.equals("Mondello Park")) {
             String url = Uri.parse("https://www.tripadvisor.co.uk/Attractions-g186614-Activities-c20-County_Kildare.html").toString();
             nightlifeWebView.loadUrl(url);
+
         } else if (town.equals("Dun Laoghaire")){
             String url = Uri.parse("http://www.dublintourist.com/directory/nightlife/south_county/dun_laoghaire/").toString();
             nightlifeWebView.loadUrl(url);
