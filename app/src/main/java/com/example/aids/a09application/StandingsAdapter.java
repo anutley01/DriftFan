@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by Aids on 09/09/2017.
  */
-
+//Class for Creating the JSON File Array
 public class StandingsAdapter extends ArrayAdapter {
     List list = new ArrayList();
     public StandingsAdapter(@NonNull Context context, @LayoutRes int resource) {
@@ -48,6 +48,8 @@ public class StandingsAdapter extends ArrayAdapter {
         if(row ==null){
             LayoutInflater layoutInflater= (LayoutInflater) this.getContext().getSystemService( Context.LAYOUT_INFLATER_SERVICE );
             row = layoutInflater.inflate(R.layout.row_layout, parent, false);
+
+            //Adding the classes to the list view in the row_layout.xml
             standingsHolder = new StandingsHolder();
             standingsHolder.tx_id = (TextView) row.findViewById( R.id.sec_1 );
             standingsHolder.txt_id = (TextView) row.findViewById( R.id.sec_2 );
@@ -61,6 +63,7 @@ public class StandingsAdapter extends ArrayAdapter {
         {
             standingsHolder = (StandingsHolder) row.getTag();
         }
+        //Setting the textt which will appear in the list view row_layout.xml
         Standings standings = (Standings)this.getItem( position );
         standingsHolder.tx_id.setText(String.valueOf( standings.getDriver_id()));
         standingsHolder.txt_id.setText(String.valueOf( standings.getTeam_id()));

@@ -17,7 +17,7 @@ public class Standings {
 
 
     public Standings(int driver_id, int team_id, String  firstName, String lastName, int position, int points) {
-
+//Fields being instantated for pasrsing the files
         this.setDriver_id( driver_id );
         this.setTeam_id( team_id );
         this.setFirstName( firstName );
