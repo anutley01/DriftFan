@@ -2,33 +2,38 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context=".MainActivity">
+                android:background="@color/black">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Get JSON Response"
+        android:text="Get Driver Standings"
+        android:textColor="@color/colorPrimary"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Get JSON"
+        android:text="Download Standings"
         android:id="@+id/button"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/black"
         android:layout_below="@+id/buttontwo"
         android:layout_centerHorizontal="true"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Parse"
         android:layout_marginTop="30dp"
         android:id="@+id/buttontwo"
-        android:onClick="parseJSON"
+        android:onClick="Show Standings"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/black"
         android:layout_below="@+id/textView"
         android:layout_alignRight="@+id/button"
         android:layout_alignEnd="@+id/button"/>
@@ -39,6 +44,7 @@
         android:text="JSON"
         android:id="@+id/result"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"/>
 
 </RelativeLayout>

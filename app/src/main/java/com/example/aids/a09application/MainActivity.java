@@ -87,26 +87,15 @@ public class MainActivity extends AppCompatActivity {
                         drawerLayout.closeDrawers();
                         break;
                     case R.id.nav_standings:
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace( main_container, new StandingsList());
-                        fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Standings");
-                        item.setCheckable(true);
-                        drawerLayout.closeDrawers();
+                        intent = new Intent(getApplicationContext(), StandingsList.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
                         break;
                     case R.id.nav_gallery:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace( main_container, new MediaGallery());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("Gallery");
-                        item.setCheckable(true);
-                        drawerLayout.closeDrawers();
-                        break;
-                    case R.id.nav_admin:
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace( main_container, new AdminLoginPanel());
-                        fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Admin");
                         item.setCheckable(true);
                         drawerLayout.closeDrawers();
                         break;
